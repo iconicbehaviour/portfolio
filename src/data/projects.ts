@@ -3,6 +3,7 @@ import bcombsImage from '../assets/images/bcombs.webp';
 import boardspeakImage from '../assets/images/boardspeak.webp';
 import nestaraImage from '../assets/images/nestara.webp';
 import nextpointImage from '../assets/images/nextpoint.webp';
+import { getPortfolioData } from '../utils/notion';
 
 export type Project = {
 	name: string;
@@ -18,53 +19,97 @@ export type Project = {
 
 export const workPageSize = 10;
 
-export const projects: Project[] = [
+const defaultProjects: Project[] = [
 	{
-		name: 'Nextpoint',
-		title: 'Making legal transcripts easier to scan, summarize, and act on with AI',
+		name: 'NyanTrace',
+		title: 'Scaling product strategy across fintech and AI-powered tools',
 		description:
-			'A transcript workflow rethought for faster review, clearer patterns, and less manual synthesis under pressure.',
+			'Led product roadmap, user research, and cross-functional execution. Drove feature launches that increased user engagement and retention.',
 		background: 'lime',
 		variant: 'desktop',
-		href: '/work/nextpoint',
+		href: '/work/nyantrace',
 		image: nextpointImage,
-		alt: 'Nextpoint dashboard preview showing transcript and summary metrics',
+		alt: 'NyanTrace product dashboard',
 		imageClass: 'project-preview-image',
 	},
 	{
-		name: 'b.combs',
-		title: 'A CRM designed around people and the work behind the data',
+		name: 'PWC',
+		title: 'Building enterprise solutions for financial services',
 		description:
-			'A more humane CRM experience for teams balancing operational detail with relationship-driven work.',
+			'Owned product roadmap and prioritization for internal tools. Collaborated with design and engineering to deliver high-impact features on tight timelines.',
 		background: 'cyan',
 		variant: 'split',
-		href: '/work/nextpoint',
+		href: '/work/pwc',
 		image: bcombsImage,
-		alt: 'b.combs CRM preview showing nonprofit workflow screens',
+		alt: 'PWC enterprise product interface',
 		imageClass: 'project-preview-image',
 	},
 	{
-		name: 'Nestara',
-		title: 'Helping first-time buyers feel guided through a high-stress life decision',
+		name: 'Method',
+		title: 'Product-led growth and user-centric design',
 		description:
-			'A mobile-first experience focused on reassurance, next-step clarity, and decision confidence.',
+			'Focused on user-centered product development and data-driven decision making. Led initiatives that improved product adoption and customer satisfaction.',
 		background: 'lavender',
 		variant: 'mobile',
-		href: '/work/nextpoint',
+		href: '/work/method',
 		image: nestaraImage,
-		alt: 'Nestara mobile app preview showing real estate product screens',
+		alt: 'Method product interface',
 		imageClass: 'project-preview-image',
 	},
 	{
-		name: 'BoardSpeak',
-		title: 'Turning community participation into a sustainable growth loop',
+		name: 'Inflection.io',
+		title: 'Building products at the intersection of AI and usability',
 		description:
-			'A civic product concept that makes participation feel rewarding, visible, and easier to sustain over time.',
+			'Contributed to product strategy and feature development. Worked on AI-assisted product features and user experience improvements.',
 		background: 'mint',
 		variant: 'board',
-		href: '/work/nextpoint',
+		href: '/work/inflection',
 		image: boardspeakImage,
-		alt: 'BoardSpeak web app preview showing rewards and community interface',
+		alt: 'Inflection.io product preview',
 		imageClass: 'project-preview-image',
 	},
 ];
+
+const imageMap: Record<string, ImageMetadata> = {
+	nexus: nextpointImage,
+	nyantrace: bcombsImage,
+	inflectionio: nestaraImage,
+	bcombs: bcombsImage,
+	boardspeak: boardspeakImage,
+	nestara: nestaraImage,
+	nextpoint: nextpointImage,
+};
+
+async function loadProjects(): Promise<Project[]> {
+	try {
+		const data = await getPortfolioData();
+
+		if (!data.projects || data.projects.length === 0) {
+			console.log('No projects from Notion, using defaults');
+			return defaultProjects;
+		}
+
+		console.log('Loaded projects from Notion:', data.projects);
+		return data.projects.map((project: any) => {
+			const imageName = project.name.toLowerCase().replace(/\s+/g, '').replace(/\./g, '');
+			const image = imageMap[imageName] || nextpointImage;
+
+			return {
+				name: project.name,
+				title: project.title,
+				description: project.description,
+				background: project.background || 'lime',
+				variant: project.variant || 'desktop',
+				href: `/work/${imageName}`,
+				image,
+				alt: `${project.name} project preview`,
+				imageClass: 'project-preview-image',
+			};
+		});
+	} catch (error) {
+		console.error('Failed to load projects from Notion:', error);
+		return defaultProjects;
+	}
+}
+
+export const projects = await loadProjects();

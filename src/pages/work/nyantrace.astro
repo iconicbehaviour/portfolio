@@ -1,0 +1,206 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { siteConfig } from '../../config/site';
+import nextpointImage from '../../assets/images/nextpoint.webp';
+
+const highlights = [
+	{ label: 'Company', value: 'NyanTrace' },
+	{ label: 'Period', value: 'January - June 2026' },
+	{ label: 'Role', value: 'Product Manager' },
+];
+
+const outcomes = [
+	'Developed product roadmap aligned with company strategy and user needs',
+	'Led cross-functional teams to deliver features on schedule',
+	'Increased user engagement through data-driven product decisions',
+];
+---
+
+<Layout
+	title="NyanTrace Case Study | Niranjana - Product Manager"
+	description="Product case study showcasing strategy, execution, and impact at NyanTrace"
+	ogType="article"
+>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+
+	<div class="case-page">
+		<SiteHeader />
+
+		<main id="main-content" class="case-main">
+			<header class="case-header">
+				<a href="/work" class="back-link">← Back to work</a>
+				<h1>NyanTrace</h1>
+				<p class="case-subtitle">Scaling fintech product strategy and execution</p>
+			</header>
+
+			<section class="case-meta">
+				<div class="meta-grid">
+					{highlights.map((highlight) => (
+						<div class="meta-item">
+							<p class="meta-label">{highlight.label}</p>
+							<p class="meta-value">{highlight.value}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section class="case-section">
+				<h2>Overview</h2>
+				<p>
+					At NyanTrace, I served as a Product Manager responsible for product strategy, roadmap development,
+					and cross-functional execution. I worked closely with engineering, design, and leadership to build
+					features that drove user engagement and business impact.
+				</p>
+			</section>
+
+			<section class="case-section">
+				<h2>Key Responsibilities</h2>
+				<ul>
+					<li>Developed and prioritized product roadmap based on user research and business goals</li>
+					<li>Conducted user interviews and analyzed data to inform product decisions</li>
+					<li>Led cross-functional collaboration between product, design, and engineering teams</li>
+					<li>Defined success metrics and tracked product performance</li>
+					<li>Communicated product vision and strategy to stakeholders</li>
+				</ul>
+			</section>
+
+			<section class="case-section">
+				<h2>Outcomes</h2>
+				<ul>
+					{outcomes.map((outcome) => (
+						<li>{outcome}</li>
+					))}
+				</ul>
+			</section>
+
+			<section class="case-section">
+				<h2>Key Learnings</h2>
+				<p>
+					This experience reinforced the importance of user-centric product development and the power of
+					cross-functional collaboration. Strong communication and data-driven decision making were critical
+					to shipping features that resonated with users.
+				</p>
+			</section>
+
+			<footer class="case-footer">
+				<a href="/work" class="back-link">← Back to work</a>
+			</footer>
+		</main>
+	</div>
+</Layout>
+
+<style>
+	.case-page {
+		position: relative;
+		width: min(calc(100% - 3rem), 78rem);
+		margin: 0 auto;
+		padding: 1.25rem 0 5rem;
+	}
+
+	.case-header {
+		padding: 4rem 0 3rem;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 3rem;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-bottom: 1.5rem;
+		color: var(--muted-foreground);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 150ms ease;
+	}
+
+	.back-link:hover {
+		color: var(--foreground);
+	}
+
+	.case-header h1 {
+		font-size: 2.5rem;
+		margin: 0;
+		color: var(--foreground);
+	}
+
+	.case-subtitle {
+		font-size: 1.1rem;
+		color: var(--muted-foreground);
+		margin: 0.5rem 0 0;
+	}
+
+	.case-meta {
+		padding: 2rem 0;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 3rem;
+	}
+
+	.meta-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 2rem;
+	}
+
+	.meta-label {
+		font-size: 0.82rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--muted-foreground);
+		margin: 0 0 0.5rem;
+	}
+
+	.meta-value {
+		font-size: 1.1rem;
+		color: var(--foreground);
+		margin: 0;
+	}
+
+	.case-section {
+		padding: 2.5rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.case-section h2 {
+		font-size: 1.5rem;
+		margin: 0 0 1rem;
+		color: var(--foreground);
+	}
+
+	.case-section p,
+	.case-section li {
+		font-size: 1.05rem;
+		line-height: 1.7;
+		color: var(--foreground);
+		margin: 0.5rem 0;
+	}
+
+	.case-section ul {
+		margin: 1rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.case-footer {
+		padding: 2rem 0;
+	}
+
+	@media (max-width: 720px) {
+		.case-page {
+			width: min(calc(100% - 1.5rem), 78rem);
+			padding-top: 1rem;
+		}
+
+		.case-header {
+			padding: 2rem 0;
+		}
+
+		.case-header h1 {
+			font-size: 1.8rem;
+		}
+
+		.case-section {
+			padding: 1.5rem 0;
+		}
+	}
+</style>
