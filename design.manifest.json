@@ -1,0 +1,95 @@
+{
+  "artifact": "https://claude.ai/artifact/9kZVCsAaXJT7mD3L1WoN7D",
+  "routes": {
+    "Main": "index",
+    "Work": "work",
+    "Projects": "projects",
+    "DigitalTwin": "digital-twin",
+    "Aira": "case-studies/aira",
+    "BeReal": "case-studies/bereal",
+    "Creator": "case-studies/creator",
+    "Egis": "case-studies/egis",
+    "Loop": "case-studies/loop",
+    "Nexus": "case-studies/nexus",
+    "Pwc": "case-studies/pwc",
+    "Nyantrace": "case-studies/nyantrace"
+  },
+  "hashes": {
+    "Aira": "4f91134daefa42a5dc6d6ed875df10caf2b4805cabeaa8272639da5fe5b10cb3",
+    "BeReal": "beb409ea45254f9ea8d7103e4dcdd4e1bedbb5d202d788307767a004bd5b3a31",
+    "Creator": "1b1dc8130162fde8c140bd75ce3974ef304b2a2e74f758064b726a813230e118",
+    "DigitalTwin": "d6a69cf59f613336197b58ad1ce160436055318941e491bd305b0936c8672b78",
+    "Egis": "b61920ec2260d82166fcae4eed7aff826b337660f901d379ed79d7ec845e1438",
+    "Loop": "07673663f36028aab45fcbf051d4ceb363200fcbe06b2061347fedf25b163f0f",
+    "Main": "2934251194d79c9e3049fe8f80c738f8738bbfd99b1b6dbd48a8523dcdd2405e",
+    "Nexus": "4408adc2a2c87b2985d4c42bcdb918d9f7271a023113ea3e3a1d980f53104dfe",
+    "Nyantrace": "101438f772f5d6919e3f51e34a89ce8994c01eda8e5008499dbe86029d5115de",
+    "Projects": "2344a590c9caef90ce52540dfe99a08a7694f4d889013afbc4905c7696e0110e",
+    "Pwc": "cb07cbeaf8b0641a1676e493e064d51983ffb2e3c511e37c4f8bf1eb33299988",
+    "Work": "8bb5eab1fb5a46a0f214aee69723116f20a8becb7c6bf78c85bba6ba604a0831",
+    "_tokens": "c9c18dc7cbc28bebfe1a7c96e02a9ef15a55c0aa483c1e5a73a15be80fbd886c"
+  },
+  "generated": [
+    {
+      "name": "Aira",
+      "route": "case-studies/aira",
+      "file": "src/pages/case-studies/aira.astro"
+    },
+    {
+      "name": "BeReal",
+      "route": "case-studies/bereal",
+      "file": "src/pages/case-studies/bereal.astro"
+    },
+    {
+      "name": "Creator",
+      "route": "case-studies/creator",
+      "file": "src/pages/case-studies/creator.astro"
+    },
+    {
+      "name": "DigitalTwin",
+      "route": "digital-twin",
+      "file": "src/pages/digital-twin.astro"
+    },
+    {
+      "name": "Egis",
+      "route": "case-studies/egis",
+      "file": "src/pages/case-studies/egis.astro"
+    },
+    {
+      "name": "Loop",
+      "route": "case-studies/loop",
+      "file": "src/pages/case-studies/loop.astro"
+    },
+    {
+      "name": "Main",
+      "route": "index",
+      "file": "src/pages/index.astro"
+    },
+    {
+      "name": "Nexus",
+      "route": "case-studies/nexus",
+      "file": "src/pages/case-studies/nexus.astro"
+    },
+    {
+      "name": "Nyantrace",
+      "route": "case-studies/nyantrace",
+      "file": "src/pages/case-studies/nyantrace.astro"
+    },
+    {
+      "name": "Projects",
+      "route": "projects",
+      "file": "src/pages/projects.astro"
+    },
+    {
+      "name": "Pwc",
+      "route": "case-studies/pwc",
+      "file": "src/pages/case-studies/pwc.astro"
+    },
+    {
+      "name": "Work",
+      "route": "work",
+      "file": "src/pages/work.astro"
+    }
+  ],
+  "syncedAt": "2026-10-23T15:55:39.443Z"
+}

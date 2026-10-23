@@ -1,497 +1,227 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import { projects } from '../data/projects';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
+<Layout title={"Niranjana — Home"}>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
 
-<Layout
-	title="Niranjana | Product Manager Portfolio"
-	description="Product manager portfolio showcasing experience in building products that solve real problems and drive meaningful impact."
->
-	<a class="skip-link" href="#main-content">Skip to content</a>
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href={`${base}`} style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href={`${base}work/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href={`${base}projects/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Projects</a>
+<a href={`${base}digital-twin/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
 
-	<div class="page">
-		<SiteHeader />
+<section aria-labelledby="hero-title" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: stretch; padding: 64px 0 40px">
+<div style="flex: 1 1 280px; max-width: 380px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
+<img src={`${base}images/c33a26aee7469c133123d81d6da060a3.jpg`} alt="Niranjana in a park in Brooklyn, wearing a white shirt" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 45%; border-radius: 4px">
 
-		<main id="main-content">
-			<section class="hero" id="top">
-				<div class="hero-copy">
-					<h1 class="display-title">Hi, I'm Niranjana. I build products that solve real problems.</h1>
-					<p class="hero-text">
-						Product manager passionate about creating meaningful experiences that drive impact.
-						I work across the entire product lifecycle—from strategy and design to launch and growth—
-						turning complex challenges into elegant solutions.
-					</p>
-					<p class="hero-note" id="about">
-						I thrive when solving for real user needs, working cross-functionally with design and engineering,
-						and shipping products that matter.
-					</p>
-				</div>
-			</section>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Brooklyn, New York</div>
+</div>
+<div class="grid-paper" style="flex: 999 1 420px; min-width: 0; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 24px">
+<h1 id="hero-title" style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; max-width: 18ch">Hello, I am Niranjana, a product manager and builder based in New York.</h1>
+<p style="margin: 0; font-size: 15px; line-height: 24px; max-width: 56ch; background: rgba(255,255,255,0.85)">I started as a product engineer, was promoted to product manager within six months, and co-founded NyanTrace.ai, where I led product for AI agent governance. Today I'm a technical product manager intern at Marketeq Digital. My rule for my work, and for the AI I build: no fabrication, only reframing.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#background" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Background</a>
+<a href={`${base}digital-twin/`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #ffffff; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">Ask my digital twin →</a>
+</div>
+</div>
+</section>
 
-			<section class="projects" id="work">
-				<div class="projects-grid">
-					{
-						projects.map((project, index) => (
-							<a class="project-link" href={project.href}>
-								<article class={`project-card ${project.background}`}>
-									<div class="project-header">
-										<p class="project-name">{project.name}</p>
-									</div>
-									<h2 class="project-title">{project.title}</h2>
+<section aria-label="Education and experience at a glance" style="display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-start; padding: 24px 0 64px; border-bottom: 1px solid #e6e6e6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Studied at</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
+<span>NYU Tandon School of Engineering</span>
+<span>Govt. Model Engineering College</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Worked at</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
+<span>Marketeq Digital</span>
+<span>NyanTrace.ai</span>
+<span>Method, a Hitachi Company</span>
+<span>Inflection.io</span>
+<span>NYU</span>
+</div>
+</div>
+<div style="margin-left: auto; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500">
+<span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #28c840"></span>
+Open to PM and AI PM roles
+</div>
+</section>
 
-									<div class={`project-visual ${project.variant}`}>
-										<Image
-											class={project.imageClass}
-											src={project.image}
-											alt={project.alt}
-											loading={index < 2 ? 'eager' : 'lazy'}
-											decoding="async"
-											widths={[480, 720, 960]}
-											sizes="(max-width: 980px) 100vw, 50vw"
-										/>
-									</div>
-								</article>
-							</a>
-						))
-					}
-				</div>
-			</section>
+<section id="work" aria-labelledby="work-title" style="padding: 64px 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
+<div>
+<h2 id="work-title" style="margin: 0 0 8px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Selected work</h2>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Product, AI and research in practice.</p>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">The decisions behind each one →</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px">
 
-		</main>
-	</div>
+<a href={`${base}case-studies/nexus/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Method, a Hitachi Company · Jun – Aug 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Nexus</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">An AI knowledge platform for 300+ employees that took content discovery from 5–6 hours to under 3 minutes.</p>
+</a>
+
+<a href={`${base}case-studies/nyantrace/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #111111; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">NyanTrace.ai · Co-founder &amp; CPO · 2026</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">NyanTrace</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">A governance control plane for AI agents that are technically correct but behaviorally wrong.</p>
+</a>
+
+<a href={`${base}work/#inflection`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #5fb98a; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Inflection.io · 2022 – 2024</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Email A/B testing and webhooks</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">A 20% lift in open rates, and webhook setup cut from 2+ hours to under 15 minutes.</p>
+</a>
+
+<a href={`${base}case-studies/pwc/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<img src={`${base}images/aafce7ebd934411b3c6081527ead1164.jpg`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px">
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">PwC × NYU Capstone · Sep – Dec 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Emerging tech for supply chains</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Eight emerging technologies, weighed on ROI, feasibility and risk, into one C-suite decision framework.</p>
+</a>
+
+<a href={`${base}case-studies/egis/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<img src={`${base}images/ce90d0dc38db9f0bab1bbaa4b6054e56.jpg`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px">
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">EGIS Innovation Challenge · 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">A green roof for Brooklyn</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">4th place globally and the #1 Employee Choice Award among 300+ teams.</p>
+</a>
+
+<a href={`${base}projects/#agents`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px; opacity: 0.7"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Personal project</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Multi-agent investment system</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Analyst, researcher and decision-maker agents, and where trust between them breaks down.</p>
+</a>
+
+</div>
+</section>
+
+<section id="background" aria-labelledby="bg-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<h2 id="bg-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Background</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px">
+
+<div style="flex: 999 1 520px; min-width: 0">
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Experience</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Technical Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Marketeq Digital · <a href={`${base}work/#marketeq`}>Jobs and Reviews</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Sep 2026 – present</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Co-founder &amp; Chief Product Officer</div><div style="font-size: 13px; line-height: 20px; color: #595959">NyanTrace.ai · New York · <a href={`${base}case-studies/nyantrace/`}>Case study</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jan – Jun 2026</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Graduate Teaching Assistant, Global Innovation</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU Tandon · New York</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">May 2025 – May 2026</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Method, a Hitachi Company · New York · <a href={`${base}work/#nexus`}>Nexus</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jun – Aug 2025</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Engagement Ambassador</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU · New York</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jan – May 2025</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote · <a href={`${base}work/#inflection`}>Case study</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Mar 2023 – Aug 2024</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Engineer</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Aug 2022 – Feb 2023</div>
+</li>
+</ul>
+</div>
+
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 40px">
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Education</h3>
+<div style="padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div style="font-size: 14px; line-height: 20px; font-weight: 600">M.S., Management of Technology</div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">NYU Tandon School of Engineering · 2024 – 2026</div>
+</div>
+<div style="padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div style="font-size: 14px; line-height: 20px; font-weight: 600">B.Tech, Computer Science and Engineering</div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Govt. Model Engineering College, Kochi · 2018 – 2022</div>
+</div>
+</div>
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Recognition</h3>
+<ul style="margin: 0; padding: 0 0 0 16px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 8px">
+<li>NYU Student Achievement Award, 2026</li>
+<li>Semi-finalist, NYU Stern Entrepreneurship Challenge, 2026</li>
+<li>4th globally, EGIS Innovation Challenge, 2025</li>
+<li>Millennium Fellow, UN Academic Impact, 2019</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div style="margin-top: 64px">
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Skills</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px 40px">
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">Product</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Customer discovery, PRDs, roadmapping, prioritization, A/B testing, user research, stakeholder management</p>
+</div>
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">AI and technical</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">RAG and semantic search, multi-agent workflows, OpenAI and Gemini APIs, Python, SQL, Salesforce</p>
+</div>
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">Tools</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Figma, Jira, Grafana, Firebase, Excel</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div>
+<h2 id="contact-title" style="margin: 0 0 8px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Thanks for stopping by.</h2>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Based in Brooklyn, New York. Reach me directly.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="mailto:niranjana@nyu.edu" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Email</a>
+<a href="https://www.linkedin.com/in/niranjana687/" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">LinkedIn</a>
+<a href={`${base}digital-twin/`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">Digital Twin</a>
+</div>
+</section>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
 </Layout>
-
-<style>
-	.page {
-		position: relative;
-		width: min(calc(100% - 3rem), 78rem);
-		margin: 0 auto;
-		padding: 1.25rem 0 5rem;
-	}
-
-	.eyebrow,
-	.project-name {
-		font-family: var(--font-mono);
-		font-size: 0.82rem;
-		font-weight: 600;
-		letter-spacing: 0.08em;
-		line-height: 1.4;
-		text-transform: uppercase;
-	}
-
-	.hero {
-		padding: 7rem 0 6.5rem;
-	}
-
-	.hero-copy {
-		width: 100%;
-		max-width: 100%;
-	}
-
-	.eyebrow,
-	.project-name {
-		margin: 0;
-		color: var(--muted-foreground);
-		font-style: normal;
-	}
-
-	.project-card .project-name {
-		color: rgba(23, 23, 23, 0.72);
-	}
-
-	.project-card h2 {
-		color: #171717;
-	}
-
-	h1,
-	h2,
-	h3 {
-		margin: 0;
-		font-weight: 800;
-		letter-spacing: -0.05em;
-		color: var(--foreground);
-	}
-
-	.hero-text,
-	.hero-note,
-	blockquote,
-	.footer-note p,
-	.footer-note a {
-		font-size: 1.2rem;
-		line-height: 1.55;
-	}
-
-	.hero-text {
-		max-width: 38rem;
-		margin: 1.5rem 0 0;
-	}
-
-	.hero-note {
-		max-width: 40rem;
-		margin: 1rem 0 0;
-		color: var(--muted-foreground);
-		font-style: italic;
-	}
-
-	.projects-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 2rem;
-	}
-
-	.project-link {
-		display: block;
-		height: 100%;
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.project-link:hover,
-	.project-link:focus-visible,
-	.project-link:visited,
-	.project-link:active {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.project-card {
-		display: grid;
-		grid-template-rows: auto minmax(4.4rem, auto) 1fr;
-		gap: 1.35rem;
-		height: 100%;
-		padding: 1.5rem;
-		border-radius: 1.35rem;
-		overflow: hidden;
-		transition:
-			transform 140ms ease,
-			box-shadow 140ms ease;
-	}
-
-	.project-link:hover .project-card,
-	.project-link:focus-visible .project-card {
-		transform: translateY(-4px);
-		box-shadow: var(--shadow-soft);
-	}
-
-	.project-link:focus-visible {
-		outline-offset: 6px;
-	}
-
-	.project-card.lime {
-		background: #dbff63;
-	}
-
-	.project-card.cyan {
-		background: #91e6ee;
-	}
-
-	.project-card.lavender {
-		background: #c5baf9;
-	}
-
-	.project-card.mint {
-		background: #78f1cf;
-	}
-
-	.project-header {
-		display: flex;
-		align-items: center;
-		justify-content: flex-start;
-	}
-
-	h2 {
-		font-size: clamp(1.85rem, 2.4vw, 2.35rem);
-		line-height: 1.04;
-	}
-
-	.project-title {
-		max-width: none;
-		width: 100%;
-		font-size: clamp(1.45rem, 1.75vw, 1.9rem);
-		line-height: 1.16;
-		letter-spacing: -0.04em;
-		text-wrap: pretty;
-	}
-
-	.project-card.cyan .project-title,
-	.project-card.mint .project-title {
-		font-size: clamp(1.35rem, 1.62vw, 1.74rem);
-	}
-
-	.project-visual {
-		position: relative;
-		height: 17rem;
-		min-height: 0;
-		display: grid;
-		align-items: end;
-		justify-items: center;
-		overflow: hidden;
-	}
-
-	.project-preview-image {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center top;
-		border-radius: 1rem;
-		box-shadow: var(--shadow-medium);
-	}
-
-	.project-visual.split {
-		grid-template-columns: 8rem 1fr;
-		gap: 1rem;
-		align-items: end;
-	}
-
-	.project-visual.split .project-preview-image {
-		grid-column: 1 / -1;
-	}
-
-	.ui-window,
-	.ui-phone,
-	.ui-board {
-		background: var(--card);
-		border: 1.5px solid color-mix(in srgb, var(--foreground) 10%, transparent);
-		box-shadow: var(--shadow-medium);
-	}
-
-	.ui-window {
-		width: 100%;
-		height: 13.75rem;
-		border-radius: 0.95rem;
-		overflow: hidden;
-	}
-
-	.ui-window.compact {
-		height: 13rem;
-	}
-
-	.ui-topbar {
-		height: 1rem;
-		background: color-mix(in srgb, var(--foreground) 86%, #2f3640 14%);
-	}
-
-	.ui-window-body {
-		display: grid;
-		grid-template-columns: 5rem 1fr;
-		height: calc(100% - 1rem);
-	}
-
-	.ui-column {
-		background: color-mix(in srgb, var(--card) 72%, var(--background) 28%);
-		border-right: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.ui-content,
-	.ui-content.tight {
-		padding: 0.9rem;
-		display: grid;
-		align-content: start;
-		gap: 0.65rem;
-	}
-
-	.ui-line,
-	.ui-panel,
-	.ui-phone-card,
-	.ui-photo,
-	.ui-board-card,
-	.ui-table-row,
-	.ui-search {
-		border-radius: 0.7rem;
-	}
-
-	.ui-line {
-		height: 0.8rem;
-		background: color-mix(in srgb, var(--border) 85%, var(--background) 15%);
-	}
-
-	.ui-line.short {
-		width: 56%;
-	}
-
-	.ui-panel.large {
-		height: 4.8rem;
-		background: color-mix(in srgb, var(--muted) 60%, var(--card) 40%);
-		border: 1px solid color-mix(in srgb, var(--border) 90%, var(--background) 10%);
-	}
-
-	.ui-panel-row {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.7rem;
-	}
-
-	.ui-panel {
-		height: 3.4rem;
-		background: color-mix(in srgb, var(--muted) 72%, var(--card) 28%);
-		border: 1px solid color-mix(in srgb, var(--border) 90%, var(--background) 10%);
-	}
-
-	.ui-phone {
-		width: 7.25rem;
-		height: 13rem;
-		padding: 0.65rem 0.55rem;
-		border-radius: 1.2rem;
-		display: grid;
-		align-content: start;
-		gap: 0.45rem;
-	}
-
-	.ui-phone.tall {
-		width: 7.5rem;
-		height: 14.3rem;
-	}
-
-	.ui-phone-notch {
-		width: 2.4rem;
-		height: 0.45rem;
-		margin: 0 auto 0.2rem;
-		border-radius: 999px;
-		background: color-mix(in srgb, var(--foreground) 92%, #232323 8%);
-	}
-
-	.ui-phone-line {
-		height: 0.68rem;
-		background: color-mix(in srgb, var(--border) 76%, var(--background) 24%);
-	}
-
-	.ui-phone-line.short {
-		width: 60%;
-	}
-
-	.ui-phone-card {
-		height: 2.35rem;
-		background: color-mix(in srgb, var(--muted) 52%, var(--card) 48%);
-		border: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.ui-phone-card.slim {
-		height: 1.5rem;
-	}
-
-	.ui-photo {
-		height: 4.6rem;
-		background: linear-gradient(135deg, #dce7f5 0%, #f5dcc9 100%);
-		border: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.phones {
-		display: flex;
-		gap: 0.8rem;
-		align-items: end;
-		justify-content: center;
-	}
-
-	.ui-table-row {
-		height: 1.6rem;
-		background: color-mix(in srgb, var(--muted) 56%, var(--card) 44%);
-		border: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.ui-board {
-		width: 100%;
-		height: 14.5rem;
-		padding: 0.9rem;
-		border-radius: 1rem;
-		display: grid;
-		gap: 0.8rem;
-	}
-
-	.ui-board-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 0.8rem;
-	}
-
-	.ui-search {
-		height: 1.45rem;
-		flex: 1;
-		background: color-mix(in srgb, var(--muted) 56%, var(--card) 44%);
-		border: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.ui-avatar {
-		width: 1.5rem;
-		height: 1.5rem;
-		border-radius: 50%;
-		background: color-mix(in srgb, var(--border) 84%, var(--background) 16%);
-	}
-
-	.ui-board-grid {
-		display: grid;
-		grid-template-columns: 1.2fr 1fr 1fr;
-		gap: 0.7rem;
-		height: 100%;
-	}
-
-	.ui-board-card {
-		min-height: 4rem;
-		background: color-mix(in srgb, var(--muted) 52%, var(--card) 48%);
-		border: 1px solid color-mix(in srgb, var(--border) 88%, var(--background) 12%);
-	}
-
-	.ui-board-card.feature {
-		grid-row: span 2;
-	}
-
-	@media (max-width: 980px) {
-		.projects-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	@media (max-width: 720px) {
-		.page {
-			width: min(calc(100% - 1.5rem), 78rem);
-			padding-top: 1rem;
-		}
-
-		.hero {
-			padding: 4rem 0 4.5rem;
-		}
-
-		.hero-text,
-		.hero-note {
-			font-size: 1.05rem;
-		}
-
-		.project-card {
-			grid-template-rows: auto auto 1fr;
-			padding: 1.25rem;
-			border-radius: 1.15rem;
-		}
-
-		.project-title {
-			min-height: auto;
-		}
-
-		.project-visual {
-			height: auto;
-			overflow: visible;
-			align-items: start;
-		}
-
-		.project-visual.split {
-			grid-template-columns: 6.5rem 1fr;
-		}
-
-		.project-preview-image {
-			height: auto;
-			object-fit: initial;
-			object-position: initial;
-		}
-
-		.ui-phone,
-		.ui-phone.tall {
-			width: 6.3rem;
-			height: 12.3rem;
-		}
-
-		.desktop-hide-small {
-			display: none;
-		}
-	}
-</style>

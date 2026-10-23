@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Niranjana — Digital Twin</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;color:#111111;background:#f4f4f4}
+a{color:#111111}a:hover{color:#595959}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1a5fd0;outline-offset:2px}
+.grid-paper{background-color:#ffffff;background-image:linear-gradient(rgba(229,154,160,0.45) 1px,transparent 1px),linear-gradient(90deg,rgba(229,154,160,0.45) 1px,transparent 1px);background-size:16px 16px}
+.tab{transition:background-color .25s ease, box-shadow .25s ease, transform .2s ease}.tab:not([aria-current]):hover{background:rgba(255,255,255,0.5)}.tab:active{transform:scale(0.97)}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href="Work.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href="Projects.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Projects</a>
+<a href="DigitalTwin.dc.html" class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Digital Twin</a>
+</nav>
+<a href="Main.dc.html#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<section aria-labelledby="page-title" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; padding: 64px 0">
+
+<div class="grid-paper" style="flex: 1 1 300px; min-width: 0; max-width: 400px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Digital Twin</div>
+<h1 id="page-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Ask me anything, even when I'm not here.</h1>
+<p style="margin: 0; font-size: 14px; line-height: 22px; background: rgba(255,255,255,0.85)">This is an AI version of me. It answers only from my resume, case studies and project notes. When it doesn't know, it says so instead of guessing.</p>
+<p style="margin: 0; font-size: 14px; line-height: 22px; background: rgba(255,255,255,0.85)">No fabrication, only reframing.</p>
+<a href="Main.dc.html#contact" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Talk to the real me</a>
+</div>
+
+<div style="flex: 999 1 480px; min-width: 0; border-radius: 10px; background: #ffffff; border: 1px solid #e6e6e6; box-shadow: 0 12px 32px rgba(0,0,0,0.18); overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fafafa; border-bottom: 1px solid #e6e6e6">
+<div aria-hidden="true" style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #ff5f57"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #febc2e"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #28c840"></span></div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">niranjana — digital twin</div>
+<button type="button" onClick="{{reset}}" style="margin-left: auto; min-height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid #e6e6e6; background: #ffffff; color: #111111; font: inherit; font-size: 11px; cursor: pointer">Clear</button>
+</div>
+
+<div role="log" aria-live="polite" aria-label="Conversation" style="height: 440px; overflow-y: auto; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{messages}}" as="m" hint-placeholder-count="2">
+<div style="{{m.rowStyle}}">
+<div style="{{m.bubbleStyle}}">{{m.text}}</div>
+</div>
+</sc-for>
+</div>
+
+<div style="padding: 16px 24px; border-top: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{suggestions}}" as="s" hint-placeholder-count="4">
+<button type="button" onClick="{{s.ask}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; color: #111111; font: inherit; font-size: 13px; cursor: pointer">{{s.q}}</button>
+</sc-for>
+</div>
+<form onSubmit="{{send}}" style="display: flex; gap: 8px; align-items: flex-end">
+<div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 4px">
+<label for="twin-input" style="font-size: 11px; line-height: 14px; color: #595959">Your question</label>
+<input id="twin-input" type="text" value="{{draft}}" onChange="{{onDraft}}" placeholder="Ask about my work, projects or what I'm looking for" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #e6e6e6; font: inherit; font-size: 14px; color: #111111; background: #ffffff; box-sizing: border-box; width: 100%">
+</div>
+<button type="submit" style="min-height: 44px; padding: 0 20px; border-radius: 999px; border: none; background: #111111; color: #ffffff; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer">Send</button>
+</form>
+</div>
+</div>
+
+</section>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1100}}'>
+var GREETING = "Hi, I'm Niranjana's digital twin. I answer only from her resume and project notes. What would you like to know?";
+var QA = [
+  { q: "What are you working on now?", keys: ["now", "current", "marketeq", "today"], a: "I'm a technical product manager intern at Marketeq Digital, where I own the Jobs area and the Reviews epic. Before that, from January to June 2026, I co-founded NyanTrace.ai as CPO, a governance layer for AI agents that are technically correct but behaviorally wrong." },
+  { q: "Tell me about NyanTrace", keys: ["nyantrace", "startup", "founder", "governance", "cpo"], a: "I co-founded NyanTrace.ai and led product from January to June 2026. I ran five discovery interviews and an enterprise buyer call, wrote the MVP PRD, and shaped it into a governance layer for agents in production: audit trails, policy enforcement, human approvals and kill switches." },
+  { q: "How did you get into product?", keys: ["product", "pm", "start", "career", "engineer"], a: "I started as a product engineer at Inflection.io, working on Salesforce integrations and backend systems. Within about six months I was promoted to product manager, working directly with the CEO." },
+  { q: "Tell me about Nexus", keys: ["nexus", "method", "hitachi", "rag", "search", "intern"], a: "Nexus is an internal AI knowledge platform I led at Method, a Hitachi company. It searches Drive, Slack, Miro and Figma with permission-aware access. It took discovery from 5-6 hours to under 3 minutes for 300+ employees, from research to MVP in 8 weeks." },
+  { q: "How do you approach AI products?", keys: ["ai", "llm", "hallucination", "approach", "agent"], a: "No fabrication, only reframing. At Inflection I narrowed the scope of a generative AI feature when hallucinations made it unsafe to ship broadly. At NyanTrace I build the guardrails: approvals, scoped permissions, kill switches and audit trails." },
+  { q: "Are you open to roles?", keys: ["open", "role", "hire", "hiring", "job", "available"], a: "Yes. I'm looking for PM and AI PM roles. The fastest way to reach me is email or LinkedIn, both on the Home page." }
+];
+var FALLBACK = "I don't have that in my notes, and I'd rather not guess. Try one of the suggested questions, or reach the real Niranjana from the Home page.";
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { messages: [{ from: "twin", text: GREETING }], draft: "" };
+  }
+  answer(text) {
+    var t = text.toLowerCase();
+    for (var i = 0; i < QA.length; i++) {
+      if (t === QA[i].q.toLowerCase()) return QA[i].a;
+    }
+    for (var j = 0; j < QA.length; j++) {
+      for (var k = 0; k < QA[j].keys.length; k++) {
+        if (t.indexOf(QA[j].keys[k]) !== -1) return QA[j].a;
+      }
+    }
+    return FALLBACK;
+  }
+  ask(text) {
+    var clean = (text || "").trim();
+    if (!clean) return;
+    var next = this.state.messages.concat([{ from: "me", text: clean }, { from: "twin", text: this.answer(clean) }]);
+    this.setState({ messages: next, draft: "" });
+  }
+  renderVals() {
+    var self = this;
+    var row = "display: flex; justify-content: ";
+    var twinBubble = "max-width: 80%; padding: 12px 16px; border-radius: 4px 16px 16px 16px; background: #fafafa; border: 1px solid #e6e6e6; font-size: 14px; line-height: 22px; color: #111111";
+    var meBubble = "max-width: 80%; padding: 12px 16px; border-radius: 16px 4px 16px 16px; background: #111111; font-size: 14px; line-height: 22px; color: #ffffff";
+    return {
+      messages: this.state.messages.map(function (m) {
+        return {
+          text: m.text,
+          rowStyle: row + (m.from === "me" ? "flex-end" : "flex-start"),
+          bubbleStyle: m.from === "me" ? meBubble : twinBubble
+        };
+      }),
+      suggestions: QA.map(function (x) {
+        return { q: x.q, ask: function () { self.ask(x.q); } };
+      }),
+      draft: this.state.draft,
+      onDraft: function (e) { self.setState({ draft: e.target.value }); },
+      send: function (e) { if (e && e.preventDefault) e.preventDefault(); self.ask(self.state.draft); },
+      reset: function () { self.setState({ messages: [{ from: "twin", text: GREETING }], draft: "" }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

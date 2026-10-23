@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rethinking BeReal — product teardown</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;color:#111111;background:#f4f4f4}
+a{color:#111111}a:hover{color:#595959}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1a5fd0;outline-offset:2px}
+.grid-paper{background-color:#ffffff;background-image:linear-gradient(rgba(229,154,160,0.45) 1px,transparent 1px),linear-gradient(90deg,rgba(229,154,160,0.45) 1px,transparent 1px);background-size:16px 16px}
+.tab{transition:background-color .25s ease, box-shadow .25s ease, transform .2s ease}.tab:not([aria-current]):hover{background:rgba(255,255,255,0.5)}.tab:active{transform:scale(0.97)}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href="Work.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href="Projects.dc.html" class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Projects</a>
+<a href="DigitalTwin.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href="Main.dc.html#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href="Projects.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: #595959; text-decoration: none">← All projects</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 800px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Product teardown and redesign · 2025</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Rethinking BeReal: deepening authentic group connections</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">BeReal took off by asking for one unfiltered moment a day. Then the novelty faded. We studied why users drift away, and reimagined "real" around small friend groups, where inside jokes matter more than influencer posts.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">[Your role]</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Type</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Team project, independent concept</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Research</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">25+ users, ages 18–40+, 9 countries</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Methods</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">5 interviews, 2 surveys, affinity and journey maps</dd></div>
+</dl>
+<div style="background: #111111; border-radius: 4px; padding: clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; justify-content: center; gap: 24px">
+<img src="/_blob/3b57da221b22b02b8b08980af6b5e818" alt="Groups screen with active groups and recent moments" style="width: 200px; height: auto; display: block">
+<img src="/_blob/9ab3d80d1a1dccd3c6e04e298141f425" alt="Trip recap screen for a Paris trip with highlights and a summary" style="width: 200px; height: auto; display: block">
+<img src="/_blob/4c0abda7a3c07f1cb47711b48beb60bb" alt="Memories screen stacking photos into a shared video" style="width: 200px; height: auto; display: block">
+</div>
+</section>
+
+<section aria-labelledby="problem-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · The teardown</div>
+<h2 id="problem-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Authentic, but not engaging</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">Social apps today feel either too performative or too rigid, which makes authentic sharing feel forced. BeReal set out to fix that with one unfiltered post a day at a random time, and it spread fast with Gen Z. Two design choices held it back:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Random timing</div><div style="font-size: 13px; line-height: 20px; color: #595959">Notifications are often missed because people aren't free at that moment.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">One audience</div><div style="font-size: 13px; line-height: 20px; color: #595959">Users hold back because they can't choose which friends see what.</div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="goals-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · Research goals</div>
+<h2 id="goals-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Three questions</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">1</span><span style="font-size: 15px; line-height: 24px">How do users experience authenticity, engagement and connection, and what stops them staying active?</span></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">2</span><span style="font-size: 15px; line-height: 24px">How do we deepen connections between friend groups who don't meet regularly?</span></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">3</span><span style="font-size: 15px; line-height: 24px">What actually earns a post the title of "authentic"?</span></li>
+</ol>
+</section>
+
+<section aria-labelledby="survey-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · Survey</div>
+<h2 id="survey-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Users watch more than they post</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">60%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">heard about BeReal through friends or classmates</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">40%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">use it daily or almost daily, often just to check friends rather than post</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">25%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">feel excited when the notification pops up; most see it as "just another notification"</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">20%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">have stopped using it, citing stress, monotony or friends not posting</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">15%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">are consistent daily users</div></div>
+</div>
+</section>
+
+<section aria-labelledby="heard-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · Interviews</div>
+<h2 id="heard-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">In their words</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">Users asked for video, downloads and better chat, and kept comparing BeReal to Instagram, TikTok and Snapchat. They loved the authenticity, but were frustrated by usability and by ads and features that drifted toward those apps.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"Sometimes I just didn't feel like posting, but I still wanted to see others. I wish the app allowed that."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"I sometimes don't post because I'm hanging out with a different set of friends and I don't want my other friends to see it."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"When I'm around people who also have BeReal, it's more exciting. We scream together like, 'Oh my God!'"</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"The app doesn't know what it wants to be."</span></blockquote>
+</div>
+</section>
+
+<section aria-labelledby="process-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · Process</div>
+<h2 id="process-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">From conversations to concepts</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px">
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 14px; line-height: 22px">Five 1:1 user interviews</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 14px; line-height: 22px">Two survey forms</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 14px; line-height: 22px">Analysis and brainstorming</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">4</span><span style="font-size: 14px; line-height: 22px">Affinity maps</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">5</span><span style="font-size: 14px; line-height: 22px">Journey maps</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">6</span><span style="font-size: 14px; line-height: 22px">Round-robin ideation</span></li>
+</ol>
+<img src="/_blob/bcaa54a12d26ee8759293299365e13c4" alt="Affinity maps, journey maps and round-robin ideation boards" style="display: block; margin-top: 40px; width: 100%; height: auto; border-radius: 4px; background: #111111">
+</section>
+
+<section aria-labelledby="personas-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">06 · Personas</div>
+<h2 id="personas-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Three ways people use "real"</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<article style="border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 17px; line-height: 22px; font-weight: 600">The close connector</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; font-style: italic">"Let me share quick real-life moments with the right 3–8 people, on my schedule, no pressure."</p>
+<p style="margin: 0; font-size: 13px; line-height: 20px; color: #595959"><strong style="color: #111111">Non-negotiable:</strong> private by default, no like counts, a simple audience per post.</p>
+</article>
+<article style="border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 17px; line-height: 22px; font-weight: 600">The FOMO friend</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; font-style: italic">"Let me pop in, browse, and occasionally share with the right circle. No pressure, low friction."</p>
+<p style="margin: 0; font-size: 13px; line-height: 20px; color: #595959"><strong style="color: #111111">Needs:</strong> check in without posting, easy circle switching, enough active friends to make it worth it.</p>
+</article>
+<article style="border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 17px; line-height: 22px; font-weight: 600">The social butterfly</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; font-style: italic">"Give me a space to create, collaborate and ride group moments. When it feels alive, I show up."</p>
+<p style="margin: 0; font-size: 13px; line-height: 20px; color: #595959"><strong style="color: #111111">Needs:</strong> themed group events, collab posts, chat and comments.</p>
+</article>
+</div>
+</section>
+
+<section aria-labelledby="hmw-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div class="grid-paper" style="border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: clamp(32px, 6vw, 72px); display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center">
+<div style="font-size: 11px; line-height: 14px; color: #595959">07 · How might we</div>
+<h2 id="hmw-title" style="margin: 0; max-width: 30ch; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; font-weight: 600"><span style="background: rgba(255,255,255,0.9)">How might we bring back novelty and group fun, so BeReal still feels exciting after the hype?</span></h2>
+<p style="margin: 0; max-width: 36ch; font-size: clamp(18px, 2.4vw, 24px); line-height: 1.35; font-weight: 600"><span style="background: rgba(255,255,255,0.9)">How might we help small groups of friends and family sustain rituals and intimacy?</span></p>
+</div>
+</section>
+
+<section aria-labelledby="concept-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">08 · The concept</div>
+<h2 id="concept-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">BeReal Groups</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">Small, private groups with their own themes and prompts, so people share the right moment with the right friends.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="background: #111111; border-radius: 4px; padding: 16px; display: flex; justify-content: center"><img src="/_blob/211952cd9402eb6fa3686237aa59af16" alt="New Group screen with a group name field and friends to add" style="width: 100%; max-width: 200px; height: auto; display: block"></div><h3 style="margin: 0; font-size: 16px; font-weight: 600">Create a group</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Name it, add friends, and set a custom theme and prompts.</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="background: #111111; border-radius: 4px; padding: 16px; display: flex; justify-content: center"><img src="/_blob/3b57da221b22b02b8b08980af6b5e818" alt="Groups screen with Adventure Squad, Foodies and Work Buddies" style="width: 100%; max-width: 200px; height: auto; display: block"></div><h3 style="margin: 0; font-size: 16px; font-weight: 600">A group per part of life</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Adventure squad, foodies, work buddies, each with its own moments.</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="background: #111111; border-radius: 4px; padding: 16px; display: flex; justify-content: center"><img src="/_blob/9ab3d80d1a1dccd3c6e04e298141f425" alt="Recap screen summarizing a trip" style="width: 100%; max-width: 200px; height: auto; display: block"></div><h3 style="margin: 0; font-size: 16px; font-weight: 600">Highlights and recaps</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">An automatic summary of a trip: top moments, who was there, what you captured.</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><div style="background: #111111; border-radius: 4px; padding: 16px; display: flex; justify-content: center"><img src="/_blob/4c0abda7a3c07f1cb47711b48beb60bb" alt="Memories screen building a video from group photos" style="width: 100%; max-width: 200px; height: auto; display: block"></div><h3 style="margin: 0; font-size: 16px; font-weight: 600">Shared memories</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Custom videos made from a group's moments.</p></div>
+</div>
+<h3 style="margin: 48px 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">More ideas</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Rotating prompts</div><div style="font-size: 13px; line-height: 20px; color: #595959">One member, in rotation, sets what everyone posts.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Games and leaderboards</div><div style="font-size: 13px; line-height: 20px; color: #595959">Small, cozy group games at a set time.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Time-zone aware prompts</div><div style="font-size: 13px; line-height: 20px; color: #595959">For friends who travel or live in different countries.</div></div>
+</div>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">09 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I took away</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">[What you owned on the team.]</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">BeReal is a classic case study in managing user expectations as a business model evolves. Ads and features borrowed from other apps pulled it away from what users signed up for. You have to keep both the business and the users happy, because when users aren't happy, the business loses out too.</p>
+</div>
+<p style="margin: 24px 0 0; font-size: 11px; line-height: 14px; color: #595959">Independent concept, not affiliated with BeReal. Research findings anonymized.</p>
+</section>
+
+<nav aria-label="More projects" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href="Projects.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All projects</a>
+<a href="Loop.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Next: Loop →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":7400}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

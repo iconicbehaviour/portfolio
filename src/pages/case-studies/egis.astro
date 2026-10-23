@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Layout title={"Green Roof Hubs — EGIS case study"}>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href={`${base}`} style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href={`${base}work/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href={`${base}projects/`} class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Projects</a>
+<a href={`${base}digital-twin/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href={`${base}#contact`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href={`${base}projects/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: #595959; text-decoration: none">← All projects</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 800px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">EGIS Innovation Challenge · Strategy project · Jan – May 2025</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Green Roof Hubs: cooling Flatbush, one roof at a time</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">Flatbush and Nostrand Avenue in Brooklyn face intense heatwaves and street flooding. We proposed a network of green roofs on public buildings, monitored by AI sensors and paired with a community app, that cools homes, absorbs rain and turns rooftops into classrooms.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">User research, solution design and impact modeling</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Team</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Phantom Troupe: Niranjana and Khon Sultan</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Field</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">300+ teams worldwide</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Result</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">4th globally, #1 Employee Choice Award</dd></div>
+</dl>
+<img src={`${base}images/ce90d0dc38db9f0bab1bbaa4b6054e56.jpg`} alt="Deck cover: Green Roofs for a Better Tomorrow, with a plant-covered tower" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px">
+</section>
+
+<section aria-labelledby="why-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · Why it's personal</div>
+<h2 id="why-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">We live in the neighborhood we designed for</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">One summer afternoon on Nostrand Avenue, I met an elderly woman struggling to breathe on her walk home. Her building had no AC, and she often sat by her fridge just to stay cool. That moment made the climate crisis feel real, and local.</p>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 17px; line-height: 26px"><span style="background: rgba(255,255,255,0.9)">"We've lived the heat, seen the gaps, and we're building a cooler, greener future, starting on our own rooftops."</span></blockquote>
+</div>
+</section>
+
+<section aria-labelledby="problem-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · The problem</div>
+<h2 id="problem-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Older buildings, little green space, and rising heat</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">Aging infrastructure, low-income households and limited public cooling leave Flatbush residents especially exposed to four climate hazards.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 28px; font-weight: 600">Up to 7°F</div><div style="font-size: 14px; line-height: 22px; font-weight: 600; margin: 8px 0 4px">Urban heat island</div><div style="font-size: 13px; line-height: 20px; color: #595959">hotter in NYC neighborhoods with little vegetation and lots of asphalt</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; line-height: 22px; font-weight: 600; margin-bottom: 4px">Stormwater flooding</div><div style="font-size: 13px; line-height: 20px; color: #595959">Frequent street flooding during storms because of outdated drainage.</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; line-height: 22px; font-weight: 600; margin-bottom: 4px">Energy burden</div><div style="font-size: 13px; line-height: 20px; color: #595959">Vulnerable residents in older buildings, many without air conditioning.</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; line-height: 22px; font-weight: 600; margin-bottom: 4px">Biodiversity loss</div><div style="font-size: 13px; line-height: 20px; color: #595959">Fewer pollinators and native plants as the city builds out.</div></div>
+</div>
+<p style="margin: 16px 0 0; font-size: 11px; line-height: 14px; color: #595959">Source: NYC Mayor's Office of Sustainability</p>
+</section>
+
+<section aria-labelledby="solution-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · The solution</div>
+<h2 id="solution-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Green Roof Hubs, with AI-powered education</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">Mission: enhance local climate resilience and raise awareness. Vision: become a global benchmark for sustainability.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 320px; min-width: 0">
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Each rooftop hub</h3>
+<ul style="list-style: none; margin: 0; padding: 0">
+<li style="padding: 12px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Cools buildings and reduces urban heat</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Absorbs rainwater and prevents street flooding</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Restores biodiversity with native plants</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Educates the public through hands-on workshops</li>
+<li style="padding: 12px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Tracks impact with AI and satellite data</li>
+</ul>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">What makes it smart</h3>
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">AI soil and moisture sensors</div><div style="font-size: 13px; line-height: 20px; color: #595959">Monitor roof health and water retention.</div></div>
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Gamified impact dashboard</div><div style="font-size: 13px; line-height: 20px; color: #595959">Shows each neighborhood's climate impact.</div></div>
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Satellite imaging</div><div style="font-size: 13px; line-height: 20px; color: #595959">Google Earth Engine measures green coverage over time.</div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="how-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · How it works</div>
+<h2 id="how-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">From one rooftop to a neighborhood movement</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 14px; line-height: 22px">Select rooftops on public schools, libraries and NYCHA buildings</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 14px; line-height: 22px">Train local youth in green infrastructure with partners like Green City Force</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 14px; line-height: 22px">Install green roofs and monitor soil and temperature with AI sensors</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">4</span><span style="font-size: 14px; line-height: 22px">Launch an app to track actions like composting and planting</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">5</span><span style="font-size: 14px; line-height: 22px">Reward the neighborhoods with the most participation and impact</span></li>
+</ol>
+</section>
+
+<section aria-labelledby="equity-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · Community and equity</div>
+<h2 id="equity-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Built with the community, not for it</h2>
+</div>
+<ul style="flex: 999 1 480px; min-width: 0; margin: 0; padding-left: 20px; font-size: 15px; line-height: 24px; display: flex; flex-direction: column; gap: 12px">
+<li>Partner with Green City Force and GrowNYC to train and hire local youth</li>
+<li>Prioritize buildings in heat-vulnerable and flood-prone zones</li>
+<li>Offer stipends and skill certifications for long-term economic opportunity</li>
+<li>Design workshops with input from multilingual, multigenerational residents</li>
+</ul>
+</section>
+
+<section aria-labelledby="campaign-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">06 · Campaign</div>
+<h2 id="campaign-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">"Climate action starts from above"</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">A sample campaign website to recruit neighbors: rooftops as classrooms, youth green-job training, AI soil insights, and urban cooling. Protect. Plant. Participate.</p>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; border-radius: 10px; border: 1px solid #e6e6e6; box-shadow: 0 12px 32px rgba(0,0,0,0.18); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fafafa; border-bottom: 1px solid #e6e6e6">
+<div aria-hidden="true" style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #ff5f57"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #febc2e"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #28c840"></span></div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Green Roofs NYC</div>
+</div>
+<img src={`${base}images/99601b221e6a3996cf46d311aed872d7.jpg`} alt="Sample campaign website pages: Climate action starts from above, rooftop gardens and hands-on climate learning" style="display: block; width: calc(100% - 32px); height: auto; margin: 16px; border-radius: 4px">
+</div>
+</section>
+
+<section aria-labelledby="feas-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">07 · Feasibility</div>
+<h2 id="feas-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Why this can happen now</h2>
+</div>
+<ul style="flex: 999 1 480px; min-width: 0; margin: 0; padding-left: 20px; font-size: 15px; line-height: 24px; display: flex; flex-direction: column; gap: 12px">
+<li>NYC already funds green infrastructure through its Green Roof Tax Abatement Program</li>
+<li>Legal frameworks for retrofitting public rooftops are in place</li>
+<li>Partners across tech (IBM, Google.org), CSR sponsors (Patagonia, Seventh Generation) and city agencies (NYC DEP, NYCHA)</li>
+<li>Green roofs are proven in Chicago, Toronto and Copenhagen</li>
+</ul>
+</section>
+
+<section aria-labelledby="impact-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">08 · Impact model</div>
+<h2 id="impact-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">What a hub would deliver</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">Up to 5°F</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">cooler indoors</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">50–60%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">of stormwater captured during rainfall</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">500+</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">community members engaged in year one</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">6–10 yrs</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">modeled payback period</div></div>
+</div>
+<p style="margin: 16px 0 0; font-size: 13px; line-height: 20px; color: #595959">Plus pollinator corridors and better air quality.</p>
+</section>
+
+<section aria-labelledby="next-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">09 · Proposed rollout</div>
+<h2 id="next-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Pilot, partner, launch, scale</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">This was a strategy project; we did not implement it. The plan below is the roadmap we proposed to the judges.</p>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 11px; line-height: 14px; color: #595959">Summer 2025</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">Pilot at one NYCHA building in Flatbush</div></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 11px; line-height: 14px; color: #595959">Ongoing</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">Secure partnerships with CSR-aligned brands and local NGOs</div></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 11px; line-height: 14px; color: #595959">Fall 2025</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">Launch the community challenge and app</div></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 11px; line-height: 14px; color: #595959">End of 2026</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">Scale to 5 rooftops and 500 participants</div></li>
+</ol>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">10 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I took away</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">This project taught me to apply human-centered design to a civic idea. Green roofs already exist in cities around the world. What made ours innovative was the social layer: a way for neighbors to learn, take part and connect with each other through their rooftops.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">It reinforced why I chose a career in tech in the first place: to use technology for good.</p>
+</div>
+</section>
+
+<nav aria-label="More projects" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href={`${base}projects/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All projects</a>
+<a href={`${base}case-studies/pwc/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Next: PwC Capstone →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</Layout>
