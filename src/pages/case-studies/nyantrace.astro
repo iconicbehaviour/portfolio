@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Layout title={"NyanTrace — case study"}>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href={`${base}`} style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href={`${base}work/`} class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Work</a>
+<a href={`${base}projects/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Projects</a>
+<a href={`${base}digital-twin/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href={`${base}#contact`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href={`${base}work/`} style="display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; font-size: 13px; color: #595959; text-decoration: none">← All work</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 800px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">NyanTrace.ai · Co-founder &amp; CPO · Jan – Jun 2026</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">NyanTrace: governance for AI agents that are technically correct, but behaviorally wrong</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">Teams can orchestrate AI agents and trace them, but nothing governs what those agents are allowed to do once they're live. As co-founder and CPO, I led customer discovery, turned it into the MVP PRD, and shaped NyanTrace into the governance layer for agents in production: audit trails, policy enforcement, human approvals and kill switches.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Co-founder &amp; Chief Product Officer</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Team</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Three co-founders</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Timeline</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">January – June 2026</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Recognition</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Semi-finalist, NYU Stern Entrepreneurship Challenge 2026</dd></div>
+</dl>
+<div style="border-radius: 10px; border: 1px solid #e6e6e6; box-shadow: 0 12px 32px rgba(0,0,0,0.18); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fafafa; border-bottom: 1px solid #e6e6e6">
+<div aria-hidden="true" style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #ff5f57"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #febc2e"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #28c840"></span></div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">nyantrace.ai</div>
+</div>
+<div role="img" aria-label="Screen placeholder: NyanTrace dashboard" style="aspect-ratio: 16 / 9; margin: 16px; border-radius: 4px; border: 1px dashed #595959; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #595959">[Screen: session trace dashboard or demo video still]</div>
+</div>
+</section>
+
+<section aria-label="Discovery at a glance" style="padding: 0 0 64px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">5</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">in-depth discovery interviews with builders and buyers</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">83</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">coded observations in 11 affinity clusters</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">8</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">themes, ranked by signal and severity</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">4 of 5</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">raised sub-agent blindness, unprompted</div></div>
+</div>
+</section>
+
+<section aria-labelledby="problem-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · The problem</div>
+<h2 id="problem-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Agents are making decisions. Nobody is governing them.</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">AI isn't just layering onto systems of record anymore; it's replacing the logic inside them. Gartner predicts that by 2028, 15% of day-to-day work decisions will be made autonomously by agentic AI.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">Frameworks like LangGraph and CrewAI orchestrate agents, and tools like LangSmith trace them. But no standard layer controls what they do once deployed: which tools they can call, when a human must approve, and how to prove afterwards what happened.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="padding: 8px 16px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Orchestrate</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 8px 16px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Trace</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 8px 16px; border-radius: 999px; background: #111111; color: #ffffff">Govern: the missing layer</span></div>
+</div>
+</section>
+
+<section aria-labelledby="disc-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · Discovery</div>
+<h2 id="disc-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Five people who live with the problem</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">I ran 45-minute semi-structured interviews with people building or managing AI agents and hitting governance friction, then synthesized them with thematic analysis and affinity mapping. Every finding traces back to interview evidence.</p>
+<div style="overflow-x: auto; border: 1px solid #e6e6e6; border-radius: 4px">
+<table style="width: 100%; min-width: 600px; border-collapse: collapse; font-size: 14px; line-height: 22px">
+<thead><tr style="background: #fafafa; text-align: left"><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Participant</th><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Context</th><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Persona</th></tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">AI startup founder, ex-big-tech PM</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Building AI-heavy products with a lean team</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Platform Operator</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">Senior engineer, observability company</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Distributed tracing expert building AI features</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Developer Builder</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">Co-founder, B2B AI customer service platform</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Ships multi-agent workflows into enterprise customers' environments</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Platform Operator</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">CTO, e-commerce company</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Rolling out AI coding tools across two countries</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Engineering Manager</td></tr>
+<tr><td style="padding: 12px 16px; font-weight: 600">Tech lead, crypto wallet</td><td style="padding: 12px 16px; color: #595959">Security-first fintech with sub-agents spawning out of view</td><td style="padding: 12px 16px">Engineering Manager</td></tr>
+</tbody>
+</table>
+</div>
+<div role="img" aria-label="Image placeholder: affinity map" style="margin-top: 40px; aspect-ratio: 16 / 7; border-radius: 4px; border: 1px dashed #595959; background: #fafafa; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #595959">[Image: affinity map or persona journey map]</div>
+</section>
+
+<section aria-labelledby="themes-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · What we found</div>
+<h2 id="themes-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Teams are flying blind</h2>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<article style="display: flex; flex-wrap: wrap; gap: 16px 40px; padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px">
+<div style="flex: 1 1 280px; min-width: 0"><div style="font-size: 11px; color: #595959; margin-bottom: 6px">Critical · 4 of 5 interviews</div><h3 style="margin: 0 0 8px; font-size: 17px; line-height: 24px; font-weight: 600">Sub-agents are an observability black hole</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">When an agent spawns sub-agents, nobody can see what they do. Tracing that microservices take for granted doesn't exist for agents.</p></div>
+<blockquote class="grid-paper" style="flex: 1 1 280px; margin: 0; padding: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 14px; line-height: 22px"><span style="background: rgba(255,255,255,0.9)">"My agent spawns three sub-agents in parallel and I have no idea what they're doing until I see the final output."</span></blockquote>
+</article>
+<article style="display: flex; flex-wrap: wrap; gap: 16px 40px; padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px">
+<div style="flex: 1 1 280px; min-width: 0"><div style="font-size: 11px; color: #595959; margin-bottom: 6px">Critical · 3 of 5</div><h3 style="margin: 0 0 8px; font-size: 17px; line-height: 24px; font-weight: 600">Policy is written in prompts, and it fails</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Rules live in system prompts that drift and that models can ignore. Advisory, not enforced.</p></div>
+<blockquote class="grid-paper" style="flex: 1 1 280px; margin: 0; padding: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 14px; line-height: 22px"><span style="background: rgba(255,255,255,0.9)">"Our policy is to always escalate to a human if the confidence is below 70%. We enforce this in the system prompt. But there's no guarantee the model follows it."</span></blockquote>
+</article>
+<article style="display: flex; flex-wrap: wrap; gap: 16px 40px; padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px">
+<div style="flex: 1 1 280px; min-width: 0"><div style="font-size: 11px; color: #595959; margin-bottom: 6px">Highest severity · 2 of 5</div><h3 style="margin: 0 0 8px; font-size: 17px; line-height: 24px; font-weight: 600">Liability without evidence</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Companies shipping agents to enterprises are liable for agent behavior but can't prove what their agents did, and that blocks deals.</p></div>
+<blockquote class="grid-paper" style="flex: 1 1 280px; margin: 0; padding: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 14px; line-height: 22px"><span style="background: rgba(255,255,255,0.9)">"Enterprise customers ask: can you prove what your agent did and didn't do? Right now I have no answer."</span></blockquote>
+</article>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">No cost attribution</div><div style="font-size: 13px; line-height: 20px; color: #595959">No one knew what an agent run cost, per person or per session.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Fragmented tools</div><div style="font-size: 13px; line-height: 20px; color: #595959">Different teams on different AI tools, each with its own dashboard.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Misuse found weeks late</div><div style="font-size: 13px; line-height: 20px; color: #595959">Usually through a bill spike, not a governance mechanism.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Trust needs a visible path</div><div style="font-size: 13px; line-height: 20px; color: #595959">People can't hand agents real autonomy when they can't see the reasoning.</div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="surprise-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · What challenged our assumptions</div>
+<h2 id="surprise-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Where I was wrong going in</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; color: #595959; text-decoration: line-through">Governance is a compliance need</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">Developers want tracing to build trust in their agents. Compliance comes after.</div><div style="font-size: 13px; line-height: 20px; color: #595959">So we led with "see what your agent does," not "stay compliant."</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; color: #595959; text-decoration: line-through">Gamification and governance are separate</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">One team's token leaderboard was their only governance tool.</div><div style="font-size: 13px; line-height: 20px; color: #595959">So the dashboard should feel like an insight tool, not surveillance.</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; color: #595959; text-decoration: line-through">Operators value governance for its own sake</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">For platform operators, governance is how they close enterprise deals.</div><div style="font-size: 13px; line-height: 20px; color: #595959">So it's a revenue feature, and should be priced like one.</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 13px; color: #595959; text-decoration: line-through">Willingness to pay needs pricing questions</div><div style="font-size: 15px; line-height: 22px; font-weight: 600">A CTO said "I would pay for this" without being asked.</div><div style="font-size: 13px; line-height: 20px; color: #595959">That made his team our first design-partner candidate.</div></div>
+</div>
+</section>
+
+<section aria-labelledby="opp-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · From insight to MVP</div>
+<h2 id="opp-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Six opportunities, each with a smallest bet</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">I ranked opportunities by evidence strength, severity and personas affected, then defined the smallest thing we could ship to test each one.</p>
+<div style="overflow-x: auto; border: 1px solid #e6e6e6; border-radius: 4px">
+<table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; line-height: 22px">
+<thead><tr style="background: #fafafa; text-align: left"><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Opportunity</th><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">MVP bet</th></tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">1. Sub-agent visibility</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">A session ID carried through every sub-agent, shown as a parent-child trace</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">2. Programmatic policy</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Policies checked before each tool call, with block and warn modes</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">3. Cost and usage for managers</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">A weekly cost email per engineer and an alert on sensitive file access</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">4. Compliance audit export</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">A one-session incident report, on a tamper-evident hash chain from day one</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; font-weight: 600">5. Cross-tool view</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Connectors for two AI coding tools on one normalized event schema</td></tr>
+<tr><td style="padding: 12px 16px; font-weight: 600">6. Developer trust</td><td style="padding: 12px 16px; color: #595959">A session trace explorer, plus a diff between runs for debugging regressions</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 24px 0 0; font-size: 15px; line-height: 24px; max-width: 66ch">The adoption loop we designed for: <strong>see more → trust more → automate more.</strong></p>
+</section>
+
+<section aria-labelledby="prd-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">06 · The MVP PRD</div>
+<h2 id="prd-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">What I specified</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">A Python SDK, a real-time behavior engine and a dashboard with emergency controls. Just as important were the non-goals: no policy authoring UI, no detailed cost reporting, no deep SIEM integrations in v1.</p>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">One-line instrumentation</div><div style="font-size: 13px; line-height: 20px; color: #595959">A Python decorator captures LLM calls, tool use and agent-to-agent messages.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Session tracing</div><div style="font-size: 13px; line-height: 20px; color: #595959">The full execution path of a single agent or a multi-agent session.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Risk scoring and drift alerts</div><div style="font-size: 13px; line-height: 20px; color: #595959">A live risk score per agent and session, with threshold alerts.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Kill switch</div><div style="font-size: 13px; line-height: 20px; color: #595959">Halt an agent from the dashboard or a Telegram command, with the event logged.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Hard-invariant policies</div><div style="font-size: 13px; line-height: 20px; color: #595959">Block critical violations, like emitting PII, right in the runtime path.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Cost data foundation</div><div style="font-size: 13px; line-height: 20px; color: #595959">Token and API usage captured per agent, ready for attribution later.</div></div>
+</div>
+<div>
+<h3 style="margin: 0 0 12px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Success targets I set</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px">
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">&lt; 500 ms</div><div style="font-size: 12px; line-height: 18px; color: #595959">kill switch, for 99% of cases</div></div>
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">&lt; 50 ms</div><div style="font-size: 12px; line-height: 18px; color: #595959">added latency per LLM call</div></div>
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">&lt; 5%</div><div style="font-size: 12px; line-height: 18px; color: #595959">false positive rate</div></div>
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">100%</div><div style="font-size: 12px; line-height: 18px; color: #595959">hard-invariant violations prevented</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="ent-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">07 · Testing it with a buyer</div>
+<h2 id="ent-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">An enterprise procurement platform</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">I led a discovery call with a customer success director at a sourcing platform building agents for global enterprises in oil and gas, mining and manufacturing.</p>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+<div style="padding: 16px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">200+</div><div style="font-size: 12px; line-height: 18px; color: #595959">compliance policies per country, in the US alone</div></div>
+<div style="padding: 16px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">1–2 months</div><div style="font-size: 12px; line-height: 18px; color: #595959">to review a single RFP manually</div></div>
+<div style="padding: 16px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 22px; font-weight: 600">4+</div><div style="font-size: 12px; line-height: 18px; color: #595959">siloed compliance teams per review</div></div>
+</div>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 17px; line-height: 26px"><span style="background: rgba(255,255,255,0.9)">"This is something that is very real, very relevant and very important to our customers."</span></blockquote>
+<p style="margin: 0; font-size: 15px; line-height: 24px">She offered to champion NyanTrace to her product team. I handled the objections live (model flexibility), flagged the open one honestly (policy scale in the thousands), and set up a tailored demo for their compliance workflow.</p>
+</div>
+</section>
+
+<section aria-labelledby="today-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">08 · Where it landed</div>
+<h2 id="today-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">"Ship AI agents your compliance team will actually approve."</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">NyanTrace went into private beta as the governance layer for AI agents: framework-agnostic, model-neutral, built around three use cases.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">Financial agents</div><div style="font-size: 13px; line-height: 20px; color: #595959">Per-agent spending caps, human approval before trades, a tamper-proof entry for every transaction.</div></div>
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">Customer support QA</div><div style="font-size: 13px; line-height: 20px; color: #595959">Sensitive escalations pause for review; low-risk actions like password resets go through.</div></div>
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">Internal data security</div><div style="font-size: 13px; line-height: 20px; color: #595959">Row-level policies stop RAG agents from surfacing PII, on any model.</div></div>
+</div>
+<a href="https://nyantrace.ai/" style="display: inline-flex; align-items: center; min-height: 44px; margin-top: 24px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Visit nyantrace.ai →</a>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">09 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I took away</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">[What you learned as a founder and CPO.]</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">[Why you stepped away in June 2026, and what you'd do differently.]</p>
+</div>
+</section>
+
+<nav aria-label="More work" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href={`${base}work/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All work</a>
+<a href={`${base}case-studies/nexus/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Next: Nexus at Method →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</Layout>

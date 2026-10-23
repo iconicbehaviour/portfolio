@@ -1,0 +1,158 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Layout title={"Real or not — creator economy case study"}>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href={`${base}`} style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href={`${base}work/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href={`${base}projects/`} class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Projects</a>
+<a href={`${base}digital-twin/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href={`${base}#contact`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href={`${base}projects/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: #595959; text-decoration: none">← All projects</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 800px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Strategy project · Creator economy · 2025</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Real or not? Turning AI fan trailers into a studio business</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">AI-generated fan trailers for films that don't exist are pulling huge audiences on YouTube, and studios are quietly cashing in instead of shutting them down. I mapped who wins and who loses, and proposed a way to turn fan-made buzz into a governed, licensed business.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Solo project: research, strategy and presentation</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Focus</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">IP, platforms, creator monetization</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Format</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">An interactive game: "Guess the movie, real or not"</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Compared</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">YouTube, TikTok, Patreon, Wattpad</dd></div>
+</dl>
+<img src={`${base}images/d9068930ad5ab5d392bf6810429ac1ec.jpg`} alt="Cover slide: Guess the movie, with a smiley face on grid paper" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; border: 1px solid #e6e6e6">
+</section>
+
+<section aria-labelledby="problem-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · The problem</div>
+<h2 id="problem-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">When fans can't tell real from fake</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">Generative AI made it easy to produce convincing trailers for movies that will never exist. They spread fast, they're often misleading, and they use actors' likenesses and studios' IP without permission. I opened the presentation by asking the room to guess which trailers were real.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">Five players have a stake in how this plays out:</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Studios</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">YouTube</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Actors and unions</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Advertisers</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Consumers</span>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="studio-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · What studios did</div>
+<h2 id="studio-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Monetization over enforcement</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Claimed the ad revenue</div><div style="font-size: 13px; line-height: 20px; color: #595959">Instead of suing for infringement, studios used YouTube's Content ID to redirect ad revenue from these videos to themselves, even though the content was unlicensed and sometimes misleading.</div></div>
+<div style="padding: 20px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Stayed silent publicly</div><div style="font-size: 13px; line-height: 20px; color: #595959">They cash in on the views while undermining their own IP control, talent relationships and audience trust over the long term.</div></div>
+</div>
+</section>
+
+<section aria-labelledby="choice-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · This or that</div>
+<h2 id="choice-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">If you were the studio executive, what would you choose?</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">I put the audience in the studio's seat. Suppression and collaboration lead to very different futures.</p>
+<div style="overflow-x: auto; border: 1px solid #e6e6e6; border-radius: 4px">
+<table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; line-height: 22px">
+<thead><tr style="background: #fafafa; text-align: left"><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Suppress</th><th scope="col" style="padding: 12px 16px; font-size: 11px; font-weight: 600; color: #595959; border-bottom: 1px solid #e6e6e6">Collaborate</th></tr></thead>
+<tbody>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Risk alienating creators and fans</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Tap into massive organic reach</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Constant takedowns and DMCA battles</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Co-create and share revenue with trusted creators</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Negative PR from AI suppression</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Positive buzz through curated, ethical content</td></tr>
+<tr><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6; color: #595959">Talent unions on high alert</td><td style="padding: 12px 16px; border-bottom: 1px solid #e6e6e6">Agreements that respect likeness and rights</td></tr>
+<tr><td style="padding: 12px 16px; color: #595959">Short-term control, long-term stagnation</td><td style="padding: 12px 16px">Long-term loyalty and brand amplification</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section aria-labelledby="powers-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · Why it matters</div>
+<h2 id="powers-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Two flywheels worth protecting</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px">
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">The platform's network effect</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">More creators bring more content, which opens more niches and draws more advertisers, which funds more creators.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">More creators</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">More content</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">More niches</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">More ad revenue</span></div>
+</div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 12px">
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">The studio's brand power</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Fan anticipation makes trailers go viral and draws attention to releases, which lifts box office, merch and licensing, and AI creators benefit too.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Fan anticipation</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Trailer virality</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Box office and merch</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Licensing deals</span></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="pulse-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · Pulse check</div>
+<h2 id="pulse-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Fans have power, both ways</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 28px; font-weight: 600">468,000+</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">dislikes on "The Marvels" trailer, more than its likes, making it the most disliked MCU trailer to date.</div></div>
+<div style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 15px; font-weight: 600; margin-bottom: 8px">Fans push back on official work</div><div style="font-size: 13px; line-height: 20px; color: #595959">The "Fantastic Four: First Steps" trailer drew criticism for The Thing's voice and CGI design.</div></div>
+<div class="grid-paper" style="padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25)"><div style="font-size: 15px; font-weight: 600; margin-bottom: 8px; background: rgba(255,255,255,0.9)">Fans can become talent</div><div style="font-size: 13px; line-height: 20px; background: rgba(255,255,255,0.9)">Ujwal Kulkarni, 20, made a fan edit of "KGF: Chapter 1." Director Prashanth Neel saw it, hired him to cut the "KGF: Chapter 2" teaser, then made him editor of the whole film.</div></div>
+</div>
+</section>
+
+<section aria-labelledby="opp-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">06 · The opportunity</div>
+<h2 id="opp-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Speculative entertainment</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 66ch">Where the creator economy meets the attention economy. Monetize fan-driven buzz the way Wattpad did with fan fiction: what would a live-action Frozen look like with Anya Taylor-Joy as Elsa? Could Henry Cavill make a good James Bond?</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 11px; color: #595959; margin-bottom: 8px">For fans and creators</div><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">A Wattpad for fan trailers</div><div style="font-size: 13px; line-height: 20px; color: #595959">A studio-governed home for fan content, with licensing, attribution and revenue sharing.</div></div>
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 11px; color: #595959; margin-bottom: 8px">For viewers</div><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">AI-generated content flag</div><div style="font-size: 13px; line-height: 20px; color: #595959">Clear labeling so audiences always know what's real.</div></div>
+<div style="padding: 24px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 11px; color: #595959; margin-bottom: 8px">For studios</div><div style="font-size: 16px; font-weight: 600; margin-bottom: 4px">AI trailer audit and IP enforcement</div><div style="font-size: 13px; line-height: 20px; color: #595959">SaaS that finds AI trailers using a studio's IP and enforces its rules.</div></div>
+</div>
+</section>
+
+<section aria-labelledby="model-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">07 · Business model</div>
+<h2 id="model-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">A two-sided marketplace</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">Studios license their IP; creators make within the rules and share the revenue. The platform earns licensing fees and commissions, with AI-based rights enforcement and creator-facing policy built in.</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Creation</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Attribution</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Monetization</span><span aria-hidden="true" style="color: #595959">→</span><span style="padding: 6px 12px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6">Payout</span></div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; border-radius: 10px; border: 1px solid #e6e6e6; box-shadow: 0 12px 32px rgba(0,0,0,0.18); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fafafa; border-bottom: 1px solid #e6e6e6">
+<div aria-hidden="true" style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #ff5f57"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #febc2e"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #28c840"></span></div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Fan trailer platform</div>
+</div>
+<img src={`${base}images/3f5ea4708a469e41b1972723a072cc5f.jpg`} alt="Platform concept: a dark home screen with trending fan trailers" style="display: block; width: calc(100% - 32px); height: auto; margin: 16px; border-radius: 4px">
+</div>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">08 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I took away</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">[What you learned about platforms, IP and incentives.]</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">[Why you chose to present it as a game.]</p>
+</div>
+</section>
+
+<nav aria-label="More projects" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href={`${base}projects/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All projects</a>
+<a href={`${base}case-studies/bereal/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Next: Rethinking BeReal →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</Layout>

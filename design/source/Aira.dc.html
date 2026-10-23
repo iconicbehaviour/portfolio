@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AIRA — PCOS case study</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;color:#111111;background:#f4f4f4}
+a{color:#111111}a:hover{color:#595959}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1a5fd0;outline-offset:2px}
+.grid-paper{background-color:#ffffff;background-image:linear-gradient(rgba(229,154,160,0.45) 1px,transparent 1px),linear-gradient(90deg,rgba(229,154,160,0.45) 1px,transparent 1px);background-size:16px 16px}
+.tab{transition:background-color .25s ease, box-shadow .25s ease, transform .2s ease}.tab:not([aria-current]):hover{background:rgba(255,255,255,0.5)}.tab:active{transform:scale(0.97)}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href="Work.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href="Projects.dc.html" class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Projects</a>
+<a href="DigitalTwin.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href="Main.dc.html#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href="Projects.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; color: #595959; text-decoration: none">← All projects</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 760px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">NYU · Digital health · [Term, year]</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">AIRA: one gentle companion for living with PCOS</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">Women with PCOS juggle a cycle tracker, a sleep tracker, a calorie counter, the internet and their doctor, and most of them quit within weeks. We researched why, and designed AIRA: a single ecosystem that connects sleep, nutrition, movement, stress and cycle, and supports rather than judges.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">[Your role, e.g. research lead and product designer]</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Team</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Four NYU students</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Methods</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Desk research, 5 interviews, online survey, endocrinologist interview</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Deliverables</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Personas, task flow, concept cards, design system, mascot, prototype</dd></div>
+</dl>
+<div style="background: #111111; border-radius: 4px; padding: clamp(16px, 4vw, 40px); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px">
+<img src="/_blob/114ee24e7cee827e0139e0235d6ab052" alt="Aira, the heart mascot" style="width: 200px; height: auto; display: block">
+<img src="/_blob/8d59d42fe6b0d6525cea9730c4cede30" alt="AIRA onboarding screen with the Aira mascot and a Get Started button" style="width: 220px; height: auto; display: block">
+<img src="/_blob/1904cbf1a9a3119d52018b1da6e8cf3b" alt="Today card showing a Hormonal Harmony Score of 92, Great" style="width: 280px; height: auto; display: block; border-radius: 4px">
+</div>
+</section>
+
+<section aria-labelledby="problem-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · The problem</div>
+<h2 id="problem-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">One in 10 women experience PCOS. Few get day-to-day support.</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">Managing PCOS means paying attention to sleep, food, movement, stress and the cycle at once. Today each of those lives in a different place, and none of them talk to each other.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Cycle tracker</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Sleep tracker</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Calorie counter</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">The internet</span>
+<span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">Medical counsel</span>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">The result is a fragmented experience: more logging, less understanding, and apps abandoned after a couple of weeks.</p>
+</div>
+</section>
+
+<section aria-labelledby="goals-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · Research goals</div>
+<h2 id="goals-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Three questions we set out to answer</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">1</span><span style="font-size: 15px; line-height: 24px">How do women manage PCOS across fragmented tools, and what causes tracker fatigue and app abandonment?</span></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">2</span><span style="font-size: 15px; line-height: 24px">How can we connect isolated data like sleep, nutrition and cycle to uncover the reasons behind daily symptoms?</span></li>
+<li style="padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; background: #fafafa; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 24px; font-weight: 600; color: #595959">3</span><span style="font-size: 15px; line-height: 24px">What features and tone turn a health tracker from judgmental into an empathetic, supportive companion?</span></li>
+</ol>
+</section>
+
+<section aria-labelledby="methods-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · Research methods</div>
+<h2 id="methods-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Secondary research to frame it, people to ground it</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px">
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Secondary</h3>
+<ul style="list-style: none; margin: 0; padding: 0">
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Desk research</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Research papers on PCOS management</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Fogg Behavior Model as a design lens</li>
+</ul>
+</div>
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Primary</h3>
+<ul style="list-style: none; margin: 0; padding: 0">
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Five 1:1 interviews with women living with PCOS</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Online survey on habits and why they fail</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">1:1 interview with an endocrinologist</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="heard-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · What we heard</div>
+<h2 id="heard-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">In their words</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px">
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"I'd use it diligently for about two weeks, then stop... I don't have the brain space to think of alternatives."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"I'd love an energy management system... I'd want to track my energy and log when it went down, what made it go up."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"There have been times where I think, 'Why am I so anxious?' and I open the app and see it's mid-cycle."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"Before, I'd feel guilty about eating more... Now I think, 'Maybe I need to up my food intake,' not starve."</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"A lot of people don't understand. Even my parents are like, 'Get on with life.'"</span></blockquote>
+<blockquote class="grid-paper" style="margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 15px; line-height: 24px"><span style="background: rgba(255,255,255,0.9)">"If there was a quick audio or a simple color to choose... that would help."</span></blockquote>
+</div>
+</section>
+
+<section aria-labelledby="themes-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · Themes</div>
+<h2 id="themes-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">Four patterns across interviews</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">Cycle awareness as power</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Knowing where they are in their cycle turns self-blame into explanation.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">The tracker fatigue cycle</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Strong start, no visible shift, quiet abandonment after about two weeks.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">The gap: energy management</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">They want to understand their energy, not log another meal.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">Symptoms are emotional, not just physical</h3><p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Overwhelm, anxiety and feeling misunderstood are part of the condition.</p></div>
+</div>
+</section>
+
+<section aria-labelledby="survey-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">06 · Survey insights</div>
+<h2 id="survey-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Why habits fail</h2>
+</div>
+<ul style="flex: 999 1 480px; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 40px">
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">The habit feels too big or strict</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">I forget</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">I don't see immediate results</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">I lose motivation</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">I start strong but can't stay consistent</li>
+<li style="padding: 16px 0; border-bottom: 1px solid #e6e6e6; font-size: 15px; line-height: 24px">Life and work get too busy</li>
+</ul>
+</section>
+
+<section aria-labelledby="hmw-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div class="grid-paper" style="border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: clamp(32px, 6vw, 72px); text-align: center">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 16px">07 · How might we</div>
+<h2 id="hmw-title" style="margin: 0 auto; max-width: 28ch; font-size: clamp(24px, 3.5vw, 34px); line-height: 1.3; font-weight: 600"><span style="background: rgba(255,255,255,0.9)">How might we help young adults with PCOS build daily habits, understand their symptoms and spot lifestyle triggers to better manage flare-ups?</span></h2>
+</div>
+</section>
+
+<section aria-labelledby="personas-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">08 · Personas</div>
+<h2 id="personas-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">Who we designed for</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px">
+
+<article style="border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 16px">
+<div role="img" aria-label="Persona photo placeholder" style="width: 64px; height: 64px; border-radius: 999px; background: #6f8fe0; flex: 0 0 auto"></div>
+<div><h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Melanie</h3><div style="font-size: 13px; line-height: 20px; color: #595959">The overwhelmed go-getter</div></div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 24px; font-style: italic">"I feel like I'm fighting my own body every single day."</p>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">She starts every Monday strong. By Wednesday a deadline hits, cravings spike and she falls off the wagon, then blames her willpower when she is really fighting her biology.</p>
+<div><div style="font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px">Frustrations</div>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 4px"><li>Logging every meal feels like a second job</li><li>Missing a workout feels like failing</li><li>Her period app doesn't know she's stressed</li></ul></div>
+<div><div style="font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px">Needs</div>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 4px"><li>Energy management, not micro-management</li><li>Compassionate consistency that adapts to bad days</li><li>The link between sleep, cravings and cycle</li></ul></div>
+</article>
+
+<article style="border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; gap: 16px">
+<div role="img" aria-label="Persona photo placeholder" style="width: 64px; height: 64px; border-radius: 999px; background: #5fb98a; flex: 0 0 auto"></div>
+<div><h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Aisha</h3><div style="font-size: 13px; line-height: 20px; color: #595959">The tired optimist, 26</div></div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 24px; font-style: italic">"It's hard to plan my life when my body has its own schedule."</p>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Balancing work and grad school, her energy swings unpredictably. She blames herself for inconsistency, but she is fighting hormone-driven fatigue, cravings and stress.</p>
+<div><div style="font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px">Frustrations</div>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 4px"><li>Invisible symptoms: "I look fine, but I'm wiped out"</li><li>All-or-nothing habits: one off day and she quits</li><li>No forecast for fatigue or cravings</li></ul></div>
+<div><div style="font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px">Needs</div>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 4px"><li>Energy forecasting for each phase</li><li>Gentle tracking: zero guilt, zero pressure</li><li>One helpful suggestion, not a checklist</li></ul></div>
+</article>
+
+</div>
+</section>
+
+<section aria-labelledby="fogg-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">09 · Behavior design</div>
+<h2 id="fogg-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Designing with the Fogg Behavior Model</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">A behavior happens when motivation, ability and a prompt meet at the same moment. Our users had motivation; what broke was ability on low-energy days, and prompts that felt like nagging.</p>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div aria-label="B equals M times A times P" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: clamp(28px, 4vw, 40px); font-weight: 600">
+<span>B</span><span style="color: #595959">=</span><span>M</span><span style="color: #595959">·</span><span>A</span><span style="color: #595959">·</span><span>P</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Motivation</div><div style="font-size: 13px; line-height: 20px; color: #595959">Celebrate first, so small wins feel worth repeating.</div></div>
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Ability</div><div style="font-size: 13px; line-height: 20px; color: #595959">One glanceable score and one-tap logging instead of a checklist.</div></div>
+<div style="padding: 16px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px"><div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Prompt</div><div style="font-size: 13px; line-height: 20px; color: #595959">Tapered nudges that read as invitations, not commands.</div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="flow-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">10 · Task flow</div>
+<h2 id="flow-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">A morning with AIRA</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px">
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 14px; line-height: 22px">Melanie wakes at 7:30 and taps "Energy Wave"</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 14px; line-height: 22px">Confirms the time and rates her mood</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 14px; line-height: 22px">Sees her score and the wave visualization</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">4</span><span style="font-size: 14px; line-height: 22px">Checks her cycle information</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">5</span><span style="font-size: 14px; line-height: 22px">Reads a relevant article</span></li>
+<li style="padding: 16px; border-radius: 4px; border: 1px solid #e6e6e6; display: flex; flex-direction: column; gap: 8px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center">6</span><span style="font-size: 14px; line-height: 22px">Tracks her progress over time</span></li>
+</ol>
+</section>
+
+<section aria-labelledby="concept-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">11 · The concept</div>
+<h2 id="concept-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">One ecosystem, built around hormonal harmony</h2>
+<p style="margin: 0 0 40px; font-size: 15px; line-height: 24px; color: #595959; max-width: 64ch">AIRA connects sleep, nutrition, movement, stress and cycle into a single picture, so a hard day comes with a reason and one next step.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="background: #111111; border-radius: 4px; padding: 24px; display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 3; box-sizing: border-box"><img src="/_blob/1904cbf1a9a3119d52018b1da6e8cf3b" alt="Hormonal Harmony Score card reading 92, Great" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+<h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">Hormonal Harmony Score</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">One number for today, with a plain-language reason behind it.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="background: #111111; border-radius: 4px; padding: 24px; display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 3; box-sizing: border-box"><img src="/_blob/0a8c979295af9a8599c668ba931f4c0d" alt="Cycle Insights card showing the four menstrual phases as moon-like circles" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+<h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">Phase-based recommendations</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Suggestions that change with each menstrual phase.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="background: #111111; border-radius: 4px; padding: 24px; display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 3; box-sizing: border-box"><img src="/_blob/918492fdb15877fd0d43ea1c39da4c9b" alt="Activity Logged card: Nice work showing up for yourself today" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+<h3 style="margin: 0; font-size: 16px; line-height: 22px; font-weight: 600">Sleep, energy and mood tracking</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Quick logging that answers back with encouragement and context.</p>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="where-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div>
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">12 · Beyond the app</div>
+<h2 id="where-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Meeting users where they are</h2>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-size: 16px; line-height: 22px; font-weight: 600">Widget: passive awareness</h3>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; color: #595959; display: flex; flex-direction: column; gap: 4px"><li>Keeps Aira present without demanding attention</li><li>A single glanceable metric removes "where do I even start" paralysis</li><li>The mascot carries emotional continuity from home screen to app</li></ul>
+</div>
+<div>
+<h3 style="margin: 0 0 8px; font-size: 16px; line-height: 22px; font-weight: 600">Notifications: active invitation</h3>
+<ul style="margin: 0; padding-left: 18px; font-size: 14px; line-height: 22px; color: #595959; display: flex; flex-direction: column; gap: 4px"><li>Celebrate first ("Nice work getting some movement in") before asking for anything</li><li>Reflection prompts are invitations, not commands</li><li>Part of a tapered nudge system for weeks 3–6 maintenance</li></ul>
+</div>
+</div>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; background: #111111; border-radius: 4px; padding: 24px">
+<img src="/_blob/1dddf8f98e59cc9a5164d63e0dbaafa3" alt="Lock screen with two gentle AIRA notifications" style="width: 170px; height: auto; display: block">
+<img src="/_blob/51519ae8d358ec0598dff2f8a3e13896" alt="Home screen with the AIRA widget and mascot" style="width: 170px; height: auto; display: block">
+</div>
+</section>
+
+<section aria-labelledby="ds-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">13 · Design system and mascot</div>
+<h2 id="ds-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600">A warm, friendly visual language</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; background: #111111; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/259a347a8561a5f9b1c467faebb9a5c3" alt="Typography sheet: DM Sans in bold, regular and light" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; background: #111111; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/630a0a14ea44a477ea52c50e37b5a489" alt="Color palette: coral primary, lavender secondary, neutrals and semantic colors" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+<div style="aspect-ratio: 4 / 3; border-radius: 4px; background: #111111; padding: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><img src="/_blob/114ee24e7cee827e0139e0235d6ab052" alt="Aira, a smiling orange heart mascot with open arms" style="width: 100%; height: 100%; object-fit: contain; display: block"></div>
+</div>
+</section>
+
+<section aria-labelledby="proto-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">14 · Prototype</div>
+<h2 id="proto-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Try the prototype</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">[One line on what the demo shows.]</p>
+<a href="[prototype-link]" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Open prototype →</a>
+</div>
+<div role="img" aria-label="Prototype video placeholder" style="flex: 1 1 320px; aspect-ratio: 16 / 10; border-radius: 10px; border: 1px dashed #595959; background: #fafafa; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #595959">[Demo video or GIF]</div>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">15 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I learned, and what comes next</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">[What you learned about designing for health and behavior change.]</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">[What you'd test next, e.g. retention past the two-week drop-off.]</p>
+</div>
+</section>
+
+<nav aria-label="More projects" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href="Projects.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All projects</a>
+<a href="DigitalTwin.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Ask my digital twin about AIRA →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":8200}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Niranjana — Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;color:#111111;background:#f4f4f4}
+a{color:#111111}a:hover{color:#595959}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1a5fd0;outline-offset:2px}
+.grid-paper{background-color:#ffffff;background-image:linear-gradient(rgba(229,154,160,0.45) 1px,transparent 1px),linear-gradient(90deg,rgba(229,154,160,0.45) 1px,transparent 1px);background-size:16px 16px}
+.tab{transition:background-color .25s ease, box-shadow .25s ease, transform .2s ease}.tab:not([aria-current]):hover{background:rgba(255,255,255,0.5)}.tab:active{transform:scale(0.97)}
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href="Main.dc.html" style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href="Work.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Work</a>
+<a href="Projects.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Projects</a>
+<a href="DigitalTwin.dc.html" class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href="#contact" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<section aria-labelledby="hero-title" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: stretch; padding: 64px 0 40px">
+<div style="flex: 1 1 280px; max-width: 380px; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px">
+<img src="/_blob/c33a26aee7469c133123d81d6da060a3" alt="Niranjana in a park in Brooklyn, wearing a white shirt" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 45%; border-radius: 4px">
+
+<div style="font-size: 11px; line-height: 14px; color: #595959">Brooklyn, New York</div>
+</div>
+<div class="grid-paper" style="flex: 999 1 420px; min-width: 0; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 24px">
+<h1 id="hero-title" style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; max-width: 18ch">Hello, I am Niranjana, a product manager and builder based in New York.</h1>
+<p style="margin: 0; font-size: 15px; line-height: 24px; max-width: 56ch; background: rgba(255,255,255,0.85)">I started as a product engineer, was promoted to product manager within six months, and co-founded NyanTrace.ai, where I led product for AI agent governance. Today I'm a technical product manager intern at Marketeq Digital. My rule for my work, and for the AI I build: no fabrication, only reframing.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="#background" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Background</a>
+<a href="DigitalTwin.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #ffffff; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">Ask my digital twin →</a>
+</div>
+</div>
+</section>
+
+<section aria-label="Education and experience at a glance" style="display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-start; padding: 24px 0 64px; border-bottom: 1px solid #e6e6e6">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Studied at</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
+<span>NYU Tandon School of Engineering</span>
+<span>Govt. Model Engineering College</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Worked at</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
+<span>Marketeq Digital</span>
+<span>NyanTrace.ai</span>
+<span>Method, a Hitachi Company</span>
+<span>Inflection.io</span>
+<span>NYU</span>
+</div>
+</div>
+<div style="margin-left: auto; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500">
+<span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #28c840"></span>
+Open to PM and AI PM roles
+</div>
+</section>
+
+<section id="work" aria-labelledby="work-title" style="padding: 64px 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 40px">
+<div>
+<h2 id="work-title" style="margin: 0 0 8px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Selected work</h2>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Product, AI and research in practice.</p>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">The decisions behind each one →</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px">
+
+<a href="Nexus.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Method, a Hitachi Company · Jun – Aug 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Nexus</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">An AI knowledge platform for 300+ employees that took content discovery from 5–6 hours to under 3 minutes.</p>
+</a>
+
+<a href="Nyantrace.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #111111; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">NyanTrace.ai · Co-founder &amp; CPO · 2026</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">NyanTrace</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">A governance control plane for AI agents that are technically correct but behaviorally wrong.</p>
+</a>
+
+<a href="Work.dc.html#inflection" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #5fb98a; border-radius: 4px"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Inflection.io · 2022 – 2024</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Email A/B testing and webhooks</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">A 20% lift in open rates, and webhook setup cut from 2+ hours to under 15 minutes.</p>
+</a>
+
+<a href="Pwc.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<img src="/_blob/aafce7ebd934411b3c6081527ead1164" alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px">
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">PwC × NYU Capstone · Sep – Dec 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Emerging tech for supply chains</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Eight emerging technologies, weighed on ROI, feasibility and risk, into one C-suite decision framework.</p>
+</a>
+
+<a href="Egis.dc.html" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<img src="/_blob/ce90d0dc38db9f0bab1bbaa4b6054e56" alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px">
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">EGIS Innovation Challenge · 2025</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">A green roof for Brooklyn</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">4th place globally and the #1 Employee Choice Award among 300+ teams.</p>
+</a>
+
+<a href="Projects.dc.html#agents" style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
+<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px; opacity: 0.7"></div>
+</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Personal project</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Multi-agent investment system</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Analyst, researcher and decision-maker agents, and where trust between them breaks down.</p>
+</a>
+
+</div>
+</section>
+
+<section id="background" aria-labelledby="bg-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<h2 id="bg-title" style="margin: 0 0 40px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Background</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px">
+
+<div style="flex: 999 1 520px; min-width: 0">
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Experience</h3>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Technical Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Marketeq Digital · <a href="Work.dc.html#marketeq">Jobs and Reviews</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Sep 2026 – present</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Co-founder &amp; Chief Product Officer</div><div style="font-size: 13px; line-height: 20px; color: #595959">NyanTrace.ai · New York · <a href="Nyantrace.dc.html">Case study</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jan – Jun 2026</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Graduate Teaching Assistant, Global Innovation</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU Tandon · New York</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">May 2025 – May 2026</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Method, a Hitachi Company · New York · <a href="Work.dc.html#nexus">Nexus</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jun – Aug 2025</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Engagement Ambassador</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU · New York</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Jan – May 2025</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote · <a href="Work.dc.html#inflection">Case study</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Mar 2023 – Aug 2024</div>
+</li>
+<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Engineer</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote</div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Aug 2022 – Feb 2023</div>
+</li>
+</ul>
+</div>
+
+<div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 40px">
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Education</h3>
+<div style="padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div style="font-size: 14px; line-height: 20px; font-weight: 600">M.S., Management of Technology</div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">NYU Tandon School of Engineering · 2024 – 2026</div>
+</div>
+<div style="padding: 16px 0; border-bottom: 1px solid #e6e6e6">
+<div style="font-size: 14px; line-height: 20px; font-weight: 600">B.Tech, Computer Science and Engineering</div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Govt. Model Engineering College, Kochi · 2018 – 2022</div>
+</div>
+</div>
+<div>
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Recognition</h3>
+<ul style="margin: 0; padding: 0 0 0 16px; font-size: 14px; line-height: 22px; display: flex; flex-direction: column; gap: 8px">
+<li>NYU Student Achievement Award, 2026</li>
+<li>Semi-finalist, NYU Stern Entrepreneurship Challenge, 2026</li>
+<li>4th globally, EGIS Innovation Challenge, 2025</li>
+<li>Millennium Fellow, UN Academic Impact, 2019</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<div style="margin-top: 64px">
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Skills</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px 40px">
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">Product</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Customer discovery, PRDs, roadmapping, prioritization, A/B testing, user research, stakeholder management</p>
+</div>
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">AI and technical</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">RAG and semantic search, multi-agent workflows, OpenAI and Gemini APIs, Python, SQL, Salesforce</p>
+</div>
+<div>
+<div style="font-size: 14px; line-height: 20px; font-weight: 600; margin-bottom: 8px">Tools</div>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Figma, Jira, Grafana, Firebase, Excel</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div>
+<h2 id="contact-title" style="margin: 0 0 8px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Thanks for stopping by.</h2>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Based in Brooklyn, New York. Reach me directly.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="mailto:niranjana@nyu.edu" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Email</a>
+<a href="https://www.linkedin.com/in/niranjana687/" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">LinkedIn</a>
+<a href="DigitalTwin.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">Digital Twin</a>
+</div>
+</section>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":3000}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

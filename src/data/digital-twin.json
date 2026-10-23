@@ -1,0 +1,78 @@
+{
+  "greeting": "Hi, I'm Niranjana's digital twin. I answer only from her resume and project notes. What would you like to know?",
+  "fallback": "I don't have that in my notes, and I'd rather not guess. Try one of the suggested questions, or reach the real Niranjana from the Home page.",
+  "qa": [
+    {
+      "q": "What are you working on now?",
+      "keys": [
+        "now",
+        "current",
+        "marketeq",
+        "today"
+      ],
+      "a": "I'm a technical product manager intern at Marketeq Digital, where I own the Jobs area and the Reviews epic. Before that, from January to June 2026, I co-founded NyanTrace.ai as CPO, a governance layer for AI agents that are technically correct but behaviorally wrong."
+    },
+    {
+      "q": "Tell me about NyanTrace",
+      "keys": [
+        "nyantrace",
+        "startup",
+        "founder",
+        "governance",
+        "cpo"
+      ],
+      "a": "I co-founded NyanTrace.ai and led product from January to June 2026. I ran five discovery interviews and an enterprise buyer call, wrote the MVP PRD, and shaped it into a governance layer for agents in production: audit trails, policy enforcement, human approvals and kill switches."
+    },
+    {
+      "q": "How did you get into product?",
+      "keys": [
+        "product",
+        "pm",
+        "start",
+        "career",
+        "engineer"
+      ],
+      "a": "I started as a product engineer at Inflection.io, working on Salesforce integrations and backend systems. Within about six months I was promoted to product manager, working directly with the CEO."
+    },
+    {
+      "q": "Tell me about Nexus",
+      "keys": [
+        "nexus",
+        "method",
+        "hitachi",
+        "rag",
+        "search",
+        "intern"
+      ],
+      "a": "Nexus is an internal AI knowledge platform I led at Method, a Hitachi company. It searches Drive, Slack, Miro and Figma with permission-aware access. It took discovery from 5-6 hours to under 3 minutes for 300+ employees, from research to MVP in 8 weeks."
+    },
+    {
+      "q": "How do you approach AI products?",
+      "keys": [
+        "ai",
+        "llm",
+        "hallucination",
+        "approach",
+        "agent"
+      ],
+      "a": "No fabrication, only reframing. At Inflection I narrowed the scope of a generative AI feature when hallucinations made it unsafe to ship broadly. At NyanTrace I build the guardrails: approvals, scoped permissions, kill switches and audit trails."
+    },
+    {
+      "q": "Are you open to roles?",
+      "keys": [
+        "open",
+        "role",
+        "hire",
+        "hiring",
+        "job",
+        "available"
+      ],
+      "a": "Yes. I'm looking for PM and AI PM roles. The fastest way to reach me is email or LinkedIn, both on the Home page."
+    }
+  ],
+  "styles": {
+    "row": "display: flex; justify-content: ",
+    "twin": "max-width: 80%; padding: 12px 16px; border-radius: 4px 16px 16px 16px; background: #fafafa; border: 1px solid #e6e6e6; font-size: 14px; line-height: 22px; color: #111111",
+    "me": "max-width: 80%; padding: 12px 16px; border-radius: 16px 4px 16px 16px; background: #111111; font-size: 14px; line-height: 22px; color: #ffffff"
+  }
+}
