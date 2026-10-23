@@ -23,7 +23,8 @@ jobs:
       # Builds the site, then runs scripts/check-site.mjs (broken links/images fail the build).
       - uses: withastro/action@v5
         with:
-          node-version: 22
+          # Astro 7 needs Node >=22.23.4; "22" can resolve to an older patch on the runner, so use 24.
+          node-version: 24
           build-cmd: npm run build:ci
 
   deploy:
