@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Layout title={"Inflection.io — case study"}>
+<div style="min-height: 100vh; background: #f4f4f4; padding: clamp(0px, 3vw, 40px); box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; color: #111111">
+<div style="max-width: 1160px; margin: 0 auto; background: #ffffff; padding: 0 clamp(16px, 5vw, 64px); box-sizing: border-box">
+
+<header style="position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; margin: 0 calc(-1 * clamp(16px, 5vw, 64px)); padding-left: clamp(16px, 5vw, 64px); padding-right: clamp(16px, 5vw, 64px); background: rgba(255,255,255,0.62); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(17,17,17,0.06)">
+<a href={`${base}`} style="display: flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; color: #111111">
+<span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; box-shadow: 0 2px 8px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600">NJ</span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 600">Niranjana</span>
+</a>
+<nav aria-label="Primary" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(244,244,244,0.55); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 8px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9)">
+<a href={`${base}work/`} class="tab" aria-current="page" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 600; color: #111111; text-decoration: none; background: rgba(255,255,255,0.85); box-shadow: 0 1px 2px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,1); border: 0.5px solid rgba(17,17,17,0.08)">Work</a>
+<a href={`${base}projects/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Projects</a>
+<a href={`${base}digital-twin/`} class="tab" style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-size: 13px; line-height: 16px; font-weight: 500; color: #111111; text-decoration: none">Digital Twin</a>
+</nav>
+<a href={`${base}#contact`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500; color: #111111; text-decoration: none">Contact</a>
+</header>
+
+<a href={`${base}work/`} style="display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; font-size: 13px; color: #595959; text-decoration: none">← All work</a>
+
+<section aria-labelledby="page-title" style="padding: 40px 0 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 800px">
+<div style="font-size: 11px; line-height: 14px; color: #595959">Inflection.io · Aug 2022 – Aug 2024</div>
+<h1 id="page-title" style="margin: 0; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">Personalization at scale for B2B marketers</h1>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #595959">I joined Inflection.io, a B2B marketing automation platform, as a product engineer and was promoted to product manager within six months. Working directly with the CEO, I owned features end to end, from customer discovery to release, that helped marketers personalize, test and connect their campaigns.</p>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; padding: 24px 0; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6">
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">My role</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Product Engineer, then Product Manager</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Worked with</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">CEO, engineering, design, data science, customers</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Company</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">B2B marketing automation, founded by former Bizible and Marketo operators</dd></div>
+<div><dt style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 4px">Customers</dt><dd style="margin: 0; font-size: 14px; line-height: 22px">Mural, Vercel, BILL, Clay, Sauce Labs</dd></div>
+</dl>
+<div style="border-radius: 10px; border: 1px solid #e6e6e6; box-shadow: 0 12px 32px rgba(0,0,0,0.18); overflow: hidden">
+<div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: #fafafa; border-bottom: 1px solid #e6e6e6">
+<div aria-hidden="true" style="display: flex; gap: 4px"><span style="width: 10px; height: 10px; border-radius: 999px; background: #ff5f57"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #febc2e"></span><span style="width: 10px; height: 10px; border-radius: 999px; background: #28c840"></span></div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">inflection.io</div>
+</div>
+<img src={`${base}images/3403ee5bb210263ce0e9da1f6ff2c9d2.png`} alt="Inflection token editor: a product-event token with live preview and a getting-started guide" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover">
+</div>
+</section>
+
+<section aria-label="Impact" style="padding: 0 0 64px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">40%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">improvement in customer activation and retention</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">+20%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">open rates, and +15% click-through, from A/B testing</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">&lt; 15 min</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">webhook setup, down from 2+ hours, with 100% adoption</div></div>
+<div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 24px"><div style="font-size: 32px; line-height: 1.1; font-weight: 600">35–40%</div><div style="font-size: 13px; line-height: 20px; color: #595959; margin-top: 8px">lower per-tenant email validation cost</div></div>
+</div>
+</section>
+
+<section aria-labelledby="tok-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">01 · Featured · Hyper-personalized tokens</div>
+<h2 id="tok-title" style="margin: 0 0 16px; font-size: 28px; line-height: 1.2; font-weight: 600">Breaking through the personalization wall</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px 64px; margin-bottom: 40px">
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">Enterprise customers wanted to reach thousands of prospects without emails that read like templates. Sales reps were spending 15–20 minutes researching each prospect, and manual research ate up about 40% of their productive time.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">With design and engineering, I built personalization tokens that pull together <strong>Salesforce</strong> data and <strong>real-time product and data-warehouse data</strong>, so one email can speak to each contact's role, account and behavior.</p>
+</div>
+<blockquote class="grid-paper" style="flex: 1 1 280px; margin: 0; padding: 24px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); font-size: 17px; line-height: 26px; align-self: flex-start"><span style="background: rgba(255,255,255,0.9)">"Your platform handles our workflows perfectly, but we're hitting a personalization wall."</span><span style="display: block; margin-top: 12px; font-size: 12px; color: #595959; background: rgba(255,255,255,0.9)">VP of Sales, enterprise customer</span></blockquote>
+</div>
+
+<h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">How tokens work</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px">
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 15px; font-weight: 600">Build once, use anywhere</div><div style="font-size: 13px; line-height: 20px; color: #595959">A token is a saved reference to any contact, user, org or account attribute, from first name to renewal date or health score.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 15px; font-weight: 600">Calculations and behavior</div><div style="font-size: 13px; line-height: 20px; color: #595959">Excel-like formulas combine fields, apply conditions and count activity, like pricing-page visits in the last 30 days.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 15px; font-weight: 600">Everywhere in the email</div><div style="font-size: 13px; line-height: 20px; color: #595959">Subject lines, body copy, dynamic images and personalized links, plus branching in journeys.</div></div>
+<div style="padding: 20px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-direction: column; gap: 8px"><div style="font-size: 15px; font-weight: 600">Safe by default</div><div style="font-size: 13px; line-height: 20px; color: #595959">Every token requires a fallback, so a missing value reads "Hi there," never "Hi ,".</div></div>
+</div>
+<div style="padding: 24px; border-radius: 4px; background: #111111; color: #f4f4f4; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 13px; line-height: 22px; overflow-x: auto">
+<div style="color: #a6a6a6">Subject line</div>
+<div>&#123;&#123;column('first_name')&#125;&#125;, your team visited pricing &#123;&#123;token('pricing_visits_30d')&#125;&#125; times</div>
+<div style="color: #a6a6a6; margin-top: 12px">Body copy</div>
+<div>if(column("plan") == "Pro", "Premium features", "Standard features")</div>
+</div>
+<p style="margin: 12px 0 0; font-size: 12px; line-height: 18px; color: #595959">Illustrative example using Inflection's token syntax.</p>
+
+<div style="margin-top: 40px; padding: 24px; border: 1px solid #e6e6e6; border-radius: 4px; display: flex; flex-wrap: wrap; gap: 24px 48px">
+<div style="flex: 1 1 260px; min-width: 0"><div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 6px">What I built next · 2024</div><h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">AI Tokens and AI Emails</h3></div>
+<div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 14px; line-height: 22px">I took tokens further with AI Tokens, which infer context like tech stack and pain points from multiple sources, and AI Emails, which personalize each message while keeping the brand voice. My guiding principle: augment reps, don't replace them. AI does the research and the first draft; people own the strategy and the voice.</p>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">We validated it with a working proof of concept. In blind tests, AI-written emails matched the quality of reps' manual emails.</p>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="ab-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">02 · A/B testing</div>
+<h2 id="ab-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Letting marketers test, not guess</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">I conceived and shipped A/B testing for email campaigns, so marketers could compare subject lines, content and send times instead of relying on instinct.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px">
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 24px; font-weight: 600">+20%</div><div style="font-size: 12px; line-height: 18px; color: #595959">open rates</div></div>
+<div style="padding: 16px; background: #fafafa; border-radius: 4px"><div style="font-size: 24px; font-weight: 600">+15%</div><div style="font-size: 12px; line-height: 18px; color: #595959">click-through rate</div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="wh-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">03 · Inbound webhooks</div>
+<h2 id="wh-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">From a two-hour setup to fifteen minutes</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">Connecting outside tools was slow and needed engineering help. I built an inbound webhook system that supports 25+ providers and cut setup from more than two hours to under fifteen minutes, with 100% adoption.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">25+ providers</span><span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">2+ hrs → &lt; 15 min</span><span style="padding: 8px 16px; border-radius: 999px; border: 1px solid #e6e6e6; background: #fafafa; font-size: 13px">100% adoption</span></div>
+</div>
+</section>
+
+<section aria-labelledby="vd-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">04 · A data-driven decision</div>
+<h2 id="vd-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">Making the case for a new vendor</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0">
+<p style="margin: 0; font-size: 15px; line-height: 24px">I analyzed email volume and bounce-rate data and made the case to leadership for a new email validation vendor. The switch cut per-tenant cost by 35–40% and improved deliverability and GDPR compliance.</p>
+</div>
+</section>
+
+<section aria-labelledby="nba-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">05 · Knowing when to say less</div>
+<h2 id="nba-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">A generative AI "Next Best Action"</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">With data scientists, I led an engine that used CRM and product-usage data to recommend each account's next marketing move. When hallucinations made broad recommendations unsafe, I narrowed the scope instead of shipping something we couldn't trust.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">It's the same principle I later built a company around: AI is only useful when people can trust it.</p>
+</div>
+</section>
+
+<section aria-labelledby="cust-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">06 · Close to customers</div>
+<h2 id="cust-title" style="margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600">A roadmap shaped by deals</h2>
+</div>
+<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 15px; line-height: 24px">I worked with prospects and customers on requirements and roadmap fit. Integrations with Salesforce, Slack and Zoom Webinar, plus a quick workaround for a customer's Eventbrite need, helped about 40% of active deals move toward close.</p>
+<p style="margin: 0; font-size: 15px; line-height: 24px">I also launched customer-facing product documentation in under six weeks.</p>
+</div>
+</section>
+
+<section aria-labelledby="learn-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6">
+<div style="font-size: 11px; line-height: 14px; color: #595959; margin-bottom: 8px">07 · Reflection</div>
+<h2 id="learn-title" style="margin: 0 0 24px; font-size: 28px; line-height: 1.2; font-weight: 600">What I took away</h2>
+<p style="margin: 0; font-size: 15px; line-height: 24px; max-width: 64ch">Knowing the codebase well gave me a foundation, but moving into product meant going back to the beginning: identifying new business use cases, uncovering customer pain points worth solving, and then building the solutions. Along the way I developed deep customer empathy and an understanding of industry trends, and that foundation still anchors my career.</p>
+</section>
+
+<nav aria-label="More work" style="padding: 40px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px">
+<a href={`${base}work/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">← All work</a>
+<a href={`${base}case-studies/nyantrace/`} style="display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none">Next: NyanTrace →</a>
+</nav>
+
+<footer style="padding: 32px 0; border-top: 1px solid #e6e6e6; font-size: 13px; line-height: 20px; color: #595959">Niranjana · Product Manager · New York, NY</footer>
+
+</div>
+</div>
+</Layout>
