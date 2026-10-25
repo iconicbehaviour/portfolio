@@ -26,8 +26,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <div style="font-size: 11px; line-height: 14px; color: #595959">Brooklyn, New York</div>
 </div>
 <div class="grid-paper" style="flex: 999 1 420px; min-width: 0; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.25); padding: clamp(24px, 4vw, 48px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 24px">
-<h1 id="hero-title" style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; max-width: 18ch">Hello, I am Niranjana, a product manager and builder based in New York.</h1>
-<p style="margin: 0; font-size: 15px; line-height: 24px; max-width: 56ch; background: rgba(255,255,255,0.85)">I started as a product engineer, was promoted to product manager within six months, and co-founded NyanTrace.ai, where I led product for AI agent governance. Today I'm a technical product manager intern at Marketeq Digital. My rule for my work, and for the AI I build: no fabrication, only reframing.</p>
+<h1 id="hero-title" style="margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; max-width: 100%"><span style="display: block">Product manager. Builder.</span><span style="display: block">Technology for good.</span></h1>
+<p style="margin: 0; font-size: 15px; line-height: 24px; max-width: 56ch; background: rgba(255,255,255,0.85)">I’m Niranjana, a product manager in New York. I’ve shipped AI products from a company-wide knowledge platform to a startup governing AI agents.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="#background" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Background</a>
 <a href={`${base}digital-twin/`} style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #ffffff; border: 1px solid #e6e6e6; color: #111111; font-size: 13px; font-weight: 500; text-decoration: none">Ask my digital twin →</a>
@@ -38,19 +38,17 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <section aria-label="Education and experience at a glance" style="display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-start; padding: 24px 0 64px; border-bottom: 1px solid #e6e6e6">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <div style="font-size: 11px; line-height: 14px; color: #595959">Studied at</div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
-<span>NYU Tandon School of Engineering</span>
-<span>Govt. Model Engineering College</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 40px; min-height: 44px">
+<img src={`${base}images/3983b7f153f9e79f0ed9142399866d46.png`} alt="NYU Tandon School of Engineering" style="display: block; height: 32px; width: auto">
+<img src={`${base}images/6d83745ae412401099902f75dc69f330.png`} alt="Govt. Model Engineering College, Kochi" style="display: block; height: 42px; width: auto">
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <div style="font-size: 11px; line-height: 14px; color: #595959">Worked at</div>
-<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 600">
-<span>Marketeq Digital</span>
-<span>NyanTrace.ai</span>
-<span>Method, a Hitachi Company</span>
-<span>Inflection.io</span>
-<span>NYU</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 40px; min-height: 44px">
+<img src={`${base}images/97d6b5b4d1e3df2908fa236d64b61d4e.png`} alt="NyanTrace" style="display: block; height: 30px; width: auto">
+<img src={`${base}images/89d87a4b50034b0dd0fc334098b71e60.png`} alt="Method, a GlobalLogic company" style="display: block; height: 28px; width: auto">
+<img src={`${base}images/f012d0a5b691a34d80d01ace2371c5a4.png`} alt="Inflection" style="display: block; height: 24px; width: auto">
 </div>
 </div>
 <div style="margin-left: auto; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; background: #fafafa; border: 1px solid #e6e6e6; font-size: 13px; font-weight: 500">
@@ -65,31 +63,31 @@ Open to PM and AI PM roles
 <h2 id="work-title" style="margin: 0 0 8px; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em">Selected work</h2>
 <p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Product, AI and research in practice.</p>
 </div>
-<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">The decisions behind each one →</p>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959"><a href={`${base}projects/`} style="color: #595959; text-decoration: none">The decisions behind each one →</a></p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 40px">
 
 <a href={`${base}case-studies/nexus/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
-<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px"></div>
+<img src={`${base}images/a9484fa46a35712b1c368ffa9ae91bd8.png`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 4px; background: #ffffff">
 </div>
-<div style="font-size: 11px; line-height: 14px; color: #595959">Method, a Hitachi Company · Jun – Aug 2025</div>
+<div style="font-size: 11px; line-height: 14px; color: #595959">Method, a Hitachi Company · 2025</div>
 <h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Nexus</h3>
 <p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">An AI knowledge platform for 300+ employees that took content discovery from 5–6 hours to under 3 minutes.</p>
 </a>
 
 <a href={`${base}case-studies/nyantrace/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
-<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #111111; border-radius: 4px"></div>
+<img src={`${base}images/8aa651dc0ff35ffb3a41a55e255c3df3.jpg`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 4px; background: linear-gradient(180deg, #161c28 0%, #151723 100%); height: auto">
 </div>
 <div style="font-size: 11px; line-height: 14px; color: #595959">NyanTrace.ai · Co-founder &amp; CPO · 2026</div>
 <h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">NyanTrace</h3>
 <p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">A governance control plane for AI agents that are technically correct but behaviorally wrong.</p>
 </a>
 
-<a href={`${base}work/#inflection`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<a href={`${base}case-studies/inflection/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
-<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #5fb98a; border-radius: 4px"></div>
+<img src={`${base}images/3403ee5bb210263ce0e9da1f6ff2c9d2.png`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: #ffffff">
 </div>
 <div style="font-size: 11px; line-height: 14px; color: #595959">Inflection.io · 2022 – 2024</div>
 <h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Email A/B testing and webhooks</h3>
@@ -98,7 +96,7 @@ Open to PM and AI PM roles
 
 <a href={`${base}case-studies/pwc/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
-<img src={`${base}images/aafce7ebd934411b3c6081527ead1164.jpg`} alt="" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px">
+<img src={`${base}images/4d078e4316394dd7cf69ec4171f317f1.png`} alt="PwC × NYU Tandon" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: #ffffff; border: 1px solid #e6e6e6; box-sizing: border-box">
 </div>
 <div style="font-size: 11px; line-height: 14px; color: #595959">PwC × NYU Capstone · Sep – Dec 2025</div>
 <h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Emerging tech for supply chains</h3>
@@ -114,13 +112,13 @@ Open to PM and AI PM roles
 <p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">4th place globally and the #1 Employee Choice Award among 300+ teams.</p>
 </a>
 
-<a href={`${base}projects/#agents`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
+<a href={`${base}case-studies/aira/`} style="display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: #111111">
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px">
-<div aria-hidden="true" style="aspect-ratio: 4 / 3; background: #6f8fe0; border-radius: 4px; opacity: 0.7"></div>
+<div style="aspect-ratio: 4 / 3; background: #111111; border-radius: 4px; display: flex; align-items: center; justify-content: center"><img src={`${base}images/114ee24e7cee827e0139e0235d6ab052.jpg`} alt="" style="display: block; height: 75%; width: auto"></div>
 </div>
-<div style="font-size: 11px; line-height: 14px; color: #595959">Personal project</div>
-<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">Multi-agent investment system</h3>
-<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Analyst, researcher and decision-maker agents, and where trust between them breaks down.</p>
+<div style="font-size: 11px; line-height: 14px; color: #595959">NYU · Digital health</div>
+<h3 style="margin: 0; font-size: 18px; line-height: 24px; font-weight: 600">AIRA: a gentle companion for PCOS</h3>
+<p style="margin: 0; font-size: 14px; line-height: 22px; color: #595959">Why women with PCOS abandon trackers, and an app that connects sleep, nutrition, movement, stress and cycle.</p>
 </a>
 
 </div>
@@ -134,7 +132,7 @@ Open to PM and AI PM roles
 <h3 style="margin: 0 0 16px; font-size: 11px; line-height: 14px; font-weight: 600; color: #595959; text-transform: uppercase; letter-spacing: 0.08em">Experience</h3>
 <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
-<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Technical Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Marketeq Digital · <a href={`${base}work/#marketeq`}>Jobs and Reviews</a></div></div>
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Technical Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Marketeq Digital · Jobs and Reviews</div></div>
 <div style="font-size: 13px; line-height: 20px; color: #595959">Sep 2026 – present</div>
 </li>
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
@@ -142,19 +140,15 @@ Open to PM and AI PM roles
 <div style="font-size: 13px; line-height: 20px; color: #595959">Jan – Jun 2026</div>
 </li>
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
-<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Graduate Teaching Assistant, Global Innovation</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU Tandon · New York</div></div>
-<div style="font-size: 13px; line-height: 20px; color: #595959">May 2025 – May 2026</div>
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Technology Strategy Student Consultant</div><div style="font-size: 13px; line-height: 20px; color: #595959">PwC × NYU Capstone · New York · <a href={`${base}case-studies/pwc/`}>Case study</a></div></div>
+<div style="font-size: 13px; line-height: 20px; color: #595959">Sep – Dec 2025</div>
 </li>
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
-<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Method, a Hitachi Company · New York · <a href={`${base}work/#nexus`}>Nexus</a></div></div>
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager Intern</div><div style="font-size: 13px; line-height: 20px; color: #595959">Method, a Hitachi Company · New York · <a href={`${base}case-studies/nexus/`}>Nexus</a></div></div>
 <div style="font-size: 13px; line-height: 20px; color: #595959">Jun – Aug 2025</div>
 </li>
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
-<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Engagement Ambassador</div><div style="font-size: 13px; line-height: 20px; color: #595959">NYU · New York</div></div>
-<div style="font-size: 13px; line-height: 20px; color: #595959">Jan – May 2025</div>
-</li>
-<li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">
-<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote · <a href={`${base}work/#inflection`}>Case study</a></div></div>
+<div><div style="font-size: 14px; line-height: 20px; font-weight: 600">Product Manager</div><div style="font-size: 13px; line-height: 20px; color: #595959">Inflection.io · Remote · <a href={`${base}case-studies/inflection/`}>Case study</a></div></div>
 <div style="font-size: 13px; line-height: 20px; color: #595959">Mar 2023 – Aug 2024</div>
 </li>
 <li style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid #e6e6e6">

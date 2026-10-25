@@ -12,21 +12,23 @@
     "Loop": "case-studies/loop",
     "Nexus": "case-studies/nexus",
     "Pwc": "case-studies/pwc",
-    "Nyantrace": "case-studies/nyantrace"
+    "Nyantrace": "case-studies/nyantrace",
+    "Inflection": "case-studies/inflection"
   },
   "hashes": {
-    "Aira": "4f91134daefa42a5dc6d6ed875df10caf2b4805cabeaa8272639da5fe5b10cb3",
-    "BeReal": "beb409ea45254f9ea8d7103e4dcdd4e1bedbb5d202d788307767a004bd5b3a31",
+    "Aira": "2645ba28cfdc3af4826e5fb7e8c9fc4a55fc709baf3f38af0b3c681b7e49bd90",
+    "BeReal": "350257b965423f639570981746c6ad8faedcdff2ed2fe0417cbcdc3a51871bbd",
     "Creator": "1b1dc8130162fde8c140bd75ce3974ef304b2a2e74f758064b726a813230e118",
     "DigitalTwin": "d6a69cf59f613336197b58ad1ce160436055318941e491bd305b0936c8672b78",
     "Egis": "b61920ec2260d82166fcae4eed7aff826b337660f901d379ed79d7ec845e1438",
+    "Inflection": "5bedd26e95a4ab362c5ae5f89e2b7e3cdc98dcd834a91a2bcc0d1e6c4bc7fd85",
     "Loop": "07673663f36028aab45fcbf051d4ceb363200fcbe06b2061347fedf25b163f0f",
-    "Main": "2934251194d79c9e3049fe8f80c738f8738bbfd99b1b6dbd48a8523dcdd2405e",
-    "Nexus": "4408adc2a2c87b2985d4c42bcdb918d9f7271a023113ea3e3a1d980f53104dfe",
-    "Nyantrace": "101438f772f5d6919e3f51e34a89ce8994c01eda8e5008499dbe86029d5115de",
-    "Projects": "2344a590c9caef90ce52540dfe99a08a7694f4d889013afbc4905c7696e0110e",
-    "Pwc": "cb07cbeaf8b0641a1676e493e064d51983ffb2e3c511e37c4f8bf1eb33299988",
-    "Work": "8bb5eab1fb5a46a0f214aee69723116f20a8becb7c6bf78c85bba6ba604a0831",
+    "Main": "2fec3cca9aff771fdec02a684defa527d01d67df772a81ef419343e6b62581e7",
+    "Nexus": "58021698acbad12d89dcd135e9e566016b36902547f71d4d4ab6ab5588c911bc",
+    "Nyantrace": "1ea080f9511e1d336e6c0ea75f0685b519c6f4d39af1f99d2719bc3f5a2f5124",
+    "Projects": "67f73b7f6d0678e43795f1c888afaea2ca3848bbdc13c8af9d6d61b53df69c81",
+    "Pwc": "fff373f471802bddd45b1cc29c63e20c2f1df87d479ac8a41b6d7ad2ade4321c",
+    "Work": "0e365f6966e100ef2f2cfd66abf97d1473404088fe140dc59b0523ab5b4cdc0b",
     "_tokens": "c9c18dc7cbc28bebfe1a7c96e02a9ef15a55c0aa483c1e5a73a15be80fbd886c"
   },
   "generated": [
@@ -54,6 +56,11 @@
       "name": "Egis",
       "route": "case-studies/egis",
       "file": "src/pages/case-studies/egis.astro"
+    },
+    {
+      "name": "Inflection",
+      "route": "case-studies/inflection",
+      "file": "src/pages/case-studies/inflection.astro"
     },
     {
       "name": "Loop",
@@ -91,5 +98,5 @@
       "file": "src/pages/work.astro"
     }
   ],
-  "syncedAt": "2026-10-23T15:55:39.443Z"
+  "syncedAt": "2026-10-25T20:10:22.085Z"
 }

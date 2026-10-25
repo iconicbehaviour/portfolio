@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <h1 id="page-title" style="margin: 0 0 16px; font-size: clamp(28px, 4vw, 40px); line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; max-width: 22ch">Products I have shipped, and the decisions behind them.</h1>
 <p style="margin: 0 0 24px; font-size: 15px; line-height: 24px; color: #595959; max-width: 60ch">Each case study follows the same shape: the problem, what I did, and what changed.</p>
 <nav aria-label="Case studies" style="display: flex; flex-wrap: wrap; gap: 8px">
-<a href="#marketeq" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; text-decoration: none">Marketeq Digital</a>
+
 <a href="#nyantrace" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; text-decoration: none">NyanTrace.ai</a>
 <a href="#nexus" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; text-decoration: none">Nexus at Method</a>
 <a href="#inflection" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #e6e6e6; font-size: 13px; text-decoration: none">Inflection.io</a>
@@ -32,25 +32,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 </nav>
 </section>
 
-<article id="marketeq" aria-labelledby="mq-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
-<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div style="font-size: 11px; line-height: 14px; color: #595959">Marketeq Digital · Sep 2026 – present</div>
-<h2 id="mq-title" style="margin: 0; font-size: 24px; line-height: 1.25; font-weight: 600">Shaping the Jobs marketplace</h2>
-<dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 13px; line-height: 20px">
-<dt style="color: #595959">Role</dt><dd style="margin: 0">Technical Product Manager Intern</dd>
-<dt style="color: #595959">Owns</dt><dd style="margin: 0">Jobs area and the Reviews epic</dd>
-</dl>
-</div>
-<div style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<p style="margin: 0; font-size: 15px; line-height: 24px">I own the Jobs area end to end, starting with the Job Creation epic. It spans six features: publishing a job, job search, job listings, applying, My Jobs, and viewing and shortlisting candidates. I also own the Reviews epic.</p>
-<ul style="margin: 0; padding-left: 18px; font-size: 15px; line-height: 24px; display: flex; flex-direction: column; gap: 8px">
-<li>Write UX requirements against the Figma designs, which are our source of truth.</li>
-<li>Run structured rounds of open questions on design gaps with product leadership.</li>
-<li>Break work into Jira epics and stories for engineering.</li>
-</ul>
-<p style="margin: 0; font-size: 15px; line-height: 24px; color: #595959">[Add an early outcome when you have one.]</p>
-</div>
-</article>
+
 
 <article id="nyantrace" aria-labelledby="nt-title" style="padding: 64px 0; border-top: 1px solid #e6e6e6; display: flex; flex-wrap: wrap; gap: 40px 64px">
 <div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
@@ -157,6 +139,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px"><div style="font-size: 24px; font-weight: 600">&lt; 15 min</div><div style="font-size: 13px; line-height: 20px; color: #595959">webhook setup, down from 2+ hours</div></div>
 <div style="background: #fafafa; border: 1px solid #e6e6e6; border-radius: 4px; padding: 16px"><div style="font-size: 24px; font-weight: 600">35–40%</div><div style="font-size: 13px; line-height: 20px; color: #595959">lower per-tenant validation cost</div></div>
 </div>
+<a href={`${base}case-studies/inflection/`} style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #111111; color: #ffffff; font-size: 13px; font-weight: 500; text-decoration: none">Read the full case study →</a>
 </div>
 </article>
 
