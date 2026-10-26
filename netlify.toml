@@ -1,0 +1,8 @@
+# Netlify serves the site from the domain root, unlike GitHub Pages (/portfolio/).
+[build]
+  command = "npm run build:ci"
+  publish = "dist"
+
+[build.environment]
+  SITE_BASE = "/"
+  SITE_URL = "https://iconicbehaviour.netlify.app"
