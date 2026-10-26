@@ -11,6 +11,9 @@ const {
   title,
   description = 'Niranjana — product manager building AI products. Case studies, projects and a digital twin you can ask questions.',
 } = Astro.props;
+
+// Link-preview image (Slack, iMessage, LinkedIn…); absolute URL required by most scrapers.
+const ogImage = new URL(`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}og-image.png`, Astro.site).href;
 ---
 
 <!doctype html>
@@ -20,6 +23,17 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NJ" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="NJ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
