@@ -31,7 +31,7 @@
     },
     "DigitalTwin.dc.html": {
       "expand": "fill",
-      "h": 1100,
+      "h": 1140,
       "is_interactive": true,
       "title": "Digital Twin",
       "w": 1280,
@@ -47,15 +47,6 @@
       "x": 5440,
       "y": 0
     },
-    "Loop.dc.html": {
-      "expand": "fill",
-      "h": 7000,
-      "is_interactive": true,
-      "title": "Case study — Loop",
-      "w": 1280,
-      "x": 5440,
-      "y": 7120
-    },
     "Inflection.dc.html": {
       "expand": "fill",
       "h": 6800,
@@ -64,6 +55,15 @@
       "w": 1280,
       "x": 8160,
       "y": 0
+    },
+    "Loop.dc.html": {
+      "expand": "fill",
+      "h": 7000,
+      "is_interactive": true,
+      "title": "Case study — Loop",
+      "w": 1280,
+      "x": 5440,
+      "y": 7120
     },
     "Main.dc.html": {
       "expand": "fill",
