@@ -28,7 +28,7 @@
     "Inflection": "case-studies/inflection"
   },
   "hashes": {
-    "Aira": "c1458e829c676a71e60cc1750c7e08c6540bf99d4353333b8008f3554d541e79",
+    "Aira": "9d48261d2ca6a31bc6e56b5b35d9aef80daebbf859a1988b2ee2a97d412666ad",
     "BeReal": "e659efd31d6bf4195d2a5306fa0b4f73cec5e463a2267f5ea5247d8afcf609a9",
     "Creator": "df6e346d84970aceb386bc3e7e4e7dfcb737b8008b2d2b97b8b473dbd9c11826",
     "DigitalTwin": "69984dc4bac4c4cf6d91585138dd8441b31d974833f282a9855bb868440fa8fc",
@@ -110,5 +110,5 @@
       "file": "src/pages/work.astro"
     }
   ],
-  "syncedAt": "2026-10-27T15:23:02.220Z"
+  "syncedAt": "2026-10-27T15:26:14.441Z"
 }
