@@ -6,3 +6,9 @@
 [build.environment]
   SITE_BASE = "/"
   SITE_URL = "https://iconicbehaviour.netlify.app"
+
+# The Digital Twin (see CLAUDE.md → Digital Twin). Functions are bundled after the build command, which
+# first generates netlify/functions/twin-kb.json from the built pages.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

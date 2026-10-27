@@ -10,7 +10,7 @@ Pushing to `main` deploys to GitHub Pages (`.github/workflows/deploy.yml`). Pull
 | Path | Owner |
 | --- | --- |
 | `src/pages/**`, `src/styles/*.css`, `src/data/digital-twin.json`, `design/source/**` | **Generated** by `scripts/sync-design.mjs`. Never edit by hand — the next sync overwrites it. |
-| `src/layouts/Layout.astro`, `scripts/**`, `astro.config.mjs`, `.github/**` | Hand-written. Changes that must survive a redesign go here. |
+| `src/layouts/Layout.astro`, `scripts/**`, `astro.config.mjs`, `.github/**`, `netlify/**`, `twin/**` | Hand-written. Changes that must survive a redesign go here. |
 | `public/images/<id>.<ext>` | Downloaded design assets, named by their design asset id. |
 | `public/prototypes/<name>/index.html` | **Generated** by `scripts/sync-prototypes.mjs` from the prototype artifacts listed in `design.manifest.json` → `prototypes`. Never edit by hand. |
 
@@ -52,7 +52,30 @@ route) and run `sync-prototypes.mjs`. `check-site.mjs` warns about any link that
 - **No fabrication, only reframing.** Never fill a design placeholder (`[Your role]`, `[Add traction…]`, `mailto:[your-email]`,
   `[prototype-link]`) with invented content. Leave it and list it in your report.
 - Images, copy and numbers come from the design as-is.
-- The Digital Twin answers only from `src/data/digital-twin.json` (generated from the design). It has no backend and calls no model.
+- The Digital Twin answers only from its knowledge base: the generated pages, the design's own Q&A, and `twin/profile.json`
+  (facts NJ stated herself). See **Digital Twin** below. It never answers from model memory, and never answers compensation,
+  work-authorization, start-date or reference questions (those go to NJ).
+
+## Digital Twin
+
+A live twin: `POST /api/twin` (Netlify Function) retrieves passages from the knowledge base, asks a model to answer from
+them only, and the server rejects anything uncited or with numbers that are not in the cited passages. If nothing grounded
+survives, the reply is "I don't have that" plus a handoff to NJ (email, and a booking link once set).
+
+| Path | Owner |
+| --- | --- |
+| `scripts/build-kb.mjs`, `netlify/**`, `twin/**`, `scripts/transforms/DigitalTwin.mjs` | Hand-written. |
+| `netlify/functions/twin-kb.json` | **Generated** by `build-kb.mjs` at every build (gitignored). Page sections + design Q&A + `twin/profile.json`. |
+| `src/pages/digital-twin.astro` | Generated from the design **through the DigitalTwin transform**; the match button, sources, handoff and API calls live in the transform, not the design. |
+
+- **Knowledge changes:** edit the design (pages) or `twin/profile.json` (facts), then build. Nothing else feeds the twin.
+- **Booking link:** set `bookingUrl` in `twin/config.json` (Google Calendar appointment page). While `null`, the twin offers email only.
+- **Env vars (Netlify):** `ANTHROPIC_API_KEY` (required; without it the page uses its static Q&A), `TWIN_MODEL` (default
+  `claude-haiku-5-5`), `TWIN_ADMIN_TOKEN` (enables `GET /api/twin-log` with `Authorization: Bearer …`, listing unanswered questions).
+- **GitHub Pages** is static: its build sets `PUBLIC_TWIN_API` to the Netlify function (CORS-allowed in `twin/config.json`).
+- **Logging:** unanswered questions are stored (scrubbed of emails and numbers, no identity) in Netlify Blobs; routed topics store
+  the topic only; pasted job descriptions are never stored. The page says so. Keep that notice accurate if logging changes.
+- **Test:** `npm run test:twin` (mock model, no key needed). Run it after changing the function, the core, or the profile.
 
 ## Local
 

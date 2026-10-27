@@ -5,13 +5,16 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "build:ci": "astro build && node scripts/check-site.mjs",
+    "build": "node scripts/build-kb.mjs && astro build",
+    "build:ci": "node scripts/build-kb.mjs && astro build && node scripts/check-site.mjs",
     "preview": "astro preview",
     "check": "node scripts/check-site.mjs",
-    "sync": "node scripts/sync-design.mjs"
+    "sync": "node scripts/sync-design.mjs",
+    "kb": "node scripts/build-kb.mjs",
+    "test:twin": "node scripts/build-kb.mjs && node twin/tests/function.test.mjs"
   },
   "dependencies": {
+    "@netlify/blobs": "^11.1.7",
     "astro": "^7.4.2"
   },
   "engines": {
