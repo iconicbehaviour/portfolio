@@ -1,0 +1,9 @@
+{
+  "_note": "Handoff options shown by the twin. Set bookingUrl to your Google Calendar appointment page when you have it; while it is null the twin offers email only.",
+  "email": "niranjana@nyu.edu",
+  "bookingUrl": null,
+  "allowedOrigins": [
+    "https://iconicbehaviour.netlify.app",
+    "https://iconicbehaviour.github.io"
+  ]
+}

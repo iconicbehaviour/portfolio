@@ -1,0 +1,53 @@
+{
+  "_note": "Hand-written from facts NJ has stated herself. The twin may repeat only what is here, in the design, or on the portfolio pages. Review and edit freely; nothing is invented. Left out on purpose: GPA, compensation, work authorization, relocation, and any award or metric that is not on the portfolio.",
+  "facts": [
+    {
+      "id": "now",
+      "heading": "What I am doing now",
+      "text": "I am a technical product manager intern at Marketeq Digital, since September 2026, about 15 hours a week. Before that I co-founded NyanTrace.ai and was its CPO from January to June 2026.",
+      "route": "case-studies/nyantrace/",
+      "page": "NyanTrace"
+    },
+    {
+      "id": "roles",
+      "heading": "My roles and dates",
+      "text": "Product Engineer at Inflection.io, August 2022 to February 2023. Promoted to Product Manager at Inflection.io in March 2023, and PM until August 2024. Product Manager intern at Method, a Hitachi Company, June to August 2025, where I built Nexus. Technology Strategy Student Consultant on the PwC x NYU capstone, September to December 2025. Graduate Teaching Assistant at NYU Tandon, Global Innovation, from May 2025 until May 2026. Co-founder and CPO of NyanTrace.ai, January to June 2026. Technical PM intern at Marketeq Digital since September 2026.",
+      "route": "work/",
+      "page": "Work"
+    },
+    {
+      "id": "education",
+      "heading": "My education",
+      "text": "M.S. in Management of Technology (a technology MBA) at NYU Tandon, August 2024 to May 2026. B.Tech in Computer Science and Engineering at Government Model Engineering College, Thrikkakara, Kochi, India, August 2018 to June 2022. At NYU I took Beyond Data: GenAI Driven Business Strategy with Prof. Marco Magnini.",
+      "route": "work/",
+      "page": "Work"
+    },
+    {
+      "id": "awards",
+      "heading": "Awards and recognition",
+      "text": "NYU Student Achievement Award (2026) for academic performance, leadership and contributions to the Management of Technology program. Semi-finalist in the NYU Stern Entrepreneurship Challenge (2026) with NyanTrace. 4th place globally and the number one Employee Choice Award among 300+ teams at the EGIS Innovation Challenge (2025) for a tech-enabled green roof ecosystem. Millennium Fellow with the United Nations Academic Impact (2019).",
+      "route": "projects/",
+      "page": "Projects"
+    },
+    {
+      "id": "motivation",
+      "heading": "Why I do this work",
+      "text": "I chose a career in tech to use technology for good. What drives me is understanding people's pain points and connecting them with great digital experiences."
+    },
+    {
+      "id": "how-i-work",
+      "heading": "How I like to work",
+      "text": "I value high-agency collaborators who are willing to both learn and teach, and I avoid siloed or knowledge-hoarding environments. I tend to move quickly from a concept to a working artifact. I have a long-standing interest in how enterprises adopt AI, in AI governance, and in the operational realities of deploying AI at scale."
+    },
+    {
+      "id": "looking-for",
+      "heading": "What I am looking for",
+      "text": "I am looking for product manager and AI product manager roles at early-stage B2B AI startups in the US, where I can own a product end to end and build fluency with the enterprise sales motion. I am also open to product strategy and operations roles."
+    },
+    {
+      "id": "contact",
+      "heading": "How to reach me",
+      "text": "The best way to reach me is by email at niranjana@nyu.edu, or through the contact section on the home page."
+    }
+  ]
+}

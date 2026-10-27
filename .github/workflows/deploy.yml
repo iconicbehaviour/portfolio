@@ -18,6 +18,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # GitHub Pages is static; the live Digital Twin runs as a Netlify function (CORS allows this origin).
+      # If the function is unreachable the page falls back to its static Q&A.
+      PUBLIC_TWIN_API: https://iconicbehaviour.netlify.app/api/twin
     steps:
       - uses: actions/checkout@v4
       # Builds the site, then runs scripts/check-site.mjs (broken links/images fail the build).
