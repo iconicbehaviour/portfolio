@@ -1,5 +1,17 @@
 {
   "artifact": "https://claude.ai/artifact/9kZVCsAaXJT7mD3L1WoN7D",
+  "prototypes": {
+    "loop": {
+      "artifact": "https://claude.ai/artifact/3rdrg2itpPgGoJWb7yTeVf",
+      "back": "case-studies/loop",
+      "hash": "2335d733ff45e850af4de6670f94be9570f451f49c86725261b63128e7e7aa2e"
+    },
+    "aira": {
+      "artifact": "https://claude.ai/artifact/PcL8fJts6dBkNbzXksy6pS",
+      "back": "case-studies/aira",
+      "hash": "87bb5b29ac023c8eb465d829892c5d1eb90a740e8c564b0c884c45ca7615d3df"
+    }
+  },
   "routes": {
     "Main": "index",
     "Work": "work",
@@ -98,5 +110,5 @@
       "file": "src/pages/work.astro"
     }
   ],
-  "syncedAt": "2026-10-26T18:19:14.479Z"
+  "syncedAt": "2026-10-27T01:12:19.208Z"
 }

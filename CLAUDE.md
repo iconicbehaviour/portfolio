@@ -12,6 +12,7 @@ Pushing to `main` deploys to GitHub Pages (`.github/workflows/deploy.yml`). Pull
 | `src/pages/**`, `src/styles/*.css`, `src/data/digital-twin.json`, `design/source/**` | **Generated** by `scripts/sync-design.mjs`. Never edit by hand — the next sync overwrites it. |
 | `src/layouts/Layout.astro`, `scripts/**`, `astro.config.mjs`, `.github/**` | Hand-written. Changes that must survive a redesign go here. |
 | `public/images/<id>.<ext>` | Downloaded design assets, named by their design asset id. |
+| `public/prototypes/<name>/index.html` | **Generated** by `scripts/sync-prototypes.mjs` from the prototype artifacts listed in `design.manifest.json` → `prototypes`. Never edit by hand. |
 
 To change how a page looks or reads, change the **design** and sync. Never patch generated pages.
 
@@ -24,9 +25,13 @@ To change how a page looks or reads, change the **design** and sync. Never patch
 3. **Check, then convert.**
    `node scripts/sync-design.mjs --src <scratch>/project --check` shows new/changed/removed artboards, then run it without `--check`.
    It prints `MISSING ASSETS` if step 2 was incomplete.
-4. **Verify.** Node ≥ 22.23.4, then `npm ci && npm run build:ci`. This builds and runs `scripts/check-site.mjs`
-   (broken links/images/anchors fail; `WARN` lines are unfilled design placeholders — report them, do not fix them).
-5. **Ship.** Commit (message lists the changed artboards from the sync report), push, and confirm the deploy workflow passes.
+4. **Refresh the prototypes.** For each entry in `design.manifest.json` → `prototypes`, `read` its `artifact` URL with the Artifact
+   tool and copy the saved full HTML to `<scratch>/proto/<name>.html`, then
+   `node scripts/sync-prototypes.mjs --src <scratch>/proto --check` (new/changed/unchanged) and again without `--check`.
+   Do this on every sync; the prototype artifacts change independently of the design canvas.
+5. **Verify.** Node ≥ 22.23.4, then `npm ci && npm run build:ci`. This builds and runs `scripts/check-site.mjs`
+   (broken links/images/anchors fail; `WARN` lines are unfilled design placeholders or links that still leave the site — report them, do not fix them).
+6. **Ship.** Commit (message lists the changed artboards from the sync report), push, and confirm the deploy workflow passes.
    Use a branch + PR for risky changes (new transform, new artboard type); direct to `main` for plain content/visual updates.
 
 If the converter throws "dynamic design constructs … no transform": the design added interactivity. Write
@@ -35,6 +40,11 @@ extract data by pattern matching, never by executing the design's script).
 
 New artboard → gets route `kebab-case(name)` unless `design.manifest.json` `routes` says otherwise (case studies live under
 `case-studies/`). Add the nav link in the design, not here.
+
+**Prototypes.** A case study's "Open prototype" button links to a claude.ai artifact in the design. The converter rewrites
+any link to an artifact listed under `design.manifest.json` → `prototypes` so it opens `/prototypes/<name>/` on this site
+(same tab). New prototype or a re-published one under a new URL → add or update its entry (`artifact`, `back` = the case-study
+route) and run `sync-prototypes.mjs`. `check-site.mjs` warns about any link that still goes to a claude.ai artifact.
 
 ## Content rules
 

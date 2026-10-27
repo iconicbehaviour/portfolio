@@ -44,7 +44,11 @@ for (const [file, html] of htmlOf) {
   const rel = path.relative(dist, file);
   for (const m of html.matchAll(/\s(?:href|src)="([^"]*)"/g)) {
     const url = m[1];
+    if (/^https:\/\/claude\.ai\/(code\/)?artifact\//.test(url)) {
+      warnings.push(`${rel}: links to a claude.ai artifact (${url}); visitors leave the site`);
+    }
     if (!url || /^(https?:|\/\/|data:|tel:)/.test(url)) continue;
+    if (url.includes('${')) continue; // JS template placeholder inside an inline script, not a real URL
     if (/^\[.*\]$/.test(url)) {
       warnings.push(`${rel}: placeholder link "${url}"`);
       continue;
@@ -59,6 +63,19 @@ for (const [file, html] of htmlOf) {
       continue;
     }
     if (!url.startsWith('/')) {
+      // Imported prototype pages (public/prototypes/**) use relative links so they work under any base path.
+      if (rel.split(path.sep)[0] === 'prototypes') {
+        checked++;
+        const [pathPart, frag] = url.split('#');
+        let target = path.resolve(path.dirname(file), pathPart || '.');
+        if (fs.existsSync(target) && fs.statSync(target).isDirectory()) target = path.join(target, 'index.html');
+        if (!target.startsWith(dist + path.sep) || !fs.existsSync(target)) {
+          errors.push(`${rel}: broken relative link ${url}`);
+        } else if (frag && target.endsWith('.html') && !idsByFile.get(target)?.has(frag)) {
+          errors.push(`${rel}: ${pathPart} has no #${frag}`);
+        }
+        continue;
+      }
       errors.push(`${rel}: relative URL "${url}" (use base-aware absolute URLs)`);
       continue;
     }

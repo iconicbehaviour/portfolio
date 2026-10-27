@@ -45,6 +45,7 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 manifest.routes ??= {};
 manifest.hashes ??= {};
 manifest.generated ??= [];
+manifest.prototypes ??= {}; // prototype artifacts that live on this site; see scripts/sync-prototypes.mjs
 
 // ---------- read the design ----------
 const names = fs
@@ -154,6 +155,20 @@ const toAstro = async (name) => {
     const r = manifest.routes[target];
     const p = r === 'index' ? '' : `${r}/`;
     return `href={\`\${base}${p}${frag}\`}`;
+  });
+
+  // Links to a prototype's claude.ai artifact -> the prototype page on this site (same tab, so no target/rel).
+  body = body.replace(/<a\b[^>]*>/g, (tag) => {
+    for (const [pname, p] of Object.entries(manifest.prototypes)) {
+      const href = `href="${p.artifact}"`;
+      if (tag.includes(href)) {
+        return tag
+          .replace(href, `href={\`\${base}prototypes/${pname}/\`}`)
+          .replace(/\s+target="_blank"/, '')
+          .replace(/\s+rel="noopener[^"]*"/, '');
+      }
+    }
+    return tag;
   });
 
   // Uploaded images -> /images/<id>.<ext>

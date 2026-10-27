@@ -1,0 +1,551 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Loop Prototype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap">
+<style>
+/* Layout: page copy + flow list on the left, one phone frame on the right; stacks on narrow screens.
+   Page chrome follows the viewer's theme; the app inside the phone is always Loop's dark green. */
+:root {
+  --bg: #f1f4ef;
+  --fg: #11201a;
+  --muted: #55635a;
+  --line: #d3dad1;
+  --accent: #0f8a3a;
+  --chip: #e2e9df;
+  --display: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* app tokens (constant) */
+  --a-bg: #102216;
+  --a-bg2: #112217;
+  --a-card: rgba(28,45,33,.2);
+  --a-stroke: rgba(50,66,55,.5);
+  --a-green: #13ec5b;
+  --a-green2: #27ae60;
+  --a-green3: #22c55e;
+  --a-text: #cbd5e1;
+  --a-muted: #94a3b8;
+  --a-chip: #28382d;
+  --a-tile: #1c2d21;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a130e; --fg: #e6efe8; --muted: #9db0a2; --line: #20332640; --accent: #13ec5b; --chip: #16261c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a130e; --fg: #e6efe8; --muted: #9db0a2; --line: #20332640; --accent: #13ec5b; --chip: #16261c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font-family: var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px; font-size: 15px; line-height: 1.55;
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-weight: 800; font-size: 18px; letter-spacing: -.01em; }
+.crumb { color: var(--muted); font-size: 14px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 56px; align-items: start; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 5vw, 54px); line-height: 1.04; letter-spacing: -.03em; margin: 0 0 18px; text-wrap: balance; }
+.lede { color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 12px; }
+.flows { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-direction: column; gap: 6px; max-width: 360px; }
+.flows button {
+  width: 100%; text-align: left; font: inherit; font-weight: 500; color: var(--fg); background: transparent;
+  border: 1px solid var(--line); border-radius: 12px; padding: 11px 14px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+.flows button:hover { background: var(--chip); }
+.flows button[aria-current="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.flows small { font-size: 12px; opacity: .65; font-weight: 400; }
+.restart { font: inherit; font-weight: 600; background: transparent; color: var(--accent); border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* phone */
+.stage { display: flex; justify-content: center; }
+.phone { width: 390px; max-width: 100%; height: 800px; background: var(--a-bg); border-radius: 46px; border: 10px solid #050b07; box-shadow: 0 0 0 1px #2a3a2f, 0 30px 70px rgba(5,20,10,.35); position: relative; overflow: hidden; font-family: var(--body); color: #fff; }
+.scr { position: absolute; inset: 0; display: flex; flex-direction: column; background: var(--a-bg2); }
+.sb { height: 44px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 8px 26px 0 34px; font-weight: 600; font-size: 15px; letter-spacing: -.3px; }
+.sb svg { display: block; }
+.sb .ico { display: flex; gap: 6px; align-items: center; }
+.body { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 6px 20px 24px; scrollbar-width: none; }
+.body::-webkit-scrollbar { display: none; }
+.hdr { display: flex; align-items: center; justify-content: space-between; height: 32px; margin-bottom: 22px; }
+.hdr h2 { margin: 0; font-size: 20px; font-weight: 600; }
+.ib { width: 32px; height: 32px; border: 0; background: transparent; color: #fff; display: grid; place-items: center; padding: 0; cursor: pointer; border-radius: 50%; }
+.ib svg { width: 24px; height: 24px; }
+.logo { color: var(--a-green); }
+.card { background: var(--a-card); border: 1px solid var(--a-stroke); border-radius: 24px; padding: 20px; }
+.row { display: flex; gap: 16px; }
+.row > * { flex: 1; min-width: 0; }
+.lbl { color: var(--a-text); font-size: 16px; }
+.big { font-size: 28px; font-weight: 600; margin-top: 8px; font-variant-numeric: tabular-nums; }
+h3.sec { font-size: 24px; font-weight: 600; margin: 28px 0 16px; display: flex; justify-content: space-between; align-items: baseline; }
+h3.sec:first-child { margin-top: 0; }
+h3.sec a { font-size: 16px; color: var(--a-green2); font-weight: 600; cursor: pointer; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.seg { display: flex; gap: 10px; padding: 6px; background: rgba(12,27,17,.5); border-radius: 71px; margin-bottom: 26px; }
+.seg button { flex: 1; font: inherit; font-size: 15px; color: #fff; background: transparent; border: 0; padding: 11px 4px; border-radius: 50px; cursor: pointer; font-weight: 400; }
+.seg button.on { background: rgba(39,174,96,.25); font-weight: 500; }
+.tabbar { flex: none; display: flex; padding: 14px 12px calc(14px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid rgba(255,255,255,.1); background: var(--a-bg2); }
+.tabbar button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; border: 0; background: transparent; font: inherit; font-size: 13px; color: rgba(139,155,178,.8); cursor: pointer; padding: 0; }
+.tabbar button svg { width: 24px; height: 24px; }
+.tabbar button.on { color: var(--a-green); font-weight: 500; }
+.avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 16px; color: #fff; flex: none; }
+.pr { display: inline-flex; align-items: center; gap: 4px; background: #1f3d29; color: var(--a-green3); font-size: 14px; font-weight: 500; padding: 4px 8px; border-radius: 20px; }
+.pr svg { width: 14px; height: 14px; }
+.post { display: flex; flex-direction: column; gap: 18px; }
+.post .who { display: flex; align-items: center; gap: 12px; }
+.post .who b { display: block; font-size: 18px; font-weight: 600; }
+.post .who span.t { display: block; color: var(--a-text); font-size: 15px; }
+.post h4 { margin: 0 0 6px; font-size: 18px; font-weight: 600; }
+.post p { margin: 0; color: var(--a-text); font-size: 15px; }
+.stats { display: flex; justify-content: space-between; text-align: center; }
+.stats span { display: block; color: rgba(203,213,225,.7); font-size: 14px; margin-bottom: 6px; }
+.stats b { font-weight: 600; font-size: 17px; font-variant-numeric: tabular-nums; }
+.hr { height: 1px; background: rgba(217,217,217,.2); }
+.acts { display: flex; justify-content: space-between; align-items: center; }
+.acts div { display: flex; gap: 20px; }
+.acts button { display: flex; align-items: center; gap: 6px; background: transparent; border: 0; color: #fff; font: inherit; font-size: 14px; padding: 0; cursor: pointer; }
+.acts svg { width: 20px; height: 20px; }
+.acts button.liked svg { fill: #ef4444; stroke: #ef4444; }
+.fab { position: absolute; right: 20px; bottom: 98px; width: 56px; height: 56px; border-radius: 50%; background: var(--a-green); border: 0; display: grid; place-items: center; color: var(--a-bg); cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,.35); }
+.fab svg { width: 26px; height: 26px; }
+.btn { display: block; width: 100%; border: 0; border-radius: 26px; padding: 19px; background: var(--a-green); color: var(--a-bg); font: inherit; font-weight: 700; font-size: 18px; text-align: center; cursor: pointer; font-family: "Plus Jakarta Sans", var(--body); }
+.btn.ghost { background: var(--a-chip); color: #fff; }
+.btn.sm { padding: 14px; font-size: 16px; border-radius: 18px; }
+.skip { display: block; background: transparent; border: 0; margin: 16px auto 0; color: var(--a-text); font: inherit; font-size: 14px; cursor: pointer; }
+.bar { height: 6px; background: rgba(217,217,217,.25); border-radius: 6px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--a-green); border-radius: 6px; transition: width .35s ease; }
+.ob { display: flex; flex-direction: column; min-height: 100%; }
+.ob h2 { font-size: 30px; line-height: 1.15; margin: 34px 0 10px; font-weight: 700; letter-spacing: -.01em; }
+.ob p.sub { color: var(--a-text); margin: 0 0 26px; font-size: 15px; }
+.ob .push { flex: 1; min-height: 20px; }
+.opt { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: var(--a-card); border: 1px solid var(--a-stroke); border-radius: 20px; padding: 16px; font: inherit; color: #fff; cursor: pointer; margin-bottom: 14px; }
+.opt .ic { width: 46px; height: 46px; border-radius: 50%; background: #11361d; display: grid; place-items: center; color: var(--a-green); flex: none; }
+.opt .ic svg { width: 24px; height: 24px; }
+.opt b { display: block; font-size: 17px; font-weight: 600; }
+.opt span.s { color: var(--a-muted); font-size: 14px; }
+.opt .chev { margin-left: auto; color: var(--a-muted); }
+.opt.on { border-color: var(--a-green); background: rgba(19,236,91,.08); }
+.opt .tick { margin-left: auto; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--a-muted); display: grid; place-items: center; flex: none; }
+.opt.on .tick { background: var(--a-green); border-color: var(--a-green); color: var(--a-bg); }
+.opt .tick svg { width: 12px; height: 12px; opacity: 0; }
+.opt.on .tick svg { opacity: 1; }
+.field { margin-bottom: 22px; }
+.field label { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 10px; color: var(--a-text); }
+.field input, .field textarea { width: 100%; background: var(--a-card); border: 1px solid var(--a-stroke); border-radius: 20px; padding: 18px 20px; color: #fff; font: inherit; font-size: 15px; resize: none; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--a-green2); outline-offset: 0; }
+.splash { background: var(--a-bg); }
+.splash .hero { height: 258px; flex: none; background: conic-gradient(from 90deg at 50% 50%, #002e17 0%, #154822 8%, #2a622d 20%, #54974a 34%, #7dcb58 48%, #a7ff6d 62%, #00ff85 70%, #00a955 85%, #002e17 100%); position: relative; }
+.splash .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.25), rgba(0,0,0,.05)); }
+.splash .topbar { height: 58px; display: grid; place-items: center; color: var(--a-green); flex: none; }
+.splash .topbar svg { width: 30px; height: 30px; }
+.splash h1 { font-family: var(--body); font-size: 32px; letter-spacing: -.01em; text-align: center; margin: 22px 0 6px; line-height: 1.1; }
+.splash .lede { color: #fff; font-weight: 300; text-align: center; margin: 0 auto 16px; font-size: 14.5px; line-height: 1.6; max-width: 34ch; }
+.tile { background: var(--a-tile); border-radius: 22px; padding: 14px 20px; text-align: center; margin-bottom: 12px; }
+.tile b { display: block; font-size: 16px; }
+.tile span { color: #929493; font-size: 13px; font-weight: 300; }
+.tile svg { width: 20px; height: 20px; color: var(--a-green); display: block; margin: 0 auto 2px; }
+.tiny { text-align: center; margin: 14px 0 0; font-size: 13px; color: #6b6b6b; }
+.tiny a { color: var(--a-green); font-weight: 700; cursor: pointer; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart .ax { display: flex; justify-content: space-between; color: var(--a-text); font-size: 12px; margin-top: 12px; }
+.chart .ax span { flex: 1; text-align: center; }
+.ph { display: flex; align-items: center; gap: 12px; }
+.ph .ic { width: 46px; height: 46px; border-radius: 40px; background: #11361d; display: grid; place-items: center; color: var(--a-green); flex: none; }
+.ph .ic svg { width: 24px; height: 24px; }
+.ph .m { flex: 1; min-width: 0; }
+.ph .m b { display: block; font-weight: 500; font-size: 18px; }
+.ph .m span { color: var(--a-muted); font-size: 14px; }
+.ph .r { text-align: right; }
+.ph .r b { display: block; font-weight: 500; font-size: 18px; }
+.ph .r span { color: var(--a-muted); font-size: 14px; }
+.pb .k { display: flex; align-items: center; gap: 6px; color: var(--a-text); font-size: 15px; }
+.pb .k svg { width: 16px; height: 16px; color: #f5b83d; }
+.pb .v { font-size: 24px; font-weight: 500; margin: 8px 0; }
+.pb .d { color: #a0a4aa; font-size: 14px; }
+.profhead { text-align: center; margin: 10px 0 26px; }
+.profhead .pic { width: 122px; height: 122px; border-radius: 50%; margin: 0 auto 18px; background: linear-gradient(135deg, #27ae60, #13ec5b); display: grid; place-items: center; font-size: 44px; font-weight: 700; color: var(--a-bg); border: 4px solid var(--a-tile); }
+.profhead b { display: block; font-size: 26px; }
+.profhead span { color: var(--a-text); }
+.mini { text-align: center; }
+.mini .big { margin: 0 0 4px; }
+.setrow { display: flex; align-items: center; gap: 12px; padding: 18px 20px; width: 100%; background: var(--a-card); border: 1px solid var(--a-stroke); color: #fff; font: inherit; font-size: 16px; text-align: left; cursor: pointer; }
+.setrow:first-child { border-radius: 20px 20px 0 0; }
+.setrow:last-child { border-radius: 0 0 20px 20px; }
+.setrow:only-child { border-radius: 20px; }
+.setrow + .setrow { border-top: 0; }
+.setrow svg { width: 20px; height: 20px; color: var(--a-text); flex: none; }
+.setrow .v { margin-left: auto; color: var(--a-muted); font-size: 15px; }
+.setrow .chev { margin-left: auto; width: 14px; height: 14px; }
+.sw { margin-left: auto; width: 38px; height: 22px; border-radius: 22px; background: #3a4a40; position: relative; transition: background .2s; flex: none; }
+.sw::after { content: ""; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; top: 2px; left: 2px; transition: transform .2s; }
+.sw.on { background: var(--a-green2); }
+.sw.on::after { transform: translateX(16px); }
+.groupt { color: var(--a-text); font-size: 24px; font-weight: 600; margin: 26px 0 14px; }
+.logout { display: block; text-align: center; color: #f87171; font-weight: 600; margin: 24px 0 4px; background: transparent; border: 0; font: inherit; width: 100%; cursor: pointer; font-size: 16px; }
+.chips { display: flex; gap: 10px; margin-bottom: 18px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; display: flex; align-items: center; gap: 8px; background: var(--a-card); border: 1px solid var(--a-stroke); color: #fff; font: inherit; font-size: 14px; padding: 11px 12px; border-radius: 14px; cursor: pointer; }
+.chip.on { border-color: var(--a-green); color: var(--a-green); }
+.chip svg { width: 11px; height: 7px; }
+.partner { display: flex; flex-direction: column; gap: 16px; }
+.partner .meta { display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.partner .meta div { display: flex; gap: 8px; color: var(--a-text); }
+.partner .meta b { color: #fff; font-weight: 600; }
+.map { height: 560px; border-radius: 24px; border: 1px solid var(--a-stroke); background: #0e1d14; position: relative; overflow: hidden; }
+.map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pin { position: absolute; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; }
+.pin i { display: block; width: 34px; height: 34px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--a-green); border: 3px solid #0e1d14; }
+.pin span { background: rgba(0,0,0,.6); padding: 2px 8px; border-radius: 10px; }
+.modal { position: absolute; inset: 0; background: rgba(5,12,8,.82); backdrop-filter: blur(4px); display: grid; place-items: center; padding: 20px; z-index: 5; animation: fade .2s ease; }
+@keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+.modal .in { text-align: center; width: 100%; }
+.modal .badge { width: 122px; height: 122px; border-radius: 50%; margin: 0 auto 22px; background: radial-gradient(circle at 35% 30%, #54ff8f, #13ec5b 55%, #0a8b38); display: grid; place-items: center; color: var(--a-bg); }
+.modal .badge svg { width: 56px; height: 56px; }
+.modal h2 { font-size: 28px; line-height: 1.15; margin: 0 0 12px; font-weight: 700; }
+.modal p { color: var(--a-text); margin: 0 0 26px; }
+.modal .btn { margin-bottom: 12px; }
+.vid { height: 228px; border-radius: 18px; position: relative; overflow: hidden; background: linear-gradient(180deg, #5a3a1a 0%, #e8913a 38%, #f6c26a 56%, #3a2a1a 76%, #17120c 100%); margin-bottom: 18px; }
+.vid .sun { position: absolute; width: 38px; height: 38px; border-radius: 50%; background: #fff3c4; right: 56px; top: 138px; box-shadow: 0 0 40px 14px rgba(255,214,120,.8); }
+.vid .runner { position: absolute; left: 70px; bottom: 28px; width: 70px; height: 150px; color: #120d08; }
+.vid .play { position: absolute; left: 50%; top: 50%; margin: -26px 0 0 -26px; width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,.35); display: grid; place-items: center; color: #fff; }
+.vid .scrub { position: absolute; left: 20px; right: 20px; bottom: 26px; height: 7px; border-radius: 7px; background: rgba(255,255,255,.5); }
+.vid .scrub i { display: block; height: 100%; width: 48%; background: #fff; border-radius: 7px; }
+.vid .tm { position: absolute; bottom: 8px; left: 20px; right: 20px; display: flex; justify-content: space-between; font-size: 9px; }
+.tools { display: flex; gap: 12px; margin-bottom: 26px; }
+.tools span { background: var(--a-chip); border-radius: 18px; padding: 10px 14px; font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.cap { display: flex; gap: 12px; align-items: flex-start; border: 1px solid #313d48; border-radius: 18px; padding: 14px; min-height: 128px; margin-bottom: 26px; }
+.cap textarea { flex: 1; background: transparent; border: 0; color: #fff; font: inherit; font-size: 15px; resize: none; height: 96px; padding: 4px 0 0; }
+.cap textarea:focus { outline: none; }
+.cap .avatar { width: 28px; height: 28px; font-size: 12px; }
+.upl { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; }
+.upl + .bar { height: 7px; background: #d9d9d9; margin-bottom: 36px; }
+.upl + .bar i { background: var(--a-green); }
+.toast { position: absolute; left: 50%; bottom: 100px; transform: translateX(-50%); background: #fff; color: #102216; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 20px; z-index: 6; animation: fade .2s ease; white-space: nowrap; }
+@media (max-width: 860px) {
+  .grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .stage { order: 2; }
+  .phone { height: 780px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span class="mark">Loop</span>
+    <span class="crumb"><a href="../../case-studies/loop/" style="color:inherit">Case study</a> / Prototype</span>
+  </div>
+  <div class="grid">
+    <div>
+      <p class="eyebrow">Interactive prototype</p>
+      <h1>Loop prototype</h1>
+      <p class="lede">Tap through it like the real app: set up a runner profile, pick goals and a level, land in the community feed, share a run, find a running partner and check your progress. Use the list to jump straight to a flow.</p>
+      <p class="eyebrow">Jump to a flow</p>
+      <ul class="flows" id="flows"></ul>
+      <button class="restart" id="restart" type="button">Restart from the beginning</button>
+    </div>
+    <div class="stage"><div class="phone" id="phone" aria-label="Loop app prototype"></div></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var I = {
+    logo: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="9" r="4.2"/><circle cx="8" cy="21.5" r="4.2"/><circle cx="24" cy="21.5" r="4.2"/><path d="M12.6 12.2 10.4 17.6M19.4 12.2l2.2 5.4M12.4 21.6h7.2"/></svg>',
+    back: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+    gear: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+    msg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20.5l1.4-4.6A8 8 0 1 1 21 12z"/><path d="M12 8.5v5M9.5 11h5"/></svg>',
+    feed: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M5.5 12.5h3l2-4.5 3 8 2-3.5h3" stroke="#112217"/></svg>',
+    compass: '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M15.8 8.2 13.4 13.4 8.2 15.8 10.6 10.6z" fill="#112217"/></svg>',
+    trophy: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-3.6 4 5.5 5.5 0 0 1-3.4 2.9V17h3v2h-8v-2h3v-2.1A5.5 5.5 0 0 1 7.6 12 4 4 0 0 1 4 8V5h3zM6 7v1a2 2 0 0 0 1.2 1.8A9 9 0 0 1 7 7zm12 0h-1.2a9 9 0 0 1-.2 2.8A2 2 0 0 0 18 8z"/></svg>',
+    user: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7.5" r="4.5"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg>',
+    heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20.5S3.5 15 3.5 9A4.7 4.7 0 0 1 12 6.8 4.7 4.7 0 0 1 20.5 9c0 6-8.5 11.5-8.5 11.5z"/></svg>',
+    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 4h16v12H8l-4 4z"/></svg>',
+    share: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M8 7l4-4 4 4M5 11v9h14v-9"/></svg>',
+    plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+    run: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="14.5" cy="4.5" r="2.3"/><path d="M11.6 8.2 8 9.6l-1.6 3.2 1.6.8 1-2 1.5-.6-1 4L6 19.4l1.3 1.5 4.9-3.7 1.3-3.5 2.6 1.9v4.6h2v-5.6l-3.1-2.4.8-2.6 1.6 1.8 3.3.5.3-1.9-2.4-.4-2.4-2.9a2.4 2.4 0 0 0-2.7-.7z"/></svg>',
+    medal: '<svg viewBox="0 0 16 20" fill="currentColor"><path d="M2 0h4l2 4 2-4h4l-4 7a5.5 5.5 0 1 1-4 0z M8 9a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill-rule="evenodd"/></svg>',
+    lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-1.8"/></svg>',
+    lockc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+    group: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="9" r="2.2"/><circle cx="19" cy="9" r="2.2"/><path d="M12 12c-3.3 0-6 1.7-6 4v2h12v-2c0-2.3-2.7-4-6-4zM5 12.5c-2 .3-4 1.4-4 3V18h3.5v-1.8c0-1.4.5-2.5 1.4-3.5zM19 12.5c-.5 0-1 0-1.5.2 1 1 1.5 2.1 1.5 3.5V18h4v-2.5c0-1.6-2-2.7-4-3z"/></svg>',
+    target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+    cal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+    timer: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5"/></svg>',
+    bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4zM10 21h4"/></svg>',
+    ruler: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v4"/></svg>',
+    help: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.6 2.6 0 1 1 3.7 2.3c-.8.4-1.2 1-1.2 1.8M12 17v.1"/></svg>',
+    file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h8l5 5v13H6zM14 3v5h5"/></svg>',
+    hide: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 6.1A9.7 9.7 0 0 1 12 6c5 0 8.5 4.2 9.5 6a12 12 0 0 1-2.6 3.2M6.5 7.7A12.6 12.6 0 0 0 2.5 12c1 1.8 4.5 6 9.5 6a9 9 0 0 0 3.2-.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>',
+    chev: '<svg viewBox="0 0 9 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 1.5 7.5 8l-6 6.5"/></svg>',
+    drop: '<svg viewBox="0 0 12 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l5 5 5-5"/></svg>',
+    tick: '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5 5 9.5 10 3"/></svg>',
+    send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></svg>',
+    lic: '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="8" cy="6" r="3.6"/><path d="M5.8 9.2 4.8 14.5 8 13l3.2 1.5-1-5.3"/></svg>',
+    scissors: '<svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="5" cy="5" r="2.3"/><circle cx="5" cy="15" r="2.3"/><path d="M6.8 6.4 17 14M6.8 13.6 17 6"/></svg>',
+    note: '<svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path d="M8 3h9v2H10v9.2a2.7 2.7 0 1 1-2-2.6z"/></svg>',
+    pen: '<svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 17l2-5L15 2l3 3L8 15z"/></svg>',
+    runner: '<svg viewBox="0 0 70 150" fill="currentColor"><circle cx="38" cy="12" r="10"/><path d="M26 26c8-5 20-4 26 4l6 20-10 4-4-11-5 10 14 18-2 24-14-10-2 18-14 10-8-6 18-12-2-20-12 8-6 20-10-4 6-26 16-14z"/></svg>'
+  };
+  var NAMES = ['Maya Chen', 'Daniel Okafor', 'Priya Nair'];
+  var TINTS = ['#27ae60', '#0e8a74', '#6b8e23', '#2f9e6a'];
+  var FLOWS = [
+    ['splash', 'Onboarding', 'Splash'],
+    ['profile', 'Create your profile', 'Step 1'],
+    ['goal', 'Set your goals', 'Step 2'],
+    ['level', 'Running level', 'Step 3'],
+    ['history', 'Race history', 'Step 4'],
+    ['feed', 'Community feed', 'Tab'],
+    ['post', 'Share a run', 'Create post'],
+    ['discover', 'Find a running partner', 'Tab'],
+    ['progress', 'My progress', 'Tab'],
+    ['me', 'Profile and settings', 'Tab']
+  ];
+  var RANGES = {
+    Week: { dist: '25.7 km', runs: '4', pace: '5:32 / km', total: '128 km', delta: '+15.2%', per: 'This Month', labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], pts: [18, 62, 40, 78, 55, 70, 96, 14] },
+    Month: { dist: '128 km', runs: '16', pace: '5:36 / km', total: '128 km', delta: '+15.2%', per: 'This Month', labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], pts: [30, 48, 44, 60, 52, 66, 90, 78] },
+    Year: { dist: '1,412 km', runs: '171', pace: '5:41 / km', total: '1,412 km', delta: '+8.4%', per: 'This Year', labels: ['Q1', 'Q2', 'Q3', 'Q4'], pts: [22, 30, 38, 46, 58, 64, 74, 92] },
+    'All Time': { dist: '3,260 km', runs: '392', pace: '5:48 / km', total: '3,260 km', delta: '+21.0%', per: 'Since joining', labels: ['2023', '2024', '2025', '2026'], pts: [10, 18, 30, 42, 56, 70, 84, 96] }
+  };
+  var S;
+  function fresh() {
+    return {
+      screen: 'splash', stack: [], range: 'Week', goals: { dist: true, freq: true, pace: false, event: false },
+      level: 'Intermediate', marathon: true, priv: true, liked: {}, filter: 'List', modal: null, sent: {}, upl: 35, uploading: false, toast: '',
+      caption: '', fname: 'Alex Runner', uname: '@alexrunner', bio: '', chips: { Pace: false, Distance: true, Workout: false },
+      posts: [
+        { id: 'p1', who: 'Alex Runner', t: 'Yesterday', title: 'Morning Run', note: 'Felt great today, pushed the pace a bit!', d: '5.2 mi', tm: '42:30', pc: '8:10/mi', likes: 24, cm: 6, pr: true },
+        { id: 'p2', who: NAMES[0], t: 'Yesterday', title: 'Lakeside Tempo', note: 'Negative split on the last two miles.', d: '6.4 mi', tm: '51:12', pc: '8:00/mi', likes: 31, cm: 9, pr: true },
+        { id: 'p3', who: NAMES[1], t: '2 days ago', title: 'Easy Recovery', note: 'Slow and steady, legs needed it.', d: '3.1 mi', tm: '28:40', pc: '9:15/mi', likes: 12, cm: 2, pr: false }
+      ]
+    };
+  }
+  var $ = function (s) { return document.querySelector(s); };
+  var phone = $('#phone');
+  function av(name, i, size) {
+    var ini = name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2);
+    return '<div class="avatar" style="background:' + TINTS[(i || 0) % TINTS.length] + (size ? ';width:' + size + 'px;height:' + size + 'px' : '') + '">' + ini + '</div>';
+  }
+  function status() {
+    return '<div class="sb"><span>9:41</span><span class="ico"><svg width="20" height="13" viewBox="0 0 20 13" fill="#fff"><rect x="0" y="8" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="8" rx="1"/><rect x="10" y="2.5" width="3" height="10.5" rx="1"/><rect x="15" y="0" width="3" height="13" rx="1"/></svg><svg width="18" height="13" viewBox="0 0 18 13" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M1.5 4.5a11 11 0 0 1 15 0M4 7.5a7.2 7.2 0 0 1 10 0M6.6 10.4a3.4 3.4 0 0 1 4.8 0"/></svg><svg width="28" height="14" viewBox="0 0 28 14" fill="none"><rect x=".5" y=".5" width="23" height="12" rx="3.5" stroke="#fff" opacity=".4"/><rect x="2" y="2" width="20" height="9" rx="2" fill="#fff"/><path d="M25 4.5v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2z" fill="#fff" opacity=".5"/></svg></span></div>';
+  }
+  function hdr(title, left, right) {
+    return '<div class="hdr">' + left + '<h2>' + title + '</h2>' + right + '</div>';
+  }
+  function backBtn() { return '<button class="ib" data-act="back" aria-label="Back">' + I.back + '</button>'; }
+  function logoBtn() { return '<span class="ib logo">' + I.logo + '</span>'; }
+  function tabbar(active) {
+    var t = [['feed', 'Feed', I.feed], ['discover', 'Discover', I.compass], ['progress', 'Progress', I.trophy], ['me', 'Profile', I.user]];
+    return '<nav class="tabbar">' + t.map(function (x) {
+      return '<button data-tab="' + x[0] + '" class="' + (x[0] === active ? 'on' : '') + '">' + x[2] + '<span>' + x[1] + '</span></button>';
+    }).join('') + '</nav>';
+  }
+  function obTop(pct, title) {
+    return '<div class="hdr">' + backBtn() + '<h2>' + title + '</h2><span style="width:32px"></span></div><div class="bar"><i style="width:' + pct + '%"></i></div>';
+  }
+  function smooth(pts, w, h) {
+    var n = pts.length, step = w / (n - 1), P = pts.map(function (v, i) { return [i * step, h - (v / 100) * h]; });
+    var d = 'M' + P[0][0] + ',' + P[0][1];
+    for (var i = 1; i < n; i++) {
+      var cx = (P[i - 1][0] + P[i][0]) / 2;
+      d += ' C' + cx + ',' + P[i - 1][1] + ' ' + cx + ',' + P[i][1] + ' ' + P[i][0] + ',' + P[i][1];
+    }
+    return { line: d, area: d + ' L' + w + ',' + h + ' L0,' + h + ' Z', last: P[n - 1] };
+  }
+
+  var V = {
+    splash: function () {
+      return '<div class="scr splash"><div class="topbar">' + I.logo + '</div><div class="hero"></div><div class="body" style="padding-top:0"><h1>Run. Unlock. Connect</h1><p class="lede">Your run unlocks your social feed. Track your progress and connect with a community that gets it.</p>' +
+        '<div class="tile"><b>Track Every Run</b><span>Detailed stats and GPS tracking</span></div>' +
+        '<div class="tile">' + I.lock + '<b>Unlock Your Feed</b><span>Post your workout to see updates</span></div>' +
+        '<div class="tile">' + I.group + '<b>Join the Community</b><span>Share your journey with runners</span></div>' +
+        '<button class="btn sm" data-go="profile" style="margin-top:18px;border-radius:26px">Get Started</button>' +
+        '<p class="tiny">Already have an account? <a data-go="feed" data-reset="1" role="button" tabindex="0">Log in</a></p></div></div>';
+    },
+    profile: function () {
+      return '<div class="scr">' + status() + '<div class="body ob">' + obTop(25, 'Profile') +
+        '<h2 style="font-size:32px">Create Your Profile</h2><p class="sub">Let others know who you are. This can be changed anytime</p>' +
+        '<div class="field"><label for="f-name">Full Name</label><input id="f-name" data-bind="fname" value="' + S.fname + '"></div>' +
+        '<div class="field"><label for="f-user">Username</label><input id="f-user" data-bind="uname" value="' + S.uname + '"></div>' +
+        '<div class="field"><label for="f-bio">Bio (Optional) <span id="bio-n">' + S.bio.length + '/50</span></label><textarea id="f-bio" data-bind="bio" maxlength="50" rows="4" placeholder="Tell us a little about your journey">' + S.bio + '</textarea></div>' +
+        '<div class="push"></div><button class="btn" data-go="goal">Continue</button></div></div>';
+    },
+    goal: function () {
+      var G = [['dist', I.target, 'Distance Goal', 'Run 50km this month'], ['freq', I.cal, 'Frequency Goal', 'Run 3 times per week'], ['pace', I.timer, 'Pace Goal', 'Maintain a 5:30 min/km pace'], ['event', I.trophy, 'Event Goal', 'Tap to set a race goal']];
+      return '<div class="scr">' + status() + '<div class="body ob">' + obTop(50, 'Goal') +
+        '<h2 style="font-size:32px">Set Your Goals</h2><p class="sub">Define what you want to achieve. Your goals will appear on your profile</p>' +
+        G.map(function (g) { return '<button class="opt ' + (S.goals[g[0]] ? 'on' : '') + '" data-goal="' + g[0] + '" aria-pressed="' + !!S.goals[g[0]] + '"><span class="ic">' + g[1] + '</span><span><b>' + g[2] + '</b><span class="s">' + g[3] + '</span></span><span class="tick">' + I.tick + '</span></button>'; }).join('') +
+        '<div class="push"></div><button class="btn" data-go="level">Continue</button></div></div>';
+    },
+    level: function () {
+      var L = [['Beginner', 'Just starting or run occasionally', I.run], ['Intermediate', 'Run consistently', I.run], ['Advanced', 'Train regularly for longer distances', I.trophy]];
+      return '<div class="scr">' + status() + '<div class="body ob">' + obTop(75, 'Level') +
+        '<h2>What’s Your Running Level?</h2><p class="sub">This helps us personalize your challenges and workout recommendations</p>' +
+        L.map(function (l) { return '<button class="opt ' + (S.level === l[0] ? 'on' : '') + '" data-level="' + l[0] + '" aria-pressed="' + (S.level === l[0]) + '"><span class="ic">' + l[2] + '</span><span><b>' + l[0] + '</b><span class="s">' + l[1] + '</span></span><span class="tick">' + I.tick + '</span></button>'; }).join('') +
+        '<div class="push"></div><button class="btn" data-go="history">Continue</button></div></div>';
+    },
+    history: function () {
+      return '<div class="scr">' + status() + '<div class="body ob">' + obTop(100, 'History') +
+        '<h2>Log Your Past Achievements</h2><p class="sub">Add the races you’ve completed to showcase your journey</p>' +
+        (S.marathon ? '<div class="opt" style="cursor:default"><span class="ic">' + I.trophy + '</span><span><b>Boston Marathon</b><span class="s">Boston, MA · Apr 15, 2024</span></span></div>' : '') +
+        '<button class="btn ghost" data-act="marathon" style="border-radius:18px;background:var(--a-chip);color:var(--a-green)">' + (S.marathon ? '+ Log Another Race' : '+ Log a Marathon') + '</button>' +
+        '<div class="push"></div><button class="btn" data-go="feed" data-reset="1" data-toast="Welcome to Loop, ' + S.fname.split(' ')[0] + '">Finish &amp; Go For a Run!</button><button class="skip" data-go="feed" data-reset="1">Skip for now</button></div></div>';
+    },
+    feed: function () {
+      var posts = S.posts.map(function (p, i) {
+        var liked = S.liked[p.id];
+        return '<article class="card post">' +
+          '<div style="display:flex;gap:16px;align-items:flex-start;justify-content:space-between"><div class="who">' + av(p.who, i) + '<div><b>' + p.who + '</b><span class="t">' + p.t + '</span></div></div>' + (p.pr ? '<span class="pr">' + I.lic + 'PR</span>' : '') + '</div>' +
+          '<div><h4>' + p.title + '</h4><p>' + p.note + '</p></div>' +
+          '<div class="stats"><div><span>Distance</span><b>' + p.d + '</b></div><div><span>Time</span><b>' + p.tm + '</b></div><div><span>Pace</span><b>' + p.pc + '</b></div></div>' +
+          '<div class="hr"></div><div class="acts"><div><button data-like="' + p.id + '" class="' + (liked ? 'liked' : '') + '" aria-label="Like">' + I.heart + (p.likes + (liked ? 1 : 0)) + '</button><button aria-label="Comments">' + I.chat + p.cm + '</button></div><button aria-label="Share" data-toast="Link copied">' + I.share + '</button></div></article>';
+      }).join('');
+      return '<div class="scr">' + status() + '<div class="body">' + hdr('Community Activity', logoBtn(), '<button class="ib" data-go="post" aria-label="New post">' + I.msg + '</button>') + '<div class="stack">' + posts + '</div><div style="height:70px"></div></div>' +
+        '<button class="fab" data-go="post" aria-label="Create post">' + I.plus + '</button>' + tabbar('feed') + '</div>';
+    },
+    post: function () {
+      var pct = S.upl;
+      return '<div class="scr" style="background:var(--a-bg)">' + status() + '<div class="body" style="font-family:\'Plus Jakarta Sans\',var(--body)">' +
+        '<div class="hdr" style="margin-bottom:26px"><button class="ib" data-act="back" aria-label="Back" style="color:var(--a-green)">' + I.back + '</button><h2 style="font-size:24px;font-weight:700">Create Post</h2><button class="ib" data-act="publish" style="width:auto;font-weight:700;font-size:17px;color:var(--a-green);font-family:inherit">Post</button></div>' +
+        '<div class="vid"><div class="sun"></div><div class="runner">' + I.runner + '</div><div class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M7 4l13 8-13 8z"/></svg></div><div class="scrub"><i></i></div><div class="tm"><span>0:15</span><span>0:30</span></div></div>' +
+        '<div class="tools"><span>' + I.scissors + 'Trim</span><span>' + I.note + 'Sound</span><span>' + I.pen + 'Edit</span></div>' +
+        '<div class="cap">' + av('Alex Runner', 0) + '<textarea id="f-cap" data-bind="caption" placeholder="Add a caption....">' + S.caption + '</textarea></div>' +
+        '<div class="upl"><span id="upl-t">' + (S.uploading && pct >= 100 ? 'Upload complete' : 'Uploading your run...') + '</span><span id="upl-p">' + pct + '%</span></div><div class="bar"><i id="upl-b" style="width:' + pct + '%"></i></div>' +
+        '<button class="btn" data-act="publish" style="color:#000;border-radius:18px;padding:20px">Post</button></div></div>';
+    },
+    discover: function () {
+      var P = [[NAMES[0], '10km', '5:30/km'], [NAMES[2], '8km', '5:45/km'], [NAMES[1], '12km', '5:20/km']];
+      var chips = ['Pace', 'Distance', 'Workout'].map(function (c) {
+        var label = c === 'Distance' ? 'Distance: 5-10km' : c;
+        return '<button class="chip ' + (S.chips[c] ? 'on' : '') + '" data-chip="' + c + '">' + label + I.drop + '</button>';
+      }).join('');
+      var list = P.map(function (p, i) {
+        var sent = S.sent[p[0]];
+        return '<div class="card partner"><div class="who" style="display:flex;gap:12px;align-items:center">' + av(p[0], i + 1) + '<div><b style="font-size:18px;display:block;font-weight:600">' + p[0] + '</b><span style="color:var(--a-text)">' + (i + 2) + 'km away</span></div></div>' +
+          '<div class="meta"><div>Pref. Distance: <b>' + p[1] + '</b></div><div>Avg. Pace: <b>' + p[2] + '</b></div></div>' +
+          '<button class="btn sm' + (sent ? ' ghost' : '') + '" data-connect="' + p[0] + '" ' + (sent ? 'disabled style="opacity:.7;cursor:default"' : '') + '>' + (sent ? 'Request Sent' : 'Connect') + '</button></div>';
+      }).join('');
+      var map = '<div class="map"><svg viewBox="0 0 350 560" preserveAspectRatio="xMidYMid slice"><g stroke="#1b3626" stroke-width="10" fill="none" stroke-linecap="round"><path d="M-10 120 L120 150 L240 90 L360 130"/><path d="M60 -10 L90 200 L70 330 L130 570"/><path d="M-10 400 L180 360 L360 420"/><path d="M250 -10 L230 260 L290 570"/></g><g stroke="#16301f" stroke-width="3" fill="none"><path d="M-10 250 L360 280"/><path d="M170 -10 L160 570"/><path d="M-10 500 L360 480"/></g><circle cx="175" cy="285" r="120" fill="rgba(19,236,91,.06)" stroke="rgba(19,236,91,.25)"/></svg>' +
+        '<div class="pin" style="left:24%;top:30%"><i></i><span>' + NAMES[0].split(' ')[0] + '</span></div><div class="pin" style="left:68%;top:46%"><i></i><span>' + NAMES[2].split(' ')[0] + '</span></div><div class="pin" style="left:42%;top:70%"><i></i><span>' + NAMES[1].split(' ')[0] + '</span></div>' +
+        '<div class="pin" style="left:52%;top:50%"><i style="background:#fff"></i><span>You</span></div></div>';
+      return '<div class="scr">' + status() + '<div class="body">' + hdr('Find a Running Partner', logoBtn(), '<button class="ib" aria-label="Settings" data-go="me">' + I.gear + '</button>') +
+        '<div class="seg"><button class="' + (S.filter === 'List' ? 'on' : '') + '" data-filter="List">List</button><button class="' + (S.filter === 'Map' ? 'on' : '') + '" data-filter="Map">Map</button></div>' +
+        '<div class="chips">' + chips + '</div><div class="stack">' + (S.filter === 'List' ? list : map) + '</div></div>' + tabbar('discover') + '</div>';
+    },
+    progress: function () {
+      var R = RANGES[S.range], W = 322, H = 150, c = smooth(R.pts, W, H);
+      var tabs = Object.keys(RANGES).map(function (k) { return '<button class="' + (k === S.range ? 'on' : '') + '" data-range="' + k + '">' + k + '</button>'; }).join('');
+      var title = S.range === 'All Time' ? 'All-Time Snapshot' : 'This ' + S.range + '’s Snapshot';
+      var pbs = [['Fastest 1k', '3:45', 'Oct 12, 2025'], ['Fastest Mile', '6:12', 'Oct 15, 2025'], ['Fastest 5k', '22:30', 'Jun 24, 2025'], ['Longest Run', '21.1 km', 'Sep 18, 2025']];
+      var runs = [['Morning Park Loop', 'Today, 7:15 AM', '10.2 km', '55:30'], ['Riverside Trail', 'Yesterday, 6:30 PM', '8.5 km', '44:12'], ['City Sprint', 'Oct 15, 2025', '5.0 km', '24:59']];
+      return '<div class="scr">' + status() + '<div class="body">' + hdr('My Progress', logoBtn(), '<button class="ib" aria-label="Settings" data-go="me">' + I.gear + '</button>') +
+        '<div class="seg">' + tabs + '</div>' +
+        '<h3 class="sec">' + title + '</h3><div class="stack">' +
+        '<div class="row"><div class="card"><div class="lbl">Total Distance</div><div class="big">' + R.dist + '</div></div><div class="card"><div class="lbl">Number of Runs</div><div class="big">' + R.runs + '</div></div></div>' +
+        '<div class="card"><div class="lbl">Average Pace</div><div class="big">' + R.pace + '</div></div>' +
+        '<div class="card chart"><div class="lbl">Distance Over Time</div><div class="big">' + R.total + '</div><div class="lbl" style="margin:8px 0 28px">' + R.per + ' <span style="color:var(--a-green2)">' + R.delta + '</span></div>' +
+        '<svg viewBox="0 0 ' + W + ' ' + (H + 4) + '"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27ae60" stop-opacity=".55"/><stop offset="1" stop-color="#27ae60" stop-opacity="0"/></linearGradient></defs><line x1="0" x2="' + W + '" y1="45" y2="45" stroke="#27ae60" stroke-opacity=".35" stroke-dasharray="3 4"/><path d="' + c.area + '" fill="url(#ag)"/><path d="' + c.line + '" fill="none" stroke="#27ae60" stroke-width="2.5" stroke-linecap="round"/><circle cx="' + c.last[0] + '" cy="' + c.last[1] + '" r="4" fill="#13ec5b"/></svg>' +
+        '<div class="ax">' + R.labels.map(function (l) { return '<span>' + l + '</span>'; }).join('') + '</div></div></div>' +
+        '<h3 class="sec">Personal Bests</h3><div class="stack" style="gap:16px"><div class="row">' + pbs.slice(0, 2).map(pb).join('') + '</div><div class="row">' + pbs.slice(2).map(pb).join('') + '</div></div>' +
+        '<h3 class="sec">Recent Runs <a data-toast="Full history isn’t in this prototype">View All</a></h3><div class="stack">' +
+        runs.map(function (r) { return '<div class="card ph"><div class="ic">' + I.run + '</div><div class="m"><b>' + r[0] + '</b><span>' + r[1] + '</span></div><div class="r"><b>' + r[2] + '</b><span>' + r[3] + '</span></div></div>'; }).join('') + '</div></div>' + tabbar('progress') + '</div>';
+      function pb(p) { return '<div class="card pb"><div class="k">' + I.medal + p[0] + '</div><div class="v">' + p[1] + '</div><div class="d">' + p[2] + '</div></div>'; }
+    },
+    me: function () {
+      var row = function (ic, t, extra) { return '<button class="setrow" data-toast="Not part of this prototype">' + ic + '<span>' + t + '</span>' + (extra || '<span class="chev">' + I.chev + '</span>') + '</button>'; };
+      return '<div class="scr">' + status() + '<div class="body">' + hdr('Profile', '<button class="ib" data-act="back" aria-label="Back">' + I.back + '</button>', '<button class="ib" aria-label="Settings">' + I.gear + '</button>') +
+        '<div class="profhead"><div class="pic">' + S.fname.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase() + '</div><b>' + S.fname + '</b><span>' + S.uname + '</span></div>' +
+        '<div class="stack" style="margin-bottom:26px"><div class="row"><div class="card mini"><div class="big">1,250 mi</div><div class="lbl">Total Distance</div></div><div class="card mini"><div class="big">8:15 / mi</div><div class="lbl">Avg. Pace</div></div></div><div class="card mini"><div class="big">12</div><div class="lbl">Runs This Month</div></div></div>' +
+        '<div class="seg"><button data-tab="progress">Activity</button><button class="on">Profile</button></div>' +
+        '<div class="groupt" style="margin-top:0">Account Settings</div><div>' + row(I.user, 'Edit Profile') + row(I.lockc, 'Privacy Settings') +
+        '<button class="setrow" data-act="priv" role="switch" aria-checked="' + S.priv + '">' + I.hide + '<span>Private Account</span><span class="sw ' + (S.priv ? 'on' : '') + '"></span></button></div>' +
+        '<div class="groupt">Preferences</div><div>' + row(I.bell, 'Notifications') + row(I.ruler, 'Units of Measurement', '<span class="v">Miles</span>') + '</div>' +
+        '<div class="groupt">Support &amp; Legal</div><div>' + row(I.help, 'Help Center') + row(I.file, 'Terms of Service') + '</div>' +
+        '<button class="logout" data-go="splash" data-reset="1">Log Out</button></div>' + tabbar('me') + '</div>';
+    }
+  };
+
+  function modalHtml() {
+    if (!S.modal) return '';
+    var n = S.modal.name;
+    return '<div class="modal" role="dialog" aria-label="Connection request sent"><div class="in"><div class="badge">' + I.send + '</div><h2>Connection Request Sent!</h2><p>Your request to connect with ' + n.split(' ')[0] + ' has been sent. We’ll notify you when they accept</p><button class="btn sm" data-act="closeModal">Return to Discover</button><button class="btn sm ghost" data-act="closeModal" data-go="me">View Profile</button></div></div>';
+  }
+  function render() {
+    var keep = phone.querySelector('.body') ? phone.querySelector('.body').scrollTop : 0;
+    phone.innerHTML = V[S.screen]() + modalHtml() + (S.toast ? '<div class="toast">' + S.toast + '</div>' : '');
+    var b = phone.querySelector('.body'); if (b && S._keepScroll) b.scrollTop = keep;
+    S._keepScroll = false;
+    var fl = $('#flows');
+    fl.querySelectorAll('button').forEach(function (btn) { btn.setAttribute('aria-current', String(btn.dataset.flow === S.screen)); });
+  }
+  function toast(t) {
+    S.toast = t; S._keepScroll = true; render();
+    clearTimeout(toast.h); toast.h = setTimeout(function () { S.toast = ''; var el = phone.querySelector('.toast'); if (el) el.remove(); }, 1800);
+  }
+  function go(name, opts) {
+    opts = opts || {};
+    if (opts.reset) S.stack = [];
+    else if (S.screen !== name && !opts.noPush) S.stack.push(S.screen);
+    S.screen = name; S.modal = null; render();
+  }
+  function tab(name) { S.stack = []; S.screen = name; S.modal = null; render(); }
+  function buildFlows() {
+    $('#flows').innerHTML = FLOWS.map(function (f) { return '<li><button type="button" data-flow="' + f[0] + '">' + f[1] + '<small>' + f[2] + '</small></button></li>'; }).join('');
+  }
+  $('#flows').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    S.modal = null; S.stack = []; S.screen = b.dataset.flow; S.upl = 35; S.uploading = false; render();
+  });
+  $('#restart').addEventListener('click', function () { S = fresh(); render(); });
+
+  phone.addEventListener('input', function (e) {
+    var k = e.target.dataset.bind; if (!k) return;
+    S[k] = e.target.value;
+    if (k === 'bio') { var n = $('#bio-n'); if (n) n.textContent = S.bio.length + '/50'; }
+  });
+  phone.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-go],[data-act],[data-tab],[data-goal],[data-level],[data-like],[data-range],[data-filter],[data-chip],[data-connect],[data-toast]');
+    if (!t) return;
+    var d = t.dataset;
+    if (d.act === 'closeModal') { S.modal = null; if (!d.go) { render(); return; } }
+    if (d.toast && !d.go && !d.act) { toast(d.toast); return; }
+    if (d.tab) { tab(d.tab); return; }
+    if (d.go) { go(d.go, { reset: !!d.reset }); if (d.toast) toast(d.toast); return; }
+    if (d.goal) { S.goals[d.goal] = !S.goals[d.goal]; S._keepScroll = true; render(); return; }
+    if (d.level) { S.level = d.level; S._keepScroll = true; render(); return; }
+    if (d.like) { S.liked[d.like] = !S.liked[d.like]; S._keepScroll = true; render(); return; }
+    if (d.range) { S.range = d.range; S._keepScroll = true; render(); return; }
+    if (d.filter) { S.filter = d.filter; render(); return; }
+    if (d.chip) { S.chips[d.chip] = !S.chips[d.chip]; S._keepScroll = true; render(); return; }
+    if (d.connect) { S.sent[d.connect] = true; S.modal = { name: d.connect }; S._keepScroll = true; render(); return; }
+    if (d.act === 'back') { var prev = S.stack.pop(); S.screen = prev || 'feed'; render(); return; }
+    if (d.act === 'marathon') { S.marathon = !S.marathon || true; S._keepScroll = true; toast(S.marathon ? 'Race added' : ''); return; }
+    if (d.act === 'priv') { S.priv = !S.priv; S._keepScroll = true; render(); return; }
+    if (d.act === 'publish') {
+      if (S.uploading) return;
+      S.uploading = true;
+      var iv = setInterval(function () {
+        S.upl = Math.min(100, S.upl + 13);
+        var p = $('#upl-p'), b = $('#upl-b'); if (p) p.textContent = S.upl + '%'; if (b) b.style.width = S.upl + '%';
+        if (S.upl >= 100) {
+          clearInterval(iv);
+          var u = $('#upl-t'); if (u) u.textContent = 'Upload complete';
+          setTimeout(function () {
+            S.posts.unshift({ id: 'n' + Date.now(), who: S.fname, t: 'Just now', title: 'Sunset Run', note: S.caption || 'Golden hour miles.', d: '4.1 mi', tm: '33:20', pc: '8:07/mi', likes: 0, cm: 0, pr: false });
+            S.caption = ''; S.upl = 35; S.uploading = false; S.stack = []; S.screen = 'feed'; render(); toast('Run posted');
+          }, 350);
+        }
+      }, 140);
+    }
+  });
+  phone.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('a[role=button]')) { e.preventDefault(); e.target.click(); }
+  });
+
+  S = fresh(); buildFlows(); render();
+})();
+</script>
+
+</body></html>
