@@ -25,8 +25,9 @@ To change how a page looks or reads, change the **design** and sync. Never patch
 3. **Check, then convert.**
    `node scripts/sync-design.mjs --src <scratch>/project --check` shows new/changed/removed artboards, then run it without `--check`.
    It prints `MISSING ASSETS` if step 2 was incomplete.
-4. **Refresh the prototypes.** For each entry in `design.manifest.json` → `prototypes`, `read` its `artifact` URL with the Artifact
-   tool and copy the saved full HTML to `<scratch>/proto/<name>.html`, then
+4. **Refresh the prototypes.** For each entry in `design.manifest.json` → `prototypes`, `read` its `artifact` URL with
+   `path: "index.html"` and an `out_dir` (this saves the page without printing it), copy the saved file to
+   `<scratch>/proto/<name>.html`, then
    `node scripts/sync-prototypes.mjs --src <scratch>/proto --check` (new/changed/unchanged) and again without `--check`.
    Do this on every sync; the prototype artifacts change independently of the design canvas.
 5. **Verify.** Node ≥ 22.23.4, then `npm ci && npm run build:ci`. This builds and runs `scripts/check-site.mjs`

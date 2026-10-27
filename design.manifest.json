@@ -28,7 +28,7 @@
     "Inflection": "case-studies/inflection"
   },
   "hashes": {
-    "Aira": "073bfee1cbc047548b7f5c2d809480b19b96d0b6ad01ff9f98308c809bee7f3f",
+    "Aira": "c1458e829c676a71e60cc1750c7e08c6540bf99d4353333b8008f3554d541e79",
     "BeReal": "e659efd31d6bf4195d2a5306fa0b4f73cec5e463a2267f5ea5247d8afcf609a9",
     "Creator": "df6e346d84970aceb386bc3e7e4e7dfcb737b8008b2d2b97b8b473dbd9c11826",
     "DigitalTwin": "69984dc4bac4c4cf6d91585138dd8441b31d974833f282a9855bb868440fa8fc",
@@ -39,7 +39,7 @@
     "Nexus": "58021698acbad12d89dcd135e9e566016b36902547f71d4d4ab6ab5588c911bc",
     "Nyantrace": "1ea080f9511e1d336e6c0ea75f0685b519c6f4d39af1f99d2719bc3f5a2f5124",
     "Projects": "69c2ef1dc44101dfbb676fbed6ed1c3bcc8038bb59e82013653c3e23cada02a7",
-    "Pwc": "ba48db27e7c23167c3d3935243c7b3663f79b76ad9df99a436217695ae95ee27",
+    "Pwc": "26e21c9c2b51e07fe6e49f283366333abef16d88623015a157448dd2b2801673",
     "Work": "7849f7bfe4784f12081bdfe8320a3ff85f72c312d1d7f31da2c0611abd4807df",
     "_tokens": "c9c18dc7cbc28bebfe1a7c96e02a9ef15a55c0aa483c1e5a73a15be80fbd886c"
   },
@@ -110,5 +110,5 @@
       "file": "src/pages/work.astro"
     }
   ],
-  "syncedAt": "2026-10-27T01:12:19.208Z"
+  "syncedAt": "2026-10-27T15:23:02.220Z"
 }
